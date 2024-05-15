@@ -1,6 +1,96 @@
+:root{
+    --color-alfa: teal;
+    --color-hover: #ffffff70;
+    --shadow-color: 0deg 0% 66%;
+    --shadow-medium:
+    0px 0.6px 0.7px hsl(var(--shadow-color) / 0.26),
+    0px 1.6px 1.8px -0.6px hsl(var(--shadow-color) / 0.26),
+    0px 3px 3.4px -1.2px hsl(var(--shadow-color) / 0.26),
+    0.1px 6.1px 6.9px -1.9px hsl(var(--shadow-color) / 0.26),
+    0.1px 11.7px 13.2px -2.5px hsl(var(--shadow-color) / 0.26);
+}
+
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}       
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #2c3642;
 }
 
+.background {
+    background: radial-gradient(76.90% 73.04% at 19.72% 20.43%, #edf0f6 0%, #b9cad1 100%) no-repeat fixed;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.main-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+    width: calc(100vw - 20%);
+    padding: 1em 2em;
+    margin-top: 1em;
+    background: #ffffff25;
+    box-shadow: var(--shadow-medium);
+    
+    border: 2px solid #ffffff80;
+    border-radius: 1.5em;
+    backdrop-filter: blur(10px);
+
+    & li {
+        list-style-type: none;
+        display: inline-block;
+        font-weight: bold;
+        margin: 0 1em;
+    }
+}
+
+.main-logo img {
+    width: 2em;
+}
+
+.icon-svg {
+    display: block;
+    width: 3em;
+    padding: 4px;
+    border-radius: 9em;
+    transition: all .3s ease;
+}
+
+.icon-svg:hover {
+    background: var(--color-hover);
+}
+
+.main-banner {
+    height: 75vh;
+    text-align: center;
+    text-shadow: 4px 4px 4px #00000010;
+    align-content: center;
+    & div {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    & h1 {
+        font-size: 5em;
+        font-weight: normal;
+    }
+    & span {
+        color: #0099f1;
+        font-weight: bold;
+    }
+    & p {
+        width: 500px;
+    }
+}
