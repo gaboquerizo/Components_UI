@@ -1,0 +1,214 @@
+:root{
+    --color-txt: #234;
+    --color-light: #f80;
+    --color-bg_I: #def;
+    --color-bg_II: #bcd;
+    --color-bg_III: #fff2;
+    --border-box: solid 2px #abc;
+    --shadow-box: 0 0 1em var(--color-bg_II);
+    --blur-box: blur(10px);
+    
+    .dark{
+        --color-txt: #fff;
+        --color-light: #08f;
+        --color-bg_I: #234;
+        --color-bg_II: #123;
+        --color-bg_III: #0123;
+        --border-box: solid 2px #345;
+        --shadow-box: 0 0 2em var(--color-bg_I);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    scroll-behavior: smooth;    
+}
+
+::-webkit-scrollbar-thumb {
+    background: #abc;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-light);
+    border-radius: 8px;
+}
+::-webkit-scrollbar {
+    background: var(--color-bg_II);
+    width: 1em;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    src: url('assets/fonts/Exo2.woff2') format('woff2'),
+         url('assets/fonts/Exo2.woff') format('woff'),
+         url('assets/fonts/Exo2.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background: radial-gradient(76.90% 73.04% at 19.72% 20.43%, var(--color-bg_I) 0%, var(--color-bg_II) 100%) no-repeat fixed;
+    font-family: "Exo 2", system-ui, sans-serif;
+    color: var(--color-txt);
+}
+
+.g-featured {
+    color: var(--color-light);
+}
+
+.g-box-content {
+    border-radius: 2em;
+    border: var(--border-box);
+    background-color: var(--color-bg_III);
+    backdrop-filter: var(--blur-box);
+    box-shadow: var(--shadow-box);
+    :has(.g-side-submenu__content){
+        border-radius: .5em;
+    }
+}
+
+.g-side-menu {
+    align-content: center;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    nav {
+        position: relative;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 1em 2em;
+        padding: 2em 1em;
+
+        section {            
+            display: grid;
+            place-items: center;
+            gap: 1em;
+        }
+    }
+}
+
+.g-side-menu__items {
+    margin: 1em;
+    list-style: none;
+}
+
+.g-side-submenu {
+    display: inline-block;
+    position: absolute;
+    width: max-content;
+    top: 154px;
+    left: 100px;
+    opacity: 0;
+    transition: all .2s ease;
+    transition-delay: 1s;
+}
+
+.g-side-menu__items:hover .g-side-submenu {
+    opacity: 1;
+    left: 120px;
+    transition-delay: .1s;
+}
+
+.g-side-submenu__item {
+    padding: 1em 1em;
+    border-radius: 6px;
+    background: var(--color-bg_I);
+}
+
+.g-side-submenu__items {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    a {
+        background: linear-gradient(0deg, var(--color-bg_I) 70%, var(--color-bg_II) 150%);
+        text-decoration: none;
+        padding: .4em 2em;
+        &:hover {
+            background: var(--color-light);
+            color: #fff;
+            border-radius: 10px;
+        } &:visited:hover{
+            color: #fff;
+        } &:visited{
+            color: var(--color-light);
+        }
+    }
+}
+
+
+.g-side-submenu__content {
+    border-radius: .5em;
+    background: var(--color-bg_I);
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.g-side-submenu__content[open]{
+    display: inline-block;
+    width: auto;
+    
+    max-height: calc(84vh - 21vh);
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+    &::-webkit-scrollbar {
+        background: transparent;
+        width: 6px;
+        display: none;
+    }
+}
+
+.g-icon-svg {
+    width: 40px;
+    height: auto;
+    fill: var(--color-txt);
+    transition: all .2s ease;
+    &:hover {
+        fill: var(--color-light);
+    }
+}
+
+.g-logo-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.g-main {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    section {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+.g-main__hero {
+    height: 100vh;
+    align-content: center;
+    background-color: #4562;
+    position: relative;
+    div {
+        background-color: #4564;
+        height: 80%;
+    }
+    menu {
+        position: absolute;
+        min-width: 150px;
+        height: 80%;
+        top: 10%;
+        right: 0;
+        transform: translateX(100%);
+        background: #4568;
+    }
+}
