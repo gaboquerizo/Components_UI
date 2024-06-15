@@ -1,3 +1,169 @@
+:root {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar-thumb {
+    background: #cde;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #289;
+    border-radius: 8px;
+}
+::-webkit-scrollbar {
+    background: #fff;
+    width: 6px;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    src: url('assets/fonts/Exo2.woff2') format('woff2'),
+        url('assets/fonts/Exo2.woff') format('woff'),
+        url('assets/fonts/Exo2.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: 'Exo 2', system-ui, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main-hero{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.main-hero header{
+    width: 500px;
+    height: 95vh;
+    overflow-y: visible;
+    overflow-x: hidden;
+    outline: solid 1px #abc;
+    position: relative;
+
+    & .main-menu{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-left: 10%;
+
+        & li{
+            list-style: none;
+            padding: 1em 0;
+        }
+        & a{
+            color: #444;
+            font-size: 18px;
+            text-decoration: none;
+            margin-bottom: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+
+            &:visited{
+                color: #444;
+            }
+            &:hover{
+                color: #299;
+            }
+        }
+    }
+}
+
+
+.menu-icon {
+    color: #222;
+    width: 40px;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    & .hi-bars{
+        display: none;
+    }
+
+    & .hi-align-left{
+        display: block;
+    }
+
+    & input {
+        display: none;
+    }
+}
+
+.main-hero header, section, .hi-bars, .hi-align-left {
+    transition-property: display, margin, width;
+    transition-duration: .4s;
+}
+
+header:has( :checked ){
+    width: 112px;
+
+    & .hi-bars{
+        display: block;
+    }
+
+    & .hi-align-left{
+        display: none;
+    }
+
+    & ul.main-menu {
+        display: none;
+    }
+    & + section {
+        margin-left: 10%;
+    }
+}
+
+.main-hero section{
+    padding: 2em 4em;
+    margin-right: 10%;
+    width: 100%;
+}
+
+.router-outlet {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+footer{
+    width: 100%;
+    height: 5vh;
+    color: #fff;
+    text-align: center;
+    align-content: center;
+    background-color: #234;
+}
+
+
+
+/* details{
+    width: 100%;
+    display: inline-block;
+    outline: solid 1px #0004;
+    &[open] summary{
+        background-color: teal;
+        color: #fff;
+    }
+    & summary {
+        padding: 1em;
+    }
+    & span {
+        display: inline-block;
+        padding: 1em;
+    }
+} */
+
+/*
 :root{
     --color-txt: #234;
     --color-light: #f80;
@@ -212,3 +378,5 @@ body {
         background: #4568;
     }
 }
+
+*/
