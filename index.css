@@ -1,219 +1,258 @@
-:root[data-theme="light"] {
-    --color-txt: #123;
-    --color-hvr: #f90;
-    --color-sec: #abc;
-    --color-scroll-bar: #9ab;
-    --color-scroll-bkg: #cde;
-    --color-bg: radial-gradient(80% 70% at 30% 20%, #fff 0%, #cde 100%) no-repeat fixed;
-}
-
-:root[data-theme="dark"] {
-    --color-txt: #fff;
-    --color-hvr: #09f;
-    --color-sec: #000414;
-    --color-scroll-bar: #0c1b29;
-    --color-scroll-bkg: #010c1c;
-    --color-bg: radial-gradient(80% 70% at 30% 20%, #0f2030 0%, #000A1A 100%) no-repeat fixed;
-}
-
-
-::-webkit-scrollbar-thumb {
-    background: var(--color-scroll-bar);
-    border-radius: 8px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--color-hvr);
-    border-radius: 8px;
-}
-::-webkit-scrollbar {
-    background: var(--color-scroll-bkg);
-    width: 6px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
     font-family: 'Exo 2';
-    src: url('assets/fonts/Exo2.woff2') format('woff2'),
-    url('assets/fonts/Exo2.woff') format('woff'),
-    url('assets/fonts/Exo2.ttf') format('ttf');
+    src:url('assets/fonts/Exo2.woff2') format('woff2'),
+        url('assets/fonts/Exo2.woff') format('woff'),
+        url('assets/fonts/Exo2.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-* {
-    scroll-behavior: smooth;
+:root{
+    --width-menu: 220px;
+}
+
+:root[data-theme="light"] {
+    --color-I: #abc;
+    --text-color-I: #123;
+    --text-color-II: #f90;
+    --scroll-bar-color: #9ab;
+    --scroll-bg-color: #cde;
+    --body-bg-color: radial-gradient(80% 70% at 30% 20%, #fff 0%, #cde 100%) no-repeat fixed;
+}
+
+:root[data-theme="dark"] {
+    --color-I: #040610;
+    --text-color-I: #fff;
+    --text-color-II: #09f;
+    --scroll-bar-color: #0c1b29;
+    --scroll-bg-color: #010c1c;
+    --body-bg-color: radial-gradient(80% 70% at 30% 20%, #0f2030 0%, #000A1A 100%) no-repeat fixed;
+}
+
+::-webkit-scrollbar {
+    background: var(--scroll-bg-color);
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-bar-color);
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color-II);
+}
+
+
+/* . . . . . . . Propiedades generales . . . . . . . */
+
+body {
     font-family: 'Exo 2', system-ui, sans-serif;
-    color: var(--color-txt);
-}
-
-.main-content {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     height: 100vh;
+    position: relative;
+    font-size: 18px;
+    color: var(--text-color-I);
+    background: var(--body-bg-color);
+    scroll-behavior: smooth;
 }
 
-.main-content article {
+body main {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    background: var(--color-bg);
+    height: 100%;
 }
 
-.main-content header{
-    width: 500px;
-    height: 95vh;
-    overflow-y: visible;
-    overflow-x: hidden;
-    border-right: solid 1px #5675;
+h2, h3 {
+    font-weight: lighter;
+}
+
+a {
+    color: var(--text-color-I);
+    text-decoration: none;
+    &:hover {
+        color: var(--text-color-II);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    a::visited {
+        color: var(--text-color-I);
+    }
+}
+
+
+
+.gb-icon {
+    width: 2em;
+    color: var(--text-color-I);
+    fill: var(--text-color-I);
+    &:hover{
+        color: var(--text-color-II);
+        fill: var(--text-color-II);
+    }
+}
+
+.gb-theme__toggle {
+    .light {
+        display: none;
+    }
+    .dark {
+        display: block;
+    }
+    &:has( :checked ) {
+        .light {
+            display: block;
+        }
+        .dark {
+            display: none;
+        }
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+}
+
+.gb-menu__toggle label {
+    .close {
+        display: none;
+    }
+    .open {
+        display: block;
+    }
+    &:has( :checked ) {
+        .close {
+            display: block;
+        }
+        .open {
+            display: none;
+        }
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+}
+
+/* . . . . . . . Web Layout View . . . . . . . */
+
+/*.example1 {
+    outline: dashed 4px #fff5;
+    background-color: #ff000050;
+}
+
+.example2 {
+    outline: dashed 4px #fff5;
+    background-color: #ffff0050;
+}
+
+.example3 {
+    outline: dashed 4px #fff5;
+    background-color: #ff00ff50;
+}*/
+
+/* . . . . . . . Menu . . . . . . . */
+
+header {
+    display: inline-block;
+    width: var(--width-menu);
     position: relative;
 
-    & nav{
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        padding-left: 10%;
-
-        & li{
-            list-style: none;
-            padding: 1em 0;
-        }
-        & a{
-            font-size: 18px;
-            text-decoration: none;
-            margin-bottom: 1em;
-            white-space: nowrap;
-
-            &:hover{
-                color: var(--color-hvr);
-                text-decoration:underline;
-                cursor: pointer;
-            }
-        }
-    }
+    transition-property: width;
+    transition: .5s ease;
 }
 
-.icon {
-    width: 38px;
-    &:hover path{
-        color: var(--color-hvr);
-        fill: var(--color-hvr);
-    }
-}
-
-.g-logo{
-    fill: var(--color-txt);
-}
-
-.btn-menu {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    cursor: pointer;
-
-    & .bar-on{
-        display: none;
-    }
-
-    & .bar-off{
-        display: block;
-    }
-}
-
-input[type="checkbox"]{
-    display: none;
-}
-
-.main-content label{
-    cursor: pointer;
-}
-
-header:has( :checked ){     /* Si tiene un elemento hijo con el atributo 'checked' aplicará los estilos */
-    width: 112px;
-
-    & .bar-on{
-        display: block;
-    }
-
-    & .bar-off{
-        display: none;
-    }
-
-    & ul {
-        display: none;
-    }
-    & + section {
-        margin-left: 10%;
-    }
-}
-
-.main-content header, section, .bar-on, .bar-off {
-    transition-property: display, margin, width;
-    transition-duration: .4s;
-}
-
-.theme-toggle {
-    position: absolute;
+.gb-menu__toggle {
+    padding: 1em;
+    z-index: 1;
+    position: fixed;
     top: 0;
+    left: var(--width-menu);
+    
+    transition-property: left; 
+    transition: .5s ease;
+}
+
+.gb-menu__content {
+    width: var(--width-menu);
+    padding: 1em 2em;
+    height: 100vh;
+    position: fixed;
+    overflow-y: scroll;
+
+    li {
+        padding-bottom: 1em;
+        list-style: none;
+    }
+
+    transition-property: width;
+    transition: .5s ease;
+}
+
+header:has(:checked){
+    width: 1em;
+    .gb-menu__content {
+        width: 0;
+        padding-right: 0;
+        padding-left: 0;
+        opacity: 0;
+    }
+    .gb-menu__toggle {
+        left: 0;
+    }
+    +section {
+        width: 100%;
+    }
+}
+
+
+/* . . . . . . . Contenido principal . . . . . . . */
+
+main header+section {
+    display: inline-block;
+    width: calc(100% - var(--width-menu));
+    transition-property: width;
+    transition: .5s ease;
+}
+
+.gb-theme__toggle {
+    position: absolute;
+    padding: 1em;
     right: 0;
-    padding: 1em 1em 0 0;
 }
 
-.theme-toggle {
-    display: block;
-    & .dark-mode{
-        display: none;
-    }
-    & .light-mode{
-        display: block;
-    }
-}
-
-.theme-toggle:has( :checked ){
-    display: block;
-    & .dark-mode{
-        display: block;
-    }
-    & .light-mode{
-        display: none;
-    }
-}
-
-.hero-content{
-    padding: 2em 4em;
-    margin-right: 10%;
-    width: 100%;
-    & section {
-        display: flex;
-        align-items: start;
-        gap: 1em;
-        margin-bottom: 4em;
-    }
-}
-
-.router-outlet {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-footer{
-    height: 5vh;
+.gb-main__content {
+    padding: 0 4em;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gb-main__title {
+    margin-top: 2em;
+    text-align: center;
+    h1 {
+        margin: 12px 0;
+        strong {
+            color: var(--text-color-II);
+        }
+    }
+}
+
+/* . . . . . . . . Pie de Página . . . . . . . . */
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-sec);
-    padding: 0 1em;
-    & a {   
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
-        & svg {
-            position: absolute;
-            width: 20px;
-            transform:translateX(-120%);
-        }
-    }
-    & .pleca {
-        margin: 0 6px;
-    }
+}
+footer a {
+    display: flex;
+    align-items: center;
 }

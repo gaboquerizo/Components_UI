@@ -1,31 +1,8 @@
-
-const ANCHOR = [...document.querySelectorAll('.main-content nav a')];
-
-ANCHOR.forEach((tag) => {
-  tag.addEventListener('click', () => {
-    let name = tag.name;
-    
-    let scripts = Array.from(document.head.querySelectorAll('script'));
-    if(scripts.length === 2){
-      scripts[1].remove()
-    }
-
-    // Podría atrapar el error 404
-    
-    let script = document.createElement('script');
-    script.defer = true;
-    script.type = "module";
-    script.src = `./app/components/${name}/${name}.js`;
-
-    document.head.appendChild(script);
-    document.querySelector(".router-outlet").innerHTML = `<${name}-gui></${name}-gui>`;
-  });
-});
-
+import './components/component.list.menu.js';
 
 /* Dark Mode + Preferencias de Usuario */
 
-const THEME_TOGGLE = document.querySelector('.theme-toggle input');
+const THEME_TOGGLE = document.querySelector('.gb-theme__toggle input');
 const ROOT = document.documentElement;
 
 addEventListener('DOMContentLoaded', () => {
