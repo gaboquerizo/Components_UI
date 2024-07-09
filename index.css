@@ -256,3 +256,30 @@ footer a {
     display: flex;
     align-items: center;
 }
+
+
+/* . . . . . . Responsive Web Design . . . . . . */
+
+
+@media (max-width: 900px) {
+    header {
+        position: absolute;
+    }
+
+    main header+section {
+        width: 100%;
+        filter: blur(100);
+    }
+
+    .gb-menu__content {
+        background: var(--body-bg-color);
+    }
+
+    .gb-main__content {
+        padding: 0 2em;
+    }
+
+    footer {
+        font-size: .8em;
+    }
+}

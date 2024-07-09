@@ -22,3 +22,14 @@ THEME_TOGGLE.addEventListener('click', () => {
   const SET_THEME = THEME_TOGGLE.checked ? 'light' : 'dark';
   ROOT.setAttribute('data-theme', SET_THEME);
 });
+
+/* Responsive Web Design + Media Query */
+
+let screenWidth = window.matchMedia('(max-width: 900px)');
+const MENU_TOGGLE = document.querySelector('.gb-menu__toggle input');
+
+if (screenWidth.matches) {
+  MENU_TOGGLE.checked = true;
+} else {
+  MENU_TOGGLE.removeAttribute("checked");
+}
