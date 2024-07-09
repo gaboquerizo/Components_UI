@@ -193,7 +193,7 @@ header {
 }
 
 header:has(:checked){
-    width: 1em;
+    width: 0;
     .gb-menu__content {
         width: 0;
         padding-right: 0;
