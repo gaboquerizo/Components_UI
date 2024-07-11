@@ -21,7 +21,7 @@
 :root[data-theme="light"] {
     --color-I: #abc;
     --text-color-I: #123;
-    --text-color-II: #f90;
+    --text-color-II: #f70;
     --scroll-bar-color: #9ab;
     --scroll-bg-color: #cde;
     --body-bg-color: radial-gradient(80% 70% at 30% 20%, #fff 0%, #cde 100%) no-repeat fixed;
@@ -69,7 +69,7 @@ body main {
 }
 
 h2, h3 {
-    font-weight: lighter;
+    font-weight: 100;
 }
 
 a {
@@ -79,8 +79,12 @@ a {
         color: var(--text-color-II);
         text-decoration: underline;
         cursor: pointer;
+        svg {
+            color: var(--text-color-II);
+            fill: var(--text-color-II);
+        }
     }
-    a::visited {
+    a:visited {
         color: var(--text-color-I);
     }
 }
@@ -182,12 +186,6 @@ header {
     height: 100vh;
     position: fixed;
     overflow-y: scroll;
-
-    li {
-        padding-bottom: 1em;
-        list-style: none;
-    }
-
     transition-property: width;
     transition: .5s ease;
 }
@@ -251,11 +249,12 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1em;
 }
+
 footer a {
     display: flex;
     align-items: center;
-    margin-bottom: 1em;
 }
 
 
