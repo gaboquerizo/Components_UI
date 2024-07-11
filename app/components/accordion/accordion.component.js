@@ -7,9 +7,9 @@ class AccordionGUI extends HTMLElement{
 
     styles() {
         return /*css*/ `
-          div {
-            background-color: red;
-          }
+        :host{
+            
+        }
         `;
     }
     
@@ -17,7 +17,7 @@ class AccordionGUI extends HTMLElement{
     this.innerHTML = /*html*/ `
         <style> ${ this.styles() } </style>
         
-        <div>Renderizado del componente</div>
+        <div>Espacio de renderización del componente</div>
     `;
     }
 }
