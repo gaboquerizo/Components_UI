@@ -1,4 +1,4 @@
-export class WebComponent extends HTMLElement {
+export class WEBComponent extends HTMLElement {
 
     constructor() {
         super();

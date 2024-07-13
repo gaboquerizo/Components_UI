@@ -1,6 +1,6 @@
-import { WebComponent as WEBComponent } from "./webcomponent.js";
+import { WEBComponent } from "./webcomponent.js";
 
-class ListComponents extends WEBComponent {
+class ComponentListMenu extends WEBComponent {
 
     constructor(){
         super();
@@ -42,158 +42,18 @@ class ListComponents extends WEBComponent {
                         </a>
                     </li>
                     <li>
-                        <a name="accordion">
-                            Accordion
+                        <a name="example">
+                            Example
                         </a>
                     </li>
                     <li>
-                        <a name="accordion">
-                            Accordion
+                        <a name="example">
+                            Example
                         </a>
                     </li>
                     <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
-                        </a>
-                    </li>
-                    <li>
-                        <a name="accordion">
-                            Accordion
+                        <a name="example">
+                            Example
                         </a>
                     </li>
                     
@@ -204,7 +64,6 @@ class ListComponents extends WEBComponent {
 
     componentChange() {
         const ANCHOR = [...this.shadowRoot.querySelectorAll('a[name]')];  /* Reemplacé el 'document' por 'this.shadowRoot' */
-        console.log(ANCHOR)
 
         ANCHOR.forEach((element) => {
             element.addEventListener('click', () => {
@@ -227,7 +86,7 @@ class ListComponents extends WEBComponent {
     };
 };
 
-customElements.define('list-components', ListComponents);
+customElements.define('component-list-menu', ComponentListMenu);
 
 
 
