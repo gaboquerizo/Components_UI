@@ -1,2 +1,2 @@
-# ui_components_design
-Diseño de componentes para interfaces de usuario
+# UI Components Design
+Diseño de componentes para la interfaz de usuario
