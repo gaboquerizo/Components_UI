@@ -288,8 +288,17 @@ footer a {
     .gb-main__content {
         padding: 0 2em;
     }
-
+    
     footer {
         font-size: .8em;
     }
+    
+}
+
+@media (max-width: 300px) {
+    
+    .gb-menu__toggle, .gb-theme__toggle {
+        padding: .2em;
+    }
+
 }
