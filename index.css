@@ -22,7 +22,9 @@
     --color-I: #abc;
     --text-color-I: #123;
     --text-color-II: #f70;
+    --text-color-III: #fff;
     --back-color: #1231;
+    --back-color-II: #5d6b89;
     --back-color-hover: #f702;
     --scroll-bar-color: #9ab;
     --scroll-bg-color: #cde;
@@ -33,6 +35,7 @@
     --color-I: #040610;
     --text-color-I: #fff;
     --text-color-II: #09f;
+    --text-color-III: #000;
     --back-color: #cde1;
     --back-color-hover: #09f2;
     --scroll-bar-color: #0c1b29;
