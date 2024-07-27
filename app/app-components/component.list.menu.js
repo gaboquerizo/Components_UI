@@ -47,8 +47,8 @@ class ComponentListMenu extends WEBComponent {
                         </a>
                     </li>
                     <li>
-                        <a name="example">
-                            Example
+                        <a name="card">
+                            Cards
                         </a>
                     </li>
                     <li>
