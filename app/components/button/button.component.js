@@ -25,13 +25,12 @@ class ButtonUI extends WEBComponent {
     componentTemplateCSS() {
         return /* CSS */ `
         
-        h2{
+        h2 {
             border-top: solid 1px var(--back-color);
             padding-top: 1em;
-        }
-
-        h2 + section {
-            margin-top: 2em;
+            + section {
+                margin-top: 2em;
+            }
         }
 
         .basic-button, .icon-button, .animated-button {
@@ -54,7 +53,7 @@ class ButtonUI extends WEBComponent {
             cursor: pointer;
             
             font-family: "Exo 2";
-            font-size: 1.1em;
+            font-size: 1em;
             text-align: center;
             color: var(--text-color-III);
             
@@ -231,7 +230,7 @@ class ButtonUI extends WEBComponent {
         }
 
         .animated-button button.anime-btn-3 {
-            background: none;
+            background-color: var(--back-color);
             position: relative;
             color: var(--text-color-I);
             svg {
@@ -271,7 +270,6 @@ class ButtonUI extends WEBComponent {
                     margin-right: 1em;
                 }
             }
-
         }
 
         @media( width < 600px ){
@@ -279,7 +277,6 @@ class ButtonUI extends WEBComponent {
             .basic-button div, .icon-button div, .animated-button div {
                 flex-direction: column;
             }
-
         }
 
         `;
@@ -303,6 +300,8 @@ class ButtonUI extends WEBComponent {
             </div>
         </section>
 
+        <!------------- next component ------------->
+        
         <h2>Icon buttons</h2>
         <section class="icon-button">
             <div>
@@ -348,12 +347,14 @@ class ButtonUI extends WEBComponent {
             </div>
         </section>
 
+        <!------------- next component ------------->
+
         <h2>Animated buttons</h2>
         <section class="animated-button">
             <div>            
-                <button class="anime-btn-1"> Primary </button>
-                <button class="anime-btn-2"> Primary </button>
-                <button class="anime-btn-3"> Primary <svg><rect x=0 Y=0 fill=none></rect></svg> </button>
+                <button class="anime-btn-1"> Bubble </button>
+                <button class="anime-btn-2"> Rhomboid </button>
+                <button class="anime-btn-3"> Edge <svg><rect x=0 Y=0 fill=none></rect></svg> </button>
             </div>
             <div>
             </div>

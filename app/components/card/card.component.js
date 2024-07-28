@@ -12,6 +12,7 @@ class CardUI extends WEBComponent {
     connectedCallback() {
         // this.componentAttributes();
         this.renderComponent();
+        this.coordinatesLight();
         // this.initComponent();
     }
 
@@ -27,180 +28,174 @@ class CardUI extends WEBComponent {
         h2{
             border-top: solid 1px var(--back-color);
             padding-top: 1em;
-        }
+            + section {
+                margin-top: 2em;
 
-        h2 + section {
-            margin-top: 2em;
-        }
-
-        h3 {
-            margin: 0;
-        }
-
-        svg {
-            width: 2em;
-            height: 2em;
-        }
-
-        .info-cards, .icon-cards, .profile-cards {
-            display: flex;
-            flex-direction: row;
-            font-size: 16px;
-            gap: 1em;
-        }
-
-        .info-cards div {
-            width: 100%;
-            padding: 1.5em;
-            border-radius: .5em;
-            background-color: var(--back-color);
-            outline: solid 2px transparent;
-            transition: all .4s ease;
-            > h3{
-                transition: all .4s ease;
-                color: var(--text-color-I);
-            }
-        }
-
-        .info-cards div {
-            &:nth-child(a){
-                text-align: center;
-            }
-        }
-
-        .info-cards div:hover{
-            outline: solid 2px var(--text-color-II);
-            > h3{
-                color: var(--text-color-II);
-            }
-        }
-
-        .info-cards button {
-            border: none;
-            width: 40%;
-            min-width: 110px;
-            padding: 1em 0;
-            border-radius: .5em;
-            outline: solid 2px transparent;
-            cursor: pointer;
-            
-            font-family: "Exo 2";
-            font-size: 1em;
-            text-align: center;
-            color: var(--text-color-I);
-            
-            background-color: var(--back-color);
-            filter: brightness(0.9);
-            transition: all .4s ease;
-            
-            &:hover {
-                color: #fff;
-                background-color: var(--text-color-II);
-                filter: brightness(1);
-            }
-        }
-
-        .icon-cards > div {
-            width: 100%;
-            padding: 1.5em;
-            border-radius: .5em;
-            background-color: var(--back-color);
-            border-left: solid 4px transparent;
-
-            transition: all .4s ease;
-            svg {
-                transition: all .4s ease;
-                color: var(--text-color-I);
-                fill: var(--text-color-I);
-            }
-            h3 {
-                margin: 16px 0;
-            }
-        }
-
-        .icon-cards > div {
-            display: flex;
-            flex-direction: row;
-            svg {
-                margin-right: 1em;
-            }
-            h3 {
-                margin: 8px 0;
-            }
-            p {
-                margin-bottom: 0;
-            }
-        }
-        
-        .icon-cards > div:hover{
-            border-left: solid 4px var(--text-color-II);
-            svg{
-                color: var(--text-color-II);
-                fill: var(--text-color-II);
-            }
-        }
-
-        .profile-cards > div {
-            width: 100%;
-            padding: 2em 2em 1em 2em;
-            text-align: center;
-            border-radius: .5em;
-            background-color: var(--back-color);
-            border-left: solid 4px transparent;
-
-            transition: all .4s ease;
-            svg {
-                transition: all .4s ease;
-                color: var(--text-color-I);
-                fill: var(--text-color-I);
-            }
-            h3 {
-                margin-top: 16px;
-            }
-        }
-
-        .profile-cards > div:hover {
-            background-color: var(--back-color-hover);
-            img {
-                transform: translateY(-1em)
-            }
-        }
-
-        .profile-cards img {
-            width: 100%;
-            height: 420px;
-            border-radius: .5em;
-            object-fit: cover;
-            object-position: top;
-            margin: 0 auto;
-            
-            transition: all .4s ease;
-        }
-
-        .profile-cards .icons {
-            display: flex;
-            justify-content: center;
-            gap: 1em;
-            div {
-                padding: .5em;
-                border-radius: .5em;
-                &:hover {
-                    background-color: var(--back-color-hover);
+                h3 {
+                    margin: 0;
+                }
+                svg {
+                    width: 2em;
+                    height: 2em;
                 }
             }
         }
 
+        strong {
+            color: var(--text-color-II);
+        }
 
+        .info-cards,
+        .icon-cards,
+        .profile-cards,
+        .diffuse-cards{
+            display: flex;
+            flex-direction: row;
+            font-size: 16px;
+            gap: 1em;
+            > div {
+                width: 100%;
+                padding: 1.5em;
+                border-radius: .5em;
+                background-color: var(--back-color);
+                
+                &,*{
+                    transition: all .4s ease;
+                    color: var(--text-color-I);
+                }
+            }
+        }
 
+        .info-cards > div {
+            outline: solid 2px transparent;
+            &:hover{
+                outline-color: var(--text-color-II);
+                > h3{
+                    color: var(--text-color-II);
+                }
+            }
+            button {
+                width: 40%;
+                min-width: 110px;
+                padding: .5em 1em;
+                cursor: pointer;
 
+                border: none;
+                border-radius: .5em;
+                outline: solid 2px transparent;
+                
+                font-size: 1em;
+                font-family: "Exo 2";
+                text-align: center;
+                
+                background-color: var(--back-color);
+                
+                &:hover {
+                    color: #fff;
+                    background-color: var(--text-color-II);
+                }
+            }
+        }
+
+        .icon-cards > div {
+            display: flex;
+            border-left: solid 4px transparent;
+            svg {
+                margin-right: 1em;
+            }
+            h3 {
+                margin: 6px 0;
+            }
+            p {
+                margin-bottom: 0;
+            }
+            &:hover {
+                border-left: solid 4px var(--text-color-II);
+                svg * , h3 {
+                    color: var(--text-color-II);
+                }
+            }
+        }
+
+        .profile-cards > div {
+            img {
+                width: 100%;
+                height: 420px;
+                border-radius: .5em;
+                object-fit: cover;
+                object-position: top;
+                margin: 0 auto;
+                filter: brightness(0.8);
+                
+                transition: all .4s ease;
+            }            
+            h3 {
+                margin: 16px 0 6px 0;
+            }
+            .icons {
+                display: flex;
+                justify-content: center;
+                gap: 1em;
+                div {
+                    width: 32px;
+                    height: 32px;
+                    padding: .5em;
+                    border-radius: .5em;
+
+                    &:hover {
+                        background-color: var(--text-color-II);
+                        svg * {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: var(--back-color-hover);
+                img {
+                    filter: brightness(1);
+                    transform: translateY(-.5em)
+                }
+            }
+        }
+
+        .diffuse-cards > div {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: var(--y);
+                left: var(--x);
+                transform: translate(-50% , -50%);
+                background: radial-gradient( var(--text-color-II), transparent, transparent);
+                width: 500px;
+                height: 500px;
+
+                opacity: 0;
+                transition: .8s, top 0s, left 0s;
+            }
+            &:hover::before{
+                opacity: 1;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 1em;
+                border-radius: .5em;
+                background-color: var(--back-color);
+            }
+        }
 
         @media( 600px <= width <= 900px ) {
             .icon-cards {
                 flex-direction: column;
                 div {
                     width: calc(100% - 3em);
-                    
-                    div:nth-child(1){
+                    & div:nth-child(1){
                         width: max-content;
                     }
                 }
@@ -208,20 +203,13 @@ class CardUI extends WEBComponent {
         }
 
         @media ( width < 600px ) {
-            .info-cards, .icon-cards{
-                flex-direction: column;
-                div {
-                    width: calc(100% - 3em);
-                    
-                    div:nth-child(1){
-                        width: max-content;
-                    }
-                }
-            }
-            .profile-cards {
+            .info-cards, 
+            .icon-cards, 
+            .profile-cards, 
+            .diffuse-cards {
                 flex-direction: column;
                 > div {
-                    width: calc(100% - 4em);
+                    width: calc(100% - 3em);
                 }
             }
         }
@@ -249,6 +237,8 @@ class CardUI extends WEBComponent {
                 <button>Leer más</button>
             </div>
         </section>
+
+        <!------------- next component ------------->
 
         <h2> Icon cards </h2>
         <section class="icon-cards">
@@ -286,6 +276,8 @@ class CardUI extends WEBComponent {
                 </div>
             </div>
         </section>
+
+        <!------------- next component ------------->
 
         <h2> Profile cards </h2>
         <section class="profile-cards">
@@ -377,7 +369,37 @@ class CardUI extends WEBComponent {
                 </div>
             </div>
         </section>
+
+        <!------------- next component ------------->
+
+        <h2> Diffuse light cards <strong>effect</strong></h2>
+        <section class="diffuse-cards">
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+
+        <!------------- next component ------------->
+
+        <h2> Musical cards <strong>effect</strong></h2>
+        <section></section>
         `;
+    }
+
+    coordinatesLight() {
+        const elementsCard = this.shadowRoot.querySelectorAll(`.diffuse-cards div`);
+        const cards = Array.from(elementsCard);
+
+        cards.forEach( card => {
+            card.onmousemove = function(e){
+                let x = e.pageX - card.offsetLeft;
+                let y = e.pageY - card.offsetTop;
+
+                card.style.setProperty(`--x`, `${x}px`);    // El método .setProperty() recibe dos parámetros
+                card.style.setProperty(`--y`, `${y}px`);
+            }
+        } );
+
     }
 };
 

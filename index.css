@@ -23,8 +23,7 @@
     --text-color-I: #123;
     --text-color-II: #f70;
     --text-color-III: #fff;
-    --back-color: #1231;
-    --back-color-II: #5d6b89;
+    --back-color: #4561;
     --back-color-hover: #f702;
     --scroll-bar-color: #9ab;
     --scroll-bg-color: #cde;
@@ -81,17 +80,18 @@ h2, h3 {
 a {
     color: var(--text-color-I);
     text-decoration: none;
-    &:hover {
-        color: var(--text-color-II);
-        text-decoration: underline;
-        cursor: pointer;
-        svg {
-            color: var(--text-color-II);
-            fill: var(--text-color-II);
-        }
-    }
-    a:visited {
+    &:visited {
         color: var(--text-color-I);
+    }
+}
+
+a:hover {
+    color: var(--text-color-II);
+    text-decoration: underline;
+    cursor: pointer;
+    svg {
+        color: var(--text-color-II);
+        fill: var(--text-color-II);
     }
 }
 
@@ -168,9 +168,7 @@ header {
     display: inline-block;
     width: var(--width-menu);
     position: relative;
-
-    transition-property: width;
-    transition: .5s ease;
+    transition: all .5s ease;
 }
 
 .gb-menu__toggle {
@@ -180,18 +178,19 @@ header {
     top: 0;
     left: var(--width-menu);
     
-    transition-property: left; 
-    transition: .5s ease;
+    transition: left .5s ease;
 }
 
 .gb-menu__content {
     width: var(--width-menu);
+    color: var(--text-color-I);
     padding: 1em 2em;
     height: 100vh;
     position: fixed;
     overflow-y: scroll;
-    transition-property: width;
-    transition: .5s ease;
+    overflow-x: hidden;
+    opacity: 1;
+    transition: all .5s ease;
     z-index: 3;
 }
 

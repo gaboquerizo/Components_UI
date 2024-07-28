@@ -26,25 +26,20 @@ class AccordionUI extends WEBComponent {
     componentTemplateCSS() {
         return /* CSS */ `
             
-        h2{
+        h2 {
             border-top: solid 1px var(--back-color);
             padding-top: 1em;
-        }
-
-        h2 + section {
-            margin-top: 2em;
+            + section {
+                margin-top: 2em;
+            }
         }
         
         .accordion-faq details {
             margin: 4px 0;
             cursor: pointer;
-            div {
-                transition: all 1s ease;
-            }
         }
         
         .accordion-faq details[open] {
-            transition: all 1s ease;
             summary {
                 border-radius: .5em .5em 0 0;
             }
@@ -53,7 +48,6 @@ class AccordionUI extends WEBComponent {
                 border: solid 2px var(--back-color);
                 border-radius: 0 0 .5em .5em;
                 cursor: default;
-                transition: all 1s ease;
             }
         }
         
@@ -64,7 +58,7 @@ class AccordionUI extends WEBComponent {
             border-radius: .5em;
             background-color: var(--back-color);
             &:hover {
-                background-color: var(--back-color-hover);
+                color: var(--text-color-II);
             }
         }
 
@@ -75,7 +69,6 @@ class AccordionUI extends WEBComponent {
             top: 20%;
             right: 1em;
             font-size: 1.5em;
-            transition: all .2s ease-out;
         }
 
         .accordion-faq details[open] summary::after {
@@ -90,9 +83,11 @@ class AccordionUI extends WEBComponent {
                 width: fit-content;
                 display: flex;
                 cursor: pointer;
+                &:hover {
+                    color: var(--text-color-II);
+                }
             }
         }
-
 
         .switch {
             background-color: #fff4;
@@ -170,14 +165,14 @@ class AccordionUI extends WEBComponent {
             
             backdrop-filter: blur(8px);
             cursor: pointer;
-            outline: solid 4px transparent;
+            outline: solid 2px transparent;
             
             width: 100%;
             height: 100%;
             transition: all 1s ease;
         }
 
-        .accordion-gallery div label input[type="radio"]{
+        .accordion-gallery input[type="radio"]{
             display: none;
         }
         
@@ -186,28 +181,28 @@ class AccordionUI extends WEBComponent {
             opacity: 1;
             label {
                 backdrop-filter: blur(0px);
-                outline: solid 4px var(--text-color-II);
+                outline-color: var(--text-color-II);
             }
         }
 
         .img-1 {
-            background: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltf9557fb8c51d1c43/631a8aa4eef3ae0e03c74396/1600_Winston.jpg');
+            background: url('https://image.cdn2.seaart.ai/2023-08-22/15046714962515973/c441eaf8b454e4a109c55fb9e628bd4e751fef51_high.webp');
         }
 
         .img-2 {
-            background: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltb9e273d8483050b8/631a8aab3ab6f40dd2a90699/1600_Tracer.jpg');
+            background: url('https://image.cdn2.seaart.ai/2023-09-02/16006626418946053/8d40b5e34e5cc3c843de4ef92ddcdf8a4bc0478a_high.webp');
         }
 
         .img-3 {
-            background: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltd0eb5529be69efbc/633773a6f87c00687e8ef21a/1600_Mei_02.jpg');
+            background: url('https://image.cdn2.seaart.ai/2023-10-06/19110531636932613/051a0ec10eb1181c1139bf170e35145e4dfd3929_high.webp');
         }
 
         .img-4 {
-            background: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt22836a6cfd1c3335/631a8b576d5f7a0df8d92798/1600_Genji.jpg');
+            background: url('https://image.cdn2.seaart.ai/2023-08-30/15815540168781829/3c296cb9bf46644141f54a8e785069a4aba4c7b6_high.webp');
         }
 
         .img-5 {
-            background: url('https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt8215ad99f856a606/631a8b03636d390da7825ddb/1600_Reinhardt.jpg');
+            background: url('https://image.cdn2.seaart.ai/static/fd6442f790d15212573c3321d4257185/1716691653954/083ed13a116bc69ad359441de52e873d_high.webp');
         }
 
         `;
