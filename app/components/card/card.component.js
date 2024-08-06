@@ -120,12 +120,13 @@ class CardUI extends WEBComponent {
         .profile-cards > div {
             img {
                 width: 100%;
-                height: 420px;
-                border-radius: .5em;
+                height: auto;
+                aspect-ratio: 2/2;
+                border-radius: 50em;
                 object-fit: cover;
                 object-position: top;
                 margin: 0 auto;
-                filter: brightness(0.8);
+                filter: brightness(0.9);
                 
                 transition: all .4s ease;
             }            
@@ -190,6 +191,75 @@ class CardUI extends WEBComponent {
             }
         }
 
+        .album-cards {
+            display: flex;
+            width: 90%;
+            padding: 1.5em;
+            article {
+                background-color: var(--back-color);
+                box-sizing: border-box;
+                width: 300px;
+                height: 350px;
+                padding: 1.5em;
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                position: relative;
+                
+                outline: solid 2px transparent;
+                border-radius: .5em;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1),
+                            -4px 0 10px rgba(0,0,0,0.1),
+                            -6px 0 10px rgba(0,0,0,0.1);
+                transition: all 0.4s ease;
+            }
+            article+*{
+                margin-left: -120px;
+                backdrop-filter: blur(2em);
+                
+                &:not(:last-child):hover {
+                    margin-left: -160px;
+                }
+            }
+            article:hover {
+                transform: rotate(3deg) translateY(-15px);
+                box-shadow: 0px 0px 0px #0000;
+                outline-color: var(--text-color-II);
+
+                &:not(:last-child):hover{
+                    margin-right: 80px;
+                }
+            }
+
+            a {
+                width: fit-content;  /* Good property */
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                > {
+                    width: max-content;
+                }
+            }
+            a:hover {
+                background-color: var(--back-color);
+                outline: solid .6em var(--back-color);
+                border-radius: 1px;
+                cursor: default;
+            }
+            img {
+                width: 30px;
+                border-radius: 5em;
+            }
+            p, span {
+                font-size: 16px;
+            }
+            h3 {
+                font-size: 1.5em;
+            }
+        }
+
+
         @media( 600px <= width <= 900px ) {
             .icon-cards {
                 flex-direction: column;
@@ -206,10 +276,33 @@ class CardUI extends WEBComponent {
             .info-cards, 
             .icon-cards, 
             .profile-cards, 
-            .diffuse-cards {
+            .diffuse-cards,
+            .album-cards {
                 flex-direction: column;
                 > div {
                     width: calc(100% - 3em);
+                }
+            }
+            
+            .album-cards {
+                align-items: center;
+
+                article+*{
+                    margin-left: 0px;
+                    margin-top: -220px;
+                    
+                    &:not(:last-child):hover {
+                        margin-left: 0px;
+                        margin-top: -260px;
+                        margin-bottom: 202px;
+                    }
+                }
+
+                article:hover {
+                    &:not(:last-child):hover{
+                        margin-right: 0px;
+                        margin-bottom: 202px;
+                    }
                 }
             }
         }
@@ -283,7 +376,7 @@ class CardUI extends WEBComponent {
         <section class="profile-cards">
             <div>
                 <div>
-                    <img src="https://image.cdn2.seaart.ai/2023-08-30/15741944415190021/fe25e8194b25a5e42f865b1fab5f360147952102_high.webp">
+                    <img src="/assets/images/Jeff_Bezos.webp">
                 </div>
                 <div>
                     <h3> Jeff Bezos </h3>
@@ -312,7 +405,7 @@ class CardUI extends WEBComponent {
             </div>
             <div>
                 <div>
-                    <img src="https://image.cdn2.seaart.ai/2023-08-20/14880708363341829/cec34f1ee1aecd16f376bef11e2b22dd860eb00c_high.webp">
+                    <img src="/assets/images/Bill_Gates.webp">
                 </div>
                 <div>
                     <h3> Bill Gates </h3>
@@ -341,7 +434,7 @@ class CardUI extends WEBComponent {
             </div>
             <div>
                 <div>
-                    <img src="https://image.cdn2.seaart.ai/2023-09-08/16579410193864709/f877737f20b6095beadae6940d0c7f346750e3d2_high.webp">
+                    <img src="/assets/images/Steve_Jobs.webp">
                 </div>
                 <div>
                     <h3> Steve Jobs </h3>
@@ -382,7 +475,74 @@ class CardUI extends WEBComponent {
         <!------------- next component ------------->
 
         <h2> Musical cards <strong>effect</strong></h2>
-        <section></section>
+        <section class="album-cards">
+
+            <article>
+                <header>
+                    <p>29 de Junio 2015</p>
+                    <h3>Where Are Ü Now</h3>
+                </header>
+                <footer>    
+                    <a>
+                        <img src="https://veromerol.com.mx/wp-content/uploads/2016/02/Jack-%C3%9C-logopromo-2016-e1458750276560.png" alt="">
+                        <span>Jack Ü</span>
+                    </a>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <p>7 de Abril 2016</p>
+                    <h3>Play Hard</h3>
+                </header>
+                <footer>    
+                    <a>
+                        <img src="https://www.pngkey.com/png/full/29-299150_wiley-fox-logo-design-david-guetta.png" alt="">
+                        <span>David Guetta</span>
+                    </a>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <p>24 de Mayo 2016</p>
+                    <h3>Idols</h3>
+                </header>
+                <footer>    
+                    <a>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5_sjQnQxRc9WGQCxIhY_TdBwKSOs4Nbv6AQ&s" alt="">
+                        <span>Virtual Riot</span>
+                    </a>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <p>2 de Julio 2016</p>
+                    <h3>Alone</h3>
+                </header>
+                <footer>    
+                    <a>
+                        <img src="https://i.pinimg.com/originals/f2/a8/3b/f2a83b69dad12688b47dbf2bb12b8932.jpg" alt="">
+                        <span>Marshmello</span>
+                    </a>
+                </footer>
+            </article>
+            
+            <article>
+                <header>
+                    <p>21 de Agosto 2019</p>
+                    <h3>Teeth</h3>
+                </header>
+                <footer>    
+                    <a>
+                        <img src="https://i.pinimg.com/originals/c7/18/b5/c718b5d52d27ff5da404e23f4ea4bec2.jpg" alt="">
+                        <span>5 Second of Summer</span>
+                    </a>
+                </footer>
+            </article>
+
+        </section>
         `;
     }
 
