@@ -376,7 +376,7 @@ class CardUI extends WEBComponent {
         <section class="profile-cards">
             <div>
                 <div>
-                    <img src="/assets/images/Jeff_Bezos.webp">
+                    <img src="../../../assets/images/Jeff_Bezos.webp">
                 </div>
                 <div>
                     <h3> Jeff Bezos </h3>
@@ -405,7 +405,7 @@ class CardUI extends WEBComponent {
             </div>
             <div>
                 <div>
-                    <img src="/assets/images/Bill_Gates.webp">
+                    <img src="../../../assets/images/Bill_Gates.webp">
                 </div>
                 <div>
                     <h3> Bill Gates </h3>
@@ -434,7 +434,7 @@ class CardUI extends WEBComponent {
             </div>
             <div>
                 <div>
-                    <img src="/assets/images/Steve_Jobs.webp">
+                    <img src="../../../assets/images/Steve_Jobs.webp">
                 </div>
                 <div>
                     <h3> Steve Jobs </h3>
