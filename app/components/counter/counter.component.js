@@ -41,10 +41,6 @@ class CounterUI extends WEBComponent {
                 }
             }
         }
-
-        strong {
-            color: var(--text-color-II);
-        }
         
         .quantity-counter {
             display: flex;
@@ -72,6 +68,7 @@ class CounterUI extends WEBComponent {
         
         @media( 440px <= width <= 1010px ){
             .quantity-counter{
+                justify-content: center;
                 flex-direction: row;
                 flex-wrap: wrap;
                 gap: 2em;
@@ -155,7 +152,7 @@ class CounterUI extends WEBComponent {
     }
 
     quantityCounter() {
-        const digitValue = [...this.shadowRoot.querySelectorAll(`.quantity-counter .digit`)];
+        const digitValue = [...this.shadowRoot.querySelectorAll('.quantity-counter .digit')];
         let interval = 1000;
 
         digitValue.forEach((e) => {

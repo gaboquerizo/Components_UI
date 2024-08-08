@@ -546,7 +546,7 @@ class CardUI extends WEBComponent {
     }
 
     coordinatesLight() {
-        const elementsCard = this.shadowRoot.querySelectorAll(`.diffuse-cards div`);
+        const elementsCard = this.shadowRoot.querySelectorAll('.diffuse-cards div');
         const cards = Array.from(elementsCard);
 
         cards.forEach( card => {

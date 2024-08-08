@@ -21,15 +21,19 @@ class ComponentListMenu extends WEBComponent {
 
     componentTemplateCSS() {
         return /* CSS */ `
-            li {
-                padding-bottom: 1em;
-                list-style: none;
-            }
-            a:hover {
-                color: var(--text-color-II);
-                text-decoration: underline;
-                cursor: pointer;
-            }
+        ul {
+            padding: 0;
+        }
+        li {
+            padding-bottom: 1em;
+            list-style: none;
+            white-space: nowrap; /* Impide que el texto haga saltos de linea por el ancho de su contenedor  */
+        }
+        a:hover {
+            color: var(--text-color-II);
+            text-decoration: underline;
+            cursor: pointer;
+        }
         `
     }
     componentTemplateHTML() {
@@ -56,6 +60,11 @@ class ComponentListMenu extends WEBComponent {
                             Counter
                         </a>
                     </li>
+                    <li>
+                        <a name="draggable">
+                            Drag and Drop
+                        </a>
+                    </li>
                     
                 </ul>
             </nav>
@@ -72,7 +81,7 @@ class ComponentListMenu extends WEBComponent {
                 let script = document.createElement('script');
                 
                 script.defer = true;
-                script.type = "module";
+                script.type = 'module';
                 script.src = `./app/components/${elementName}/${elementName}.component.js`;
                 
                 if(scripts.length > 1){
@@ -80,7 +89,7 @@ class ComponentListMenu extends WEBComponent {
                 }
 
                 document.head.appendChild(script);
-                document.querySelector(".router-outlet").innerHTML = `<${elementName}-ui></${elementName}-ui>`;
+                document.querySelector('.router-outlet').innerHTML = `<${elementName}-ui></${elementName}-ui>`;
             })
         });
     };

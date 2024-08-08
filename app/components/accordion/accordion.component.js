@@ -287,8 +287,8 @@ class AccordionUI extends WEBComponent {
     }
 
     openOnlyOne() {
-        const inputCheckbox = this.shadowRoot.querySelector(`menu input[type="checkbox"]`);
-        const detailsList = [...this.shadowRoot.querySelectorAll(`.accordion-faq details`)];
+        const inputCheckbox = this.shadowRoot.querySelector('menu input[type="checkbox"]');
+        const detailsList = [...this.shadowRoot.querySelectorAll('.accordion-faq details')];
 
         inputCheckbox.addEventListener('click', () => {            
             if( inputCheckbox.checked ){
