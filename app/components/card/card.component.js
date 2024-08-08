@@ -193,7 +193,7 @@ class CardUI extends WEBComponent {
 
         .album-cards {
             display: flex;
-            width: 90%;
+            width: 96%;
             padding: 1.5em;
             article {
                 background-color: var(--back-color);
@@ -210,8 +210,7 @@ class CardUI extends WEBComponent {
                 outline: solid 2px transparent;
                 border-radius: .5em;
                 box-shadow: -2px 0 10px rgba(0,0,0,0.1),
-                            -4px 0 10px rgba(0,0,0,0.1),
-                            -6px 0 10px rgba(0,0,0,0.1);
+                            -4px 0 20px rgba(0,0,0,0.1);
                 transition: all 0.4s ease;
             }
             article+*{
