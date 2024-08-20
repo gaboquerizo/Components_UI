@@ -11,8 +11,9 @@ class CounterUI extends WEBComponent {
 
     connectedCallback() {
         // this.componentAttributes()
-        this.renderComponent()
-        this.quantityCounter()
+        this.renderComponent();
+        this.quantityCounter();
+        this.dateCountdown();
         // this.initComponent()
     }
 
@@ -65,6 +66,25 @@ class CounterUI extends WEBComponent {
             }
         }
 
+        .date-countdown {
+            text-align: center;
+            h3 {
+                font-weight: 100;
+                margin-bottom: 1em;
+            }
+            > div {
+                display: flex;
+                justify-content: center;
+                font-size: 4em;
+                > div {
+                    position: relative;
+                }
+            }
+            .seconds {
+                position: absolute;
+            }
+        }
+
         
         @media( 440px <= width <= 1010px ){
             .quantity-counter{
@@ -76,6 +96,9 @@ class CounterUI extends WEBComponent {
                     width: 30%;
                 }
             }
+            .date-countdown > div {
+                font-size: 7vw;
+            }
         }
 
         @media( width < 440px ){
@@ -86,6 +109,9 @@ class CounterUI extends WEBComponent {
                 > div {
                     width: 80%;
                 }
+            }
+            .date-countdown > div {
+                font-size: 7vw;
             }
         }
         `;
@@ -148,6 +174,26 @@ class CounterUI extends WEBComponent {
                 </div>
             </div>
         </section>
+
+        <h2>Cuenta regresiva</h2>
+        <section class="date-countdown">
+            <h3>🎉 Fin de año llegará en:</h3>
+            <div>
+                <div>
+                    <span class="days"></span>
+                    <span>días,&#160;</span>
+                </div>
+                <div>
+                    <span class="hours"></span>
+                </div>
+                <div>
+                    :<span class="minutes"></span>
+                </div>
+                <div>
+                    :<span class="seconds"></span>
+                </div>
+            </div>
+        </section>
         `;
     }
 
@@ -169,6 +215,41 @@ class CounterUI extends WEBComponent {
         });
     }
 
+    dateCountdown() {
+        const dayElement = this.shadowRoot.querySelector('.days');
+        const hourElement = this.shadowRoot.querySelector('.hours');
+        const minuteElement = this.shadowRoot.querySelector('.minutes');
+        const secondElement = this.shadowRoot.querySelector('.seconds');
+
+        function updateCountdown() {
+            const newYear = new Date("January 1, 2025 00:00:00");
+            const currentTime = new Date();
+            const diffRange = (newYear - currentTime);
+            
+            let days = Math.floor( diffRange / (1000 * 60 * 60 * 24) );
+            dayElement.textContent = days;
+
+            function format00 (e){
+                return  e.toString().length === 1 ? "0" + e.toString() : e.toString();
+            }
+
+            let hours = Math.floor( (diffRange % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) );
+            hours = format00(hours);
+            hourElement.textContent = hours;
+            
+            let minutes = Math.floor( (diffRange % (1000 * 60 * 60)) / (1000 * 60) );
+            minutes = format00(minutes);
+            minuteElement.textContent = minutes;
+            
+            let seconds = Math.floor( ( diffRange % (1000 * 60)) / 1000 );
+            seconds = format00(seconds);
+            secondElement.textContent = seconds;
+
+            /* console.log(`Faltan ${days} días y ${hours} : ${minutes} : ${seconds}`); */
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
 };
 
 customElements.define('counter-ui', CounterUI);

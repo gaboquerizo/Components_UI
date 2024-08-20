@@ -34,6 +34,9 @@ class ComponentListMenu extends WEBComponent {
             text-decoration: underline;
             cursor: pointer;
         }
+        .active {
+            color: var(--text-color-II);
+        }
         `
     }
     componentTemplateHTML() {
@@ -74,12 +77,23 @@ class ComponentListMenu extends WEBComponent {
     componentChange() {
         const ANCHOR = [...this.shadowRoot.querySelectorAll('a[name]')];  /* Reemplacé el 'document' por 'this.shadowRoot' */
 
+        function removeClass() {
+            ANCHOR.forEach((element) => {
+                element.classList.remove('active');     /* Recorre todos los elementos y elimina una clase CSS */
+            })
+        }
+        
+
         ANCHOR.forEach((element) => {
-            element.addEventListener('click', () => {
+            
+            element.addEventListener('click', (e) => {
                 let elementName = element.name;
                 let scripts = Array.from(document.head.querySelectorAll('script'));
                 let script = document.createElement('script');
                 
+                removeClass();
+                element.classList.add('active'); /* Después de eliminar, la misma es agregada solo al elemento con click */
+
                 script.defer = true;
                 script.type = 'module';
                 script.src = `./app/components/${elementName}/${elementName}.component.js`;
@@ -91,6 +105,7 @@ class ComponentListMenu extends WEBComponent {
                 document.head.appendChild(script);
                 document.querySelector('.router-outlet').innerHTML = `<${elementName}-ui></${elementName}-ui>`;
             })
+
         });
     };
 };
