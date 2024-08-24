@@ -127,6 +127,9 @@ class CardUI extends WEBComponent {
                 object-position: top;
                 margin: 0 auto;
                 filter: brightness(0.9);
+
+                user-select: none;
+                pointer-events: none;
                 
                 transition: all .4s ease;
             }            

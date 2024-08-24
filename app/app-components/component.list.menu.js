@@ -45,7 +45,7 @@ class ComponentListMenu extends WEBComponent {
                 <ul>
                     <li>
                         <a name="accordion">
-                            Accordion
+                            Accordions
                         </a>
                     </li>
                     <li>
@@ -60,12 +60,17 @@ class ComponentListMenu extends WEBComponent {
                     </li>
                     <li>
                         <a name="counter">
-                            Counter
+                            Counters
                         </a>
                     </li>
                     <li>
                         <a name="draggable">
                             Drag and Drop
+                        </a>
+                    </li>
+                    <li>
+                        <a name="footer">
+                            Footers
                         </a>
                     </li>
                     

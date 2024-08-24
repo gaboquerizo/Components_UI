@@ -11,9 +11,10 @@ class DraggableUI extends WEBComponent {
 
     connectedCallback() {
         // this.componentAttributes()
-        this.renderComponent();
-        this.draggingList();
-        this.draggingImage();
+        this.renderComponent()
+        this.draggingList()
+        this.draggingImage()
+        this.draggingTierList()
         // this.initComponent()
     }
 
@@ -26,6 +27,7 @@ class DraggableUI extends WEBComponent {
 
     componentTemplateCSS() {
         return /*CSS*/ `
+
         h2{
             border-top: solid 1px var(--back-color);
             padding-top: 1em;
@@ -40,6 +42,17 @@ class DraggableUI extends WEBComponent {
                     height: 2em;
                 }
             }
+        }
+
+        svg, label {
+            transition: all .4s ease;
+            color: var(--text-color-I);
+        }
+
+        button {
+            background: transparent;
+            border: 0;
+            color: var(--text-color-I);
         }
 
         .drag-list {
@@ -75,15 +88,6 @@ class DraggableUI extends WEBComponent {
 
         .drag-image {
             width: 100%;
-            > div {
-                width: 60%;
-                height: 400px;
-                /* margin: 0 auto; */
-                background: linear-gradient(45deg, var(--back-color) 15%, #cde3 50%, var(--back-color) 85%);
-            }
-            svg {
-                font-size: 3em;
-            }
             h3 {
                 font-size: 1.2em;
                 font-weight: 500;
@@ -103,6 +107,12 @@ class DraggableUI extends WEBComponent {
                 font-weight: 100;
             }
             .drag-area {
+                width: 60%;
+                height: 400px;
+                /* margin: 0 auto; */
+                background: linear-gradient(90deg, var(--back-color) 15%, #cde3 50%, var(--back-color) 85%);
+                
+
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -111,6 +121,7 @@ class DraggableUI extends WEBComponent {
                 border-radius: .5em;
                 outline: dashed 2px var(--text-color-I);
                 svg {
+                    font-size: 3em;
                     margin-bottom: .5em;
                 }
 
@@ -134,9 +145,114 @@ class DraggableUI extends WEBComponent {
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .drag-tier {
+            --color-s: #f73c35;
+            --color-a: #ffc139;
+            --color-b: #49e35e;
+            --color-c: #4ad3a2;
+
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 1em;
+            background-color: var(--back-color);
+            &,* {
+                border-radius: .5em;
+            }
+
+            > div {
+                display: flex;
+                flex-direction: row;
+                background-color: var(--back-color);
+            }
+            aside {
+                cursor: pointer;
+                background: var(--level, #568);
+                padding: 1em;
+                font-size: 1.5em;
+
+                span:focus {
+                    outline: none;
+                    text-decoration: underline;
+                }
+            }
+
+            .drag-tier__selector {
+
+                div {
+                    display: flex;
+                    justify-content: center;
+                    padding: 1em 0;
+                    gap: 1em;
+                    
+                    svg {
+                        padding: .4em;
+                    }
+
+                    label {
+                        background-color: var(--back-color);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: var(--text-color-II);
+                        }
+                    }
+                }
+
+                section {
+                    background: linear-gradient(90deg, var(--back-color) 15%, #cde3 50%, var(--back-color) 85%);
+                    outline: dashed 2px var(--text-color-I);
+                    
+                    weight: 100%;
+                    height: 100px;
+                    padding: 4px;
+
+                    display: flex;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         @media ( width < 600px ){
             .drag-list ul {
                 width: 92%;
+            }
+
+            .drag-image .drag-area {
+                width: 100%
             }
         }
 
@@ -220,6 +336,57 @@ class DraggableUI extends WEBComponent {
                 <p>Formato: JPEG, JPG, PNG</p>
             </div>
         </section>
+
+        <h2>Draggable Tier List</h2>
+        <section>
+            <section class="drag-tier">
+                <div>
+                    <aside style="--level: var(--color-s)"> <!-- Redefinimos el valor de una variable -->
+                        <span contenteditable="true"> S </span>
+                    </aside>
+                </div>
+                <div>
+                    <aside style="--level: var(--color-a)">
+                        <span contenteditable="true"> A </span>
+                    </aside>
+                </div>
+                <div>
+                    <aside style="--level: var(--color-b)">
+                        <span contenteditable="true"> B </span>
+                    </aside>
+                </div>
+                <div>
+                    <aside style="--level: var(--color-c)">
+                        <span contenteditable="true"> C </span>
+                    </aside>
+                </div>
+
+                <article class="drag-tier__selector">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v8m4-4H8m14 0c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10s10-4.477 10-10" color="currentColor" />
+                            </svg>
+                            <input type="file" hidden>
+                        </label>
+
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 13.5A7.5 7.5 0 1 1 11.5 6H20m0 0l-3-3m3 3l-3 3" />
+                            </svg>
+                        </label>
+                    </div>
+
+                    <section>
+
+                    </section>
+                    
+                </article>
+
+            </section>
+
+            
+        </section>
         `;
     }
 
@@ -242,7 +409,9 @@ class DraggableUI extends WEBComponent {
             const siblings = Array.from( dragList.querySelectorAll('.item:not(.dragging)') );
             let nextSiblings = siblings.find(sibling => {
                 return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
-            })
+            });
+
+
             dragList.insertBefore(draggingItem, nextSiblings);
         };
         dragList.addEventListener('dragover', initDragList)
@@ -251,10 +420,11 @@ class DraggableUI extends WEBComponent {
 
 
     draggingImage() {
-        const dragAreaElement = this.shadowRoot.querySelector('.drag-area');
-        const dragAreaTitle = this.shadowRoot.querySelector('.drag-area h3');
-        const btnUploadFile = this.shadowRoot.querySelector('.drag-area span');
-        const dragAreaInput = this.shadowRoot.querySelector('.drag-area input');
+        const $ = element => this.shadowRoot.querySelector(element);
+        const dragAreaElement = $('.drag-area');
+        const dragAreaTitle = $('.drag-area h3');
+        const btnUploadFile = $('.drag-area span');
+        const dragAreaInput = $('.drag-area input');
         const dragAreaTitleSaved = dragAreaTitle.textContent;
 
         let file;
@@ -263,23 +433,25 @@ class DraggableUI extends WEBComponent {
             dragAreaInput.click();
         };
 
-        dragAreaInput.addEventListener('change', function() {
+        dragAreaInput.addEventListener('change', function() {   // Cambio en el área
             dragAreaElement.classList.add('active');
             file = this.files[0];
             displayFile();
         });
 
-        dragAreaElement.addEventListener('dragover', (e) => {
+        dragAreaElement.addEventListener('dragover', (e) => {   // Encima del área
             e.preventDefault();
             dragAreaTitle.textContent = 'Soltar aquí';
             dragAreaElement.classList.add('active');
-        })
-        dragAreaElement.addEventListener('dragleave', () => {
+        });
+
+        dragAreaElement.addEventListener('dragleave', () => {   // Salir del área
             dragAreaTitle.textContent = dragAreaTitleSaved;
             dragAreaElement.classList.remove('active');
 
-        })
-        dragAreaElement.addEventListener('drop', (e) => {
+        });
+
+        dragAreaElement.addEventListener('drop', (e) => {       // Soltar en el área
             e.preventDefault();
             file = e.dataTransfer.files[0];
             displayFile();
@@ -292,18 +464,20 @@ class DraggableUI extends WEBComponent {
             if(validExtensions.includes(fileType)) {
                 let fileReader = new FileReader();
                 fileReader.onload = () => {
-                    let fileURL = fileReader.result;
-                    let imgTag = `<img src="${fileURL}" alt="">`;
-                    dragAreaElement.innerHTML = imgTag;
+                    dragAreaElement.innerHTML = `<img src="${ fileReader.result }" alt="">`;
                 };
                 fileReader.readAsDataURL(file);
                 dragAreaElement.classList.remove('active');
-                console.log(dragAreaElement.style);
             } else {
                 alert('⚠ El archivo no es una imagen.');
                 dragAreaElement.classList.remove('active');
             }
         }
+    }
+
+    draggingTierList() {
+        const $ = element => this.shadowRoot.querySelector(element);
+
     }
 
 };
