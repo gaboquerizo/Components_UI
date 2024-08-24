@@ -144,18 +144,6 @@ class DraggableUI extends WEBComponent {
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
         .drag-tier,
         .drag-tier__list,
         .drag-tier__buttons,
@@ -258,30 +246,16 @@ class DraggableUI extends WEBComponent {
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         @media ( width < 600px ){
             .drag-list ul {
                 width: 92%;
             }
 
-            .drag-image .drag-area {
+            .drag-image .drag-area,
+            .drag-tier {
                 width: 100%
             }
+
         }
 
         `;
