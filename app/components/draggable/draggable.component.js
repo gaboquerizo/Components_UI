@@ -44,9 +44,8 @@ class DraggableUI extends WEBComponent {
             }
         }
 
-        svg, label {
+        svg, label, .drag-tier__list div, div.drag-over{
             transition: all .4s ease;
-            color: var(--text-color-I);
         }
 
         button {
@@ -157,76 +156,105 @@ class DraggableUI extends WEBComponent {
 
 
 
-
-
+        .drag-tier,
+        .drag-tier__list,
+        .drag-tier__buttons,
+        .drag-tier__items {
+            display: flex;
+            &,* {
+                border-radius: .5em;
+            }
+        }
 
         .drag-tier {
+            width: 70%;
+            flex-direction: column;
+            background-color: var(--back-color);
+            img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                cursor: grab;
+            }
+        }
+
+        .drag-preview {
+            opacity: .2;
+            pointer-events: none;
+        }
+        
+        .drag-tier__list {
             --color-s: #f73c35;
             --color-a: #ffc139;
             --color-b: #49e35e;
             --color-c: #4ad3a2;
-
-            display: flex;
+            
             flex-direction: column;
-            gap: 4px;
             padding: 1em;
-            background-color: var(--back-color);
-            &,* {
-                border-radius: .5em;
-            }
+            gap: 4px;
 
             > div {
+                height: 100px;
+                gap: .5em;
                 display: flex;
                 flex-direction: row;
                 background-color: var(--back-color);
+                outline: solid 1px transparent;
+
+                &.drag-over {
+                    border-radius: .8em;
+                    background-color: var(--back-color-hover);
+                    outline: solid 1px var(--text-color-II);
+                }
             }
             aside {
                 cursor: pointer;
                 background: var(--level, #568);
                 padding: 1em;
                 font-size: 1.5em;
+                align-content: center;
 
                 span:focus {
                     outline: none;
                     text-decoration: underline;
                 }
             }
+        }
 
-            .drag-tier__selector {
+        .drag-tier__buttons {
+            justify-content: center;
+            gap: 1em;
 
-                div {
-                    display: flex;
-                    justify-content: center;
-                    padding: 1em 0;
-                    gap: 1em;
-                    
-                    svg {
-                        padding: .4em;
-                    }
+            label {
+                background-color: var(--back-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
 
-                    label {
-                        background-color: var(--back-color);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        cursor: pointer;
-
-                        &:hover {
-                            background-color: var(--text-color-II);
-                        }
-                    }
+                &:hover {
+                    background-color: var(--text-color-II);
                 }
 
-                section {
-                    background: linear-gradient(90deg, var(--back-color) 15%, #cde3 50%, var(--back-color) 85%);
-                    outline: dashed 2px var(--text-color-I);
-                    
-                    weight: 100%;
-                    height: 100px;
-                    padding: 4px;
-
-                    display: flex;
+                svg {
+                    padding: .4em;
                 }
+            }
+        }
+        
+        .drag-tier__items {
+            padding: 1em;
+            
+            > div {
+                display: flex;
+                flex-flow: wrap;
+                gap: .5em;
+
+                padding: .5em;
+                width: 100%;
+                min-height: 100px;
+                background: linear-gradient(90deg, var(--back-color) 15%, #cde3 50%, var(--back-color) 85%);
+                outline: dashed 2px var(--text-color-I);
             }
         }
 
@@ -338,8 +366,8 @@ class DraggableUI extends WEBComponent {
         </section>
 
         <h2>Draggable Tier List</h2>
-        <section>
-            <section class="drag-tier">
+        <section class="drag-tier">
+            <section class="drag-tier__list">
                 <div>
                     <aside style="--level: var(--color-s)"> <!-- Redefinimos el valor de una variable -->
                         <span contenteditable="true"> S </span>
@@ -360,34 +388,28 @@ class DraggableUI extends WEBComponent {
                         <span contenteditable="true"> C </span>
                     </aside>
                 </div>
-
-                <article class="drag-tier__selector">
-                    <div>
-                        <label>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v8m4-4H8m14 0c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10s10-4.477 10-10" color="currentColor" />
-                            </svg>
-                            <input type="file" hidden>
-                        </label>
-
-                        <label>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 13.5A7.5 7.5 0 1 1 11.5 6H20m0 0l-3-3m3 3l-3 3" />
-                            </svg>
-                        </label>
-                    </div>
-
-                    <section>
-                        <div>
-                            Contenedor
-                        </div>
-                    </section>
-                    
-                </article>
-
             </section>
 
-            
+            <section class="drag-tier__buttons">
+                <label>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v8m4-4H8m14 0c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10s10-4.477 10-10" color="currentColor" />
+                    </svg>
+                    <input multiple accept="image/*" type="file" id="input-file-img" hidden>
+                </label>
+
+                <label>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 13.5A7.5 7.5 0 1 1 11.5 6H20m0 0l-3-3m3 3l-3 3" />
+                    </svg>
+                </label>
+            </section>
+
+            <section class="drag-tier__items">
+                <div>
+                    <!-- Area de imagenes -->
+                </div>
+            </section>
         </section>
         `;
     }
@@ -419,7 +441,6 @@ class DraggableUI extends WEBComponent {
         dragList.addEventListener('dragover', initDragList)
         dragList.addEventListener('dragover', e => e.preventDefault());
     }
-
 
     draggingImage() {
         const $ = element => this.shadowRoot.querySelector(element);
@@ -479,6 +500,101 @@ class DraggableUI extends WEBComponent {
 
     draggingTierList() {
         const $ = element => this.shadowRoot.querySelector(element);    // Utilidad llamada "miduquery"
+        const $$ = element => this.shadowRoot.querySelectorAll(element);
+
+        const imageInput = $('#input-file-img');
+        const itemsSection = $('.drag-tier__items div');
+
+        function createItem(source) {
+            const imgElement = document.createElement('img');
+            imgElement.src = source;
+            imgElement.className = 'img-item';
+
+            imgElement.addEventListener('dragstart', handleDragStart);
+            imgElement.addEventListener('dragend', handleDragEnd);
+
+            itemsSection.appendChild(imgElement);
+            return imgElement;
+        }
+
+        imageInput.addEventListener('change', (event) => {
+            const { files } = event.target;  // Captura los archivos
+
+            if (files && files.length > 0) {
+                Array.from(files).forEach(file => {
+                    const fileReader = new FileReader();
+                    fileReader.onload = (eventReader) => createItem(eventReader.target.result) // Carga los archivos para poder leerlos
+                    fileReader.readAsDataURL(file)
+                });
+            }
+        })
+
+        let draggedElement = null;
+        let sourceContainer = null;
+
+        const rows = $$('.drag-tier__list div');
+
+        rows.forEach(row => {
+            row.addEventListener('drop', handleDrop);
+            row.addEventListener('dragover', handleDragOver);
+            row.addEventListener('dragleave', handleDragLeave);
+        })
+        
+        itemsSection.addEventListener('drop', handleDrop);
+        itemsSection.addEventListener('dragover', handleDragOver);
+        itemsSection.addEventListener('dragleave', handleDragLeave);
+        
+
+        function handleDrop(event) {
+            event.preventDefault();
+            const { currentTarget, dataTransfer } = event;
+
+            if (sourceContainer && draggedElement)
+                sourceContainer.removeChild(draggedElement)
+
+            if (draggedElement) {
+                const src = dataTransfer.getData('text/plain');
+                const imgElement = createItem(src)
+                currentTarget.appendChild(imgElement)
+            }
+            currentTarget.classList.remove('drag-over');
+            currentTarget.querySelector('.drag-preview')?.remove();
+        }
+
+        function handleDragOver(event) {
+            event.preventDefault();
+            const { currentTarget } = event;
+            if (sourceContainer === currentTarget) return;
+            currentTarget.classList.add('drag-over');
+
+            const dragPreview = this.querySelector('.drag-preview');
+            
+            if (draggedElement && !dragPreview) {
+                const previewElement = draggedElement.cloneNode(true);
+                previewElement.classList.add('drag-preview');
+                currentTarget.appendChild(previewElement);
+            }
+        }
+
+        function handleDragLeave(event) {
+            event.preventDefault();
+            const { currentTarget } = event;
+            currentTarget.classList.remove('drag-over');
+            currentTarget.querySelector('.drag-preview')?.remove();
+        }
+
+        function handleDragStart(event) {
+            draggedElement = event.target;
+            sourceContainer = draggedElement.parentNode
+            event.dataTransfer.setData('text/plain', draggedElement.src)
+        }
+
+        function handleDragEnd(event) {
+            draggedElement = null;
+            sourceContainer = null;
+        }
+
+        // 01:16:00 Método para arrastrar elementos desde el explorador de archivos del S.O y soltarlos en la página
 
     }
 
