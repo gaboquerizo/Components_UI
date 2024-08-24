@@ -478,7 +478,7 @@ class DraggableUI extends WEBComponent {
     }
 
     draggingTierList() {
-        const $ = element => this.shadowRoot.querySelector(element);
+        const $ = element => this.shadowRoot.querySelector(element);    // Utilidad llamada "miduquery"
 
     }
 
