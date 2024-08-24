@@ -378,7 +378,9 @@ class DraggableUI extends WEBComponent {
                     </div>
 
                     <section>
-
+                        <div>
+                            Contenedor
+                        </div>
                     </section>
                     
                 </article>
