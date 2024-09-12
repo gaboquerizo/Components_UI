@@ -86,8 +86,7 @@ class ComponentListMenu extends WEBComponent {
             ANCHOR.forEach((element) => {
                 element.classList.remove('active');     /* Recorre todos los elementos y elimina una clase CSS */
             })
-        }
-        
+        }        
 
         ANCHOR.forEach((element) => {
             
@@ -95,6 +94,17 @@ class ComponentListMenu extends WEBComponent {
                 let elementName = element.name;
                 let scripts = Array.from(document.head.querySelectorAll('script'));
                 let script = document.createElement('script');
+
+                /* Coloca el nombre del componente como ruta URL en el navegador */
+                // nav(elementName);
+                // window.addEventListener('popstate', (e) => {
+                //     nav(e.state.route, false);
+                // });
+                // function nav(route, addToHistory = true) {
+                //     if (addToHistory) {
+                //         history.pushState({route}, null, route)
+                //     }
+                // }
                 
                 removeClass();
                 element.classList.add('active'); /* Después de eliminar, la misma es agregada solo al elemento con click */
