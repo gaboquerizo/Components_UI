@@ -26,18 +26,13 @@ class Router {
 
         const routing = new NavMenu;
         // const path = window.location.pathname.slice(0, -1);
-        const path = '/Components_ui'
-        const routePath = path + route;
-
-        // console.log(routePath);
 
         if (addToHistory) {
             // console.log(route);
-
-            history.pushState({routePath}, null, route)
+            history.pushState({route}, null, route)
         }
         
-        routing.importComponent(path, route);
+        routing.importComponent(route);
     }
 };
 

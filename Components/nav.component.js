@@ -54,7 +54,7 @@ export class NavMenu extends HTMLElement {
     initComponent(){
     }
 
-    importComponent(path, route) {
+    importComponent(route) {
         
         const $RenderArea = document.querySelector('[data-render-area]');
         
@@ -64,9 +64,7 @@ export class NavMenu extends HTMLElement {
         script.defer = true;
         script.type = 'module';
 
-        const pathIndex = path + '/';   // > '/Components_ui/'
-
-        if(route === pathIndex) {
+        if(route === '/') {
 
             script.src = `../Components/app.component.js`;
             $RenderArea.innerHTML = `<app-index></app-index>`;
