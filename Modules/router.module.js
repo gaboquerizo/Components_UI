@@ -29,15 +29,15 @@ class Router {
         const path = '/Components_ui'
         const routePath = path + route;
 
-        console.log(routePath);
+        // console.log(routePath);
 
         if (addToHistory) {
             // console.log(route);
 
-            history.pushState({route}, null, route)
+            history.pushState({routePath}, null, route)
         }
         
-        routing.importComponent(route);
+        routing.importComponent(path, route);
     }
 };
 
