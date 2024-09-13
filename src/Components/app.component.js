@@ -22,7 +22,7 @@ export class App extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>👋 Bienvenido —app.component.js—</h1>
+            <h1>Página de Inicio —app.component.js—</h1>
         `;
     }
 
