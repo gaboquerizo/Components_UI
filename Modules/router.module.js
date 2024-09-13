@@ -25,13 +25,15 @@ class Router {
     nav(route, addToHistory = true) {
 
         const routing = new NavMenu;
-        const path = window.location.pathname;
-        
-        console.log(`${path, route}`)
+        const path = window.location.pathname.slice(0, -1);
+        const routePath = path + route;
+
+        console.log(routePath);
 
         if (addToHistory) {
             // console.log(route);
-            history.pushState({path, route}, null, route)
+
+            history.pushState({route}, null, route)
         }
         
         routing.importComponent(route);
