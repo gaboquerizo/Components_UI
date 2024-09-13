@@ -56,7 +56,7 @@ export class NavMenu extends HTMLElement {
 
     importComponent(route) {
         
-        const entry = document.querySelector('[data-render-area]');
+        const $RenderArea = document.querySelector('[data-render-area]');
         
         let scripts = Array.from(document.head.querySelectorAll('script'));
         
@@ -67,13 +67,13 @@ export class NavMenu extends HTMLElement {
         if(route === '/') {
 
             script.src = `../Components/app.component.js`;
-            entry.innerHTML = `<app-index></app-index>`;
+            $RenderArea.innerHTML = `<app-index></app-index>`;
             
         } else {
             
             script.src = `../Pages${route}/View${route}.view.js`;
             let tagComponent = route.toString().replace('/','');
-            entry.innerHTML = `<${tagComponent}-view></${tagComponent}-view>`;
+            $RenderArea.innerHTML = `<${tagComponent}-view></${tagComponent}-view>`;
 
         }
         
