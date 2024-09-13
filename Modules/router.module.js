@@ -25,10 +25,11 @@ class Router {
     nav(route, addToHistory = true) {
 
         const routing = new NavMenu;
+        const origen = location.pathname;
 
         if (addToHistory) {
             // console.log(route);
-            history.pushState({route}, null, route)
+            history.pushState({origen, route}, null, route)
         }
         
         routing.importComponent(route);
