@@ -25,7 +25,8 @@ class Router {
     nav(route, addToHistory = true) {
 
         const routing = new NavMenu;
-        const path = window.location.pathname.slice(0, -1);
+        // const path = window.location.pathname.slice(0, -1);
+        const path = '/Components_ui'
         const routePath = path + route;
 
         console.log(routePath);
