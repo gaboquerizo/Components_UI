@@ -25,7 +25,7 @@ class Router {
     nav(route, addToHistory = true) {
 
         const routing = new NavMenu;
-        const path = window.pathname;
+        const path = window.location.pathname;
         
         console.log(`${path, route}`)
 
