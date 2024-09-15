@@ -80,11 +80,9 @@
 
     --edge-color: #b3bdd9;
 
-    --bkg-color-1: #FFF;
-    --bkg-color-2: #ECF4FF;
-    --bkg-color-3: #E9Efff;
-    --bkg-color-4: #e8ebf4;
-    --bkg-color-5: #BCDA;
+    --hover-bkg-color: #ECF4FF;
+    --active-bkg-color: #E9Efff;
+    --inactive-bkg-color: #989ea3;
 
     --shd-color-1: #BCDA;
     --shd-color-2: #B5D7FC;
@@ -98,19 +96,17 @@
     /*30%*/ --secondary-color: #171a1f;
     /*10%*/ --accent-color: #09f;
 
-    --txt-color-1: #fff;
+    --txt-color-1: #FFF;
     --txt-color-2: #DEF;
     --txt-color-3: #CDE;
 
     --edge-color: #353944;
 
-    --bkg-color-1: #080a0e;
-    --bkg-color-2: #1f232b;
-    --bkg-color-3: #161b24;
-    --bkg-color-4: #1f232b;
-    --bkg-color-5: #363a45;
+    --hover-bkg-color: #1f232b;
+    --active-bkg-color: #161b24;
+    --inactive-bkg-color: #363a45;
     
-    --shd-color-1: #07080f;
+    --shd-color-1: #080a0e;
     --shd-color-2: #193b61;
     --shd-color-3: #06C;
 }
@@ -139,7 +135,6 @@ svg {
     width: var(--size-8);
     color: var(--txt-color-3);
     fill: var(--txt-color-3);
-    transition: all var(--trans-1);
     border-radius: var(--radius-1);
     
     &:hover{
@@ -150,8 +145,6 @@ svg {
 
 a {
     color: var(--txt-color-1);
-    transition-property: color;
-    transition: var(--trans-3);
 }
 
 header {
@@ -165,11 +158,13 @@ header
 [data-nav-menu] {
     width: var(--sidebar-width);
     padding: var(--space-100);
-    border-right: var(--solid-1) var(--secondary-color);
+    border-right: var(--solid-1) var(--edge-color);
     height: 100vh;
     position: fixed;
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
     opacity: 1;
     z-index: 3;
     transition-property: width, padding, opacity;
@@ -250,9 +245,39 @@ header
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    margin: var(--space-100) var(--space-400);
-    padding-inline: var(--space-100);
+    padding: var(--space-100);
+}
+
+[data-render-area] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-inline: var(--space-400);
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--txt-color-3);
+    p {
+        margin-left: var(--space-150)
+    }
+}
+
+.gb-icon__link {
+    display: flex;
+    align-items: center;
+    color: var(--txt-color-3);
+    &:hover {
+        &, svg {
+            color: var(--accent-color);
+            fill: var(--accent-color);
+        }
+    }
 }
 
 /*—————————— Responsive Web Design ——————————*/
@@ -287,8 +312,8 @@ main {
         width: 100%;
         margin: var(--space-100) var(--space-200);
         padding-inline: var(--space-050);
-        border-left: var(--solid-1) var(--bkg-color-1);
-        border-right: var(--solid-1) var(--bkg-color-1);
+        border-left: var(--solid-1) var(--edge-color);
+        border-right: var(--solid-1) var(--edge-color);
     }
 
 }

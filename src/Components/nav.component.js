@@ -8,8 +8,8 @@ export class NavMenu extends HTMLElement {
     }
 
     connectedCallback() {
-        this.renderComponent()
-        this.initComponent()
+        this.renderComponent();
+        this.initComponent();
     }
 
     renderComponent() {
@@ -22,6 +22,9 @@ export class NavMenu extends HTMLElement {
     templateHTML(){
         return /*HTML*/ `
             <nav data-nav-pages>
+                <h2>
+                    UI Components
+                </h2>
                 <a href="/">Inicio</a>
                 <a href="/accordions">Accordions</a>
                 <a href="/buttons">Buttons</a>
@@ -37,21 +40,59 @@ export class NavMenu extends HTMLElement {
 
     templateCSS(){
         return /*CSS*/ `
-            nav[data-nav-pages] {
-                a {
-                    text-decoration: none;
-                    color: default;
-                    &:hover{
-                        text-decoration: underline;
-                    }
-                }
+            h2 {
+                margin-block: var(--space-050);
+                font-weight: 200;
+                font-size: 24px;
+                white-space: nowrap;
+                color: var(--txt-color-1);
+            }
+            
+            [data-nav-pages] {
                 display: flex;
                 flex-direction: column;
+                gap: var(--space-050);
+                max-height: 100vh;
+
+                a {
+                    padding: var(--space-050);
+                    border-radius: var(--radius-2);
+                    text-decoration: none;
+                    transition: all 0s;
+                    &:hover{
+                        text-decoration: underline;
+                        color: var(--accent-color);
+                        background-color: var(--hover-bkg-color);
+                    }
+                }
+            }
+
+            .active-view {
+                color: var(--accent-color);
+                background-color: var(--active-bkg-color);
             }
         `;
     }
 
     initComponent(){
+
+        const $Links = document.querySelectorAll('[data-nav-pages] a');  /* Reemplacé el 'document' por 'this.shadowRoot' */
+
+        function removeClass() {
+            $Links.forEach((element) => {
+                element.classList.remove('active-view');     /* Recorre todos los elementos y elimina una clase CSS */
+            })
+        }
+
+        $Links.forEach((element) => {
+            
+            element.addEventListener('click', (e) => {
+
+                removeClass();
+                element.classList.add('active-view');
+                
+            })
+        });
     }
 
     importComponent(route) {
