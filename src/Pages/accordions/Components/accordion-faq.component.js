@@ -55,11 +55,16 @@ class AccordionFAQ extends HTMLElement {
             </details>
         </section>
         <menu>
-            <label>
-                <input type="checkbox">
-                <span class="switch"></span>
-                <span>Abrir solo uno</span>
-            </label>
+            <div>
+                <label>
+                    <input type="checkbox">
+                    <span class="switch"></span>
+                    <span>Abrir solo uno</span>
+                </label>
+            </div>
+            <div>
+                <!-- Button -->
+            </div>
         </menu>
 
         `;
@@ -69,26 +74,33 @@ class AccordionFAQ extends HTMLElement {
         return /*CSS*/`
 
         h2 {
-            border-top: solid 1px var(--back-color);
-            padding-top: 1em;
-            + section {
-                margin-top: 2em;
-            }
+            margin-block: var(--space-200);
         }
         
         .accordion-faq details {
-            margin: 4px 0;
+            background-color: var(--secondary-color);
+            margin-block: var(--space-100);
+            border: var(--solid-1) var(--edge-color);
+            border-radius: var(--radius-2);
+            box-shadow: var(--shadow-1);
             cursor: pointer;
+        }
+
+        .accordion-faq summary:hover {
+            background-color: var(--bkg-color-2);
         }
         
         .accordion-faq details[open] {
+            box-shadow: none;
             summary {
-                border-radius: .5em .5em 0 0;
+                color: var(--accent-color);
+                background-color: var(--bkg-color-3);
+                border-radius: var(--radius-2) var(--radius-2) 0 0;
             }
             div {
-                padding: 1em 1.5em;
-                border: solid 2px var(--back-color);
-                border-radius: 0 0 .5em .5em;
+                padding: var(--space-100) var(--space-150);
+                border-top: var(--solid-1) var(--edge-color);
+                border-radius: 0 0 var(--radius-2) var(--radius-2);
                 cursor: default;
             }
         }
@@ -96,12 +108,8 @@ class AccordionFAQ extends HTMLElement {
         .accordion-faq summary {
             position: relative;
             list-style: none;
-            padding: 1em 1.5em;
-            border-radius: .5em;
-            background-color: var(--back-color);
-            &:hover {
-                color: var(--text-color-II);
-            }
+            padding: var(--space-100) var(--space-150);
+            border-radius: var(--radius-2);
         }
 
         .accordion-faq summary::after {
@@ -109,8 +117,8 @@ class AccordionFAQ extends HTMLElement {
             position: absolute;
             width: max-content;
             top: 20%;
-            right: 1em;
-            font-size: 1.5em;
+            right: var(--space-100);
+            font-size: var(--size-4);
         }
 
         .accordion-faq details[open] summary::after {
@@ -119,54 +127,60 @@ class AccordionFAQ extends HTMLElement {
         
         .accordion-faq + menu {
             display: inline-block;
-            padding: 4px 8px;
+            padding: 0;
             
             label {
                 width: fit-content;
                 display: flex;
+                align-items: center;
                 cursor: pointer;
                 &:hover {
-                    color: var(--text-color-II);
+                    color: var(--accent-color);
                 }
             }
         }
 
         .switch {
-            background-color: #fff4;
+            background-color: var(--secondary-color);
             border-radius: 1em;
-            padding: 1px;
-            margin-right: .6em;
+            padding: 8px;
+            margin-right: 8px;
             cursor: pointer;
-            transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
             align-items: center;
             position: relative;
             display: inline-block;
-            width: 2em;
-            height: calc(1em + 2px);
-            box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 5px inset, rgba(0, 0, 0, 0.3) 0px 0px 0px 24px inset,
-                    var(--text-color-II) 0px 0px 0px 0px inset;
+            min-width: 36px;
+            height: 14px;
+            outline: var(--solid-1) var(--edge-color);
+            box-shadow: var(--shadow-1);
+            &:hover {
+                background-color: var(--bkg-color-2);
+            }
         }
         
         .switch::after {
             content: "";
             display: flex;
-            inset: 2px;
-            width: 1em;
-            height: 1em;
-            background-color: #eee;
+            inset: 3px;
+            width: 24px;
+            height: 24px;
+            background-color: var(--bkg-color-5);
             border-radius: 1em;
             position: absolute;
-            box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
             transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
             will-change: left, background-color;
         }
         
         menu label input[type="checkbox"]:checked + .switch {
-            box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 5px inset, var(--text-color-II) 0px 0px 0px 2px inset, var(--text-color-II) 0px 0px 0px 24px inset;
+            box-shadow: #0009 0px 0px 5px inset, var(--accent-color); 0px 0px 0px 2px inset, var(--accent-color) 0px 0px 0px 24px inset;
+            background-color: var(--accent-color);
+            &::after {
+                background-color: #FFF;
+            }
         }
         
         menu label input[type="checkbox"]:checked + .switch::after {
-            left: 1em;
+            left: 25px;
         }
         
         menu label input[type="checkbox"] {

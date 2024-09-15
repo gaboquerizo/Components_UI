@@ -39,8 +39,8 @@
     --space-400: 4.00em;
     --space-500: 5.00em;
     /*——————————— Border ———————————*/
-    --line-1: 2px;
-    --line-2: 4px;
+    --line-1: 1px;
+    --line-2: 2px;
     --line-3: 6px;
     --solid-1: solid var(--line-1);
     --solid-2: solid var(--line-2);
@@ -53,7 +53,7 @@
     --trans-2: .3s ease-in;
     --trans-3: .6s ease-in-out;
     --shadow-1: 0px 2px 4px var(--shd-color-1);
-    --shadow-2: 0px 0px 14px var(--shd-color-1);
+    --shadow-2: 0px 0px 18px var(--shd-color-1);
     /*——— Filter, Backdrop-Filter ———*/
     --eff-blur: blur(6px);
     --eff-light: brightness(1.2);
@@ -62,25 +62,29 @@
     --sidebar-width: 12em;
     
     --body-bg-color: radial-gradient(80% 70% at 30% 20%, #0f2030 0%, #000A1A 100%) no-repeat fixed;
+    --body-bg-color: radial-gradient(80% 70% at 30% 20%, #fff 0%, #cde 100%) no-repeat fixed;
     --color-body: linear-gradient(90deg, #b8cee3 0%, #d9e2ec 50%, #b8cee3 100%);
     --color-grad: linear-gradient(to bottom, #12c2d5, #1c6fff);
-    --body-bg-color: radial-gradient(80% 70% at 30% 20%, #fff 0%, #cde 100%) no-repeat fixed;
 }
 
 :root[data-theme="light"] {
 
     /*——————————— Colors ———————————*/
     /*60%*/ --primary-color: #F3F4F5;
-    /*30%*/ --secondary-color: #E4E8EC;
+    /*30%*/ --secondary-color: #FFF;
     /*10%*/ --accent-color: #07f;
 
     --txt-color-1: #123;
     --txt-color-2: #456;
     --txt-color-3: #789;
 
-    --bkg-color-1: #fff;
-    --bkg-color-2: #DEF;
-    --bkg-color-3: #CDE;
+    --edge-color: #b3bdd9;
+
+    --bkg-color-1: #FFF;
+    --bkg-color-2: #ECF4FF;
+    --bkg-color-3: #E9Efff;
+    --bkg-color-4: #e8ebf4;
+    --bkg-color-5: #BCDA;
 
     --shd-color-1: #BCDA;
     --shd-color-2: #B5D7FC;
@@ -90,19 +94,23 @@
 :root[data-theme="dark"] {
 
     /*——————————— Colors ———————————*/
-    /*60%*/ --primary-color: #20262C;
-    /*30%*/ --secondary-color: #2A2F34;
-    /*10%*/ --accent-color: #07f;
+    /*60%*/ --primary-color: #0f1015;
+    /*30%*/ --secondary-color: #171a1f;
+    /*10%*/ --accent-color: #09f;
 
     --txt-color-1: #fff;
     --txt-color-2: #DEF;
     --txt-color-3: #CDE;
 
-    --bkg-color-1: #234;
-    --bkg-color-2: #345;
-    --bkg-color-3: #456;
+    --edge-color: #353944;
+
+    --bkg-color-1: #080a0e;
+    --bkg-color-2: #1f232b;
+    --bkg-color-3: #161b24;
+    --bkg-color-4: #1f232b;
+    --bkg-color-5: #363a45;
     
-    --shd-color-1: #123A;
+    --shd-color-1: #07080f;
     --shd-color-2: #193b61;
     --shd-color-3: #06C;
 }
@@ -113,16 +121,16 @@ body {
     font-family: var(--exo-typeface);
     font-size: 18px;
     color: var(--txt-color-1);
-    
+
     position: relative;
     scroll-behavior: smooth;
-    
+
     display: flex;
     flex-direction: row;
     min-height: 100vh;
 
-    transition-property: background-color, color;
-    transition: var(--trans-3);
+    /* transition-property: background-color, color;
+    transition: var(--trans-3); */
 }
 
 svg {
@@ -140,10 +148,10 @@ svg {
     }
 }
 
-
-
 a {
     color: var(--txt-color-1);
+    transition-property: color;
+    transition: var(--trans-3);
 }
 
 header {
@@ -157,7 +165,6 @@ header
 [data-nav-menu] {
     width: var(--sidebar-width);
     padding: var(--space-100);
-    background-color: var(--primary-color);
     border-right: var(--solid-1) var(--secondary-color);
     height: 100vh;
     position: fixed;
@@ -258,6 +265,10 @@ main {
 
     main {
         padding-inline: var(--space-050);
+    }
+
+    [data-nav-menu] {
+        background-color: var(--primary-color);
     }
     
     footer {
