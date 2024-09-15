@@ -1,6 +1,5 @@
 import { NavMenu } from "../Components/nav.component.js";
 
-
 class Router {
 
     init() {

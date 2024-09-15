@@ -37,6 +37,7 @@
     --space-250: 2.25em;
     --space-300: 3.00em;
     --space-400: 4.00em;
+    --space-500: 5.00em;
     /*——————————— Border ———————————*/
     --line-1: 2px;
     --line-2: 4px;
@@ -69,8 +70,8 @@
 :root[data-theme="light"] {
 
     /*——————————— Colors ———————————*/
-    /*60%*/ --primary-color: #E4E8EC;
-    /*30%*/ --secondary-color: #F3F4F5;
+    /*60%*/ --primary-color: #F3F4F5;
+    /*30%*/ --secondary-color: #E4E8EC;
     /*10%*/ --accent-color: #07f;
 
     --txt-color-1: #123;
@@ -107,10 +108,11 @@
 }
 
 body {
+    width: 100%;
+    background-color: var(--primary-color);
     font-family: var(--exo-typeface);
     font-size: 18px;
     color: var(--txt-color-1);
-    width: 100%;
     
     position: relative;
     scroll-behavior: smooth;
@@ -118,36 +120,53 @@ body {
     display: flex;
     flex-direction: row;
     min-height: 100vh;
+
+    transition-property: background-color, color;
+    transition: var(--trans-3);
 }
 
 svg {
-    width: var(--size-6);
+    display: flex;
+    padding: var(--space-025);
+    width: var(--size-8);
     color: var(--txt-color-3);
     fill: var(--txt-color-3);
     transition: all var(--trans-1);
+    border-radius: var(--radius-1);
+    
     &:hover{
         color: var(--accent-color);
         fill: var(--accent-color);
     }
 }
 
+
+
+a {
+    color: var(--txt-color-1);
+}
+
 header {
     display: inline-block;
     min-width: var(--sidebar-width);
-    transition: all var(--trans-3);
+    transition-property: width;
+    transition: var(--trans-3);
 }
 
 header
 [data-nav-menu] {
     width: var(--sidebar-width);
-    padding: 1em 2em;
+    padding: var(--space-100);
+    background-color: var(--primary-color);
+    border-right: var(--solid-1) var(--secondary-color);
     height: 100vh;
     position: fixed;
     overflow-y: hidden;
     overflow-x: hidden;
     opacity: 1;
     z-index: 3;
-    transition: all var(--trans-3);
+    transition-property: width, padding, opacity;
+    transition: var(--trans-3);
 }
 
 header
@@ -157,7 +176,8 @@ header
     left: var(--sidebar-width);
     top: 0;
     z-index: 1;
-    transition: left var(--trans-3);
+    transition-property: left;
+    transition: var(--trans-3);
 }
 
 header:has(:checked) {
@@ -202,6 +222,7 @@ header
     position: absolute;
     padding: var(--space-100);
     right: 0;
+    top: 0;
 }
 
 [data-theme-toggle] {
@@ -223,14 +244,40 @@ header
 
 main {
     width: 100%;
+    margin: var(--space-100) var(--space-400);
+    padding-inline: var(--space-100);
 }
 
 /*—————————— Responsive Web Design ——————————*/
 
+@media (max-width: 900px) {
+
+    header  {
+        position: absolute;
+    }
+
+    main {
+        padding-inline: var(--space-050);
+    }
+    
+    footer {
+        font-size: .8em;
+    }
+    
+}
+
 @media (max-width: 300px) {
     
-    [data-nav-menu], [data-theme-toggle] {
+    header [data-nav-toggle], [data-theme-toggle] {
         padding: var(--space-025);
+    }
+    
+    main {
+        width: 100%;
+        margin: var(--space-100) var(--space-200);
+        padding-inline: var(--space-050);
+        border-left: var(--solid-1) var(--bkg-color-1);
+        border-right: var(--solid-1) var(--bkg-color-1);
     }
 
 }
