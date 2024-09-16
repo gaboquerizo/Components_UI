@@ -16,7 +16,7 @@
 
 :root{
     /*—————————— Typography ——————————*/
-    --exo-typeface: 'Exo 2', system-ui, -apple-system, sans-serif;
+    --exo-typeface: system-ui, -apple-system, sans-serif;
     /*——————————— Sizes ———————————*/
     --size-1: 16px;
     --size-2: 20px;
@@ -49,11 +49,12 @@
     --radius-2: 8px;
     --radius-3: 16px;
     /*——————————— Effects ———————————*/
-    --trans-1: .2s ease;
-    --trans-2: .3s ease-in;
-    --trans-3: .6s ease-in-out;
+    --trans-1: .1s ease;
+    --trans-2: .2s ease;
+    --trans-3: .4s ease;
     --shadow-1: 0px 2px 4px var(--shd-color-1);
     --shadow-2: 0px 0px 18px var(--shd-color-1);
+    --shadow-3: 2px 0px 36px var(--shd-color-1);
     /*——— Filter, Backdrop-Filter ———*/
     --eff-blur: blur(6px);
     --eff-light: brightness(1.2);
@@ -72,7 +73,7 @@
     /*——————————— Colors ———————————*/
     /*60%*/ --primary-color: #F3F4F5;
     /*30%*/ --secondary-color: #FFF;
-    /*10%*/ --accent-color: #07f;
+    /*10%*/ --accent-color: #16E;
 
     --txt-color-1: #123;
     --txt-color-2: #456;
@@ -83,7 +84,7 @@
 
     --hover-bkg-color: #ECF4FF;
     --active-bkg-color: #E9Efff;
-    --inactive-bkg-color: #989ea3;
+    --inactive-bkg-color: #c6ccdc;
 
     --shd-color-1: #BCDA;
     --shd-color-2: #B5D7FC;
@@ -95,7 +96,7 @@
     /*——————————— Colors ———————————*/
     /*60%*/ --primary-color: #0f1015;
     /*30%*/ --secondary-color: #171a1f;
-    /*10%*/ --accent-color: #09f;
+    /*10%*/ --accent-color: #39F;
 
     --txt-color-1: #FFF;
     --txt-color-2: #DEF;
@@ -106,7 +107,7 @@
 
     --hover-bkg-color: #1f232b;
     --active-bkg-color: #161b24;
-    --inactive-bkg-color: #363a45;
+    --inactive-bkg-color: #2e3038;
     
     --shd-color-1: #080a0e;
     --shd-color-2: #193b61;
@@ -117,7 +118,7 @@ body {
     width: 100%;
     background-color: var(--primary-color);
     font-family: var(--exo-typeface);
-    font-size: 18px;
+    font-size: var(--size-1);
     color: var(--txt-color-1);
 
     position: relative;
@@ -127,8 +128,8 @@ body {
     flex-direction: row;
     min-height: 100vh;
 
-    /* transition-property: background-color, color;
-    transition: var(--trans-3); */
+    transition-property: background-color, color;
+    transition: var(--trans-3);
 }
 
 svg {
@@ -158,6 +159,8 @@ header {
 
 header
 [data-nav-menu] {
+    display: flex;
+    flex-direction: column;
     width: var(--sidebar-width);
     padding: var(--space-100);
     border-right: var(--solid-1) var(--edge-color-2);
@@ -171,6 +174,18 @@ header
     z-index: 3;
     transition-property: width, padding, opacity;
     transition: var(--trans-3);
+}
+
+header
+[data-nav-menu] > div {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin: 0 0 var(--space-150) var(--space-075);
+    
+    svg {
+        width: var(--size-6);
+    }
 }
 
 header
@@ -264,16 +279,21 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-inline: var(--space-150);
     p {
         color: var(--txt-color-2);
-        margin-left: var(--space-150)
     }
 }
+
+
 
 .gb-icon__link {
     display: flex;
     align-items: center;
     color: var(--txt-color-2);
+    svg {
+        width: var(--size-4);
+    }
     &:hover {
         &, svg {
             color: var(--accent-color);
@@ -290,12 +310,9 @@ footer {
         position: absolute;
     }
 
-    main {
-        padding-inline: var(--space-050);
-    }
-
     [data-nav-menu] {
-        background-color: var(--primary-color);
+        background-color: var(--secondary-color);
+        box-shadow: var(--shadow-3);
     }
     
     footer {
@@ -319,8 +336,8 @@ footer {
         padding: var(--space-025);
     }
 
-    footer p {
-        margin-left: var(--space-050)
+    footer {
+        margin-inline: var(--space-050)
     }
 
 }

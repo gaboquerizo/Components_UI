@@ -21,33 +21,23 @@ export class NavMenu extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/ `
-            <nav data-nav-pages>
-                <h2>
-                    UI Components
-                </h2>
-                <a href="/">Inicio</a>
-                <a href="/accordions">Accordions</a>
-                <a href="/buttons">Buttons</a>
-                <a href="/cards">Cards</a>
-                <a href="/counters">Counters</a>
-                <a href="/drag-and-drop">Draggeable</a>
-                <a href="/footers">Footers</a>
-                <a href="/"></a>
-                
-            </nav>
+
+        <nav data-nav-pages>
+            <a href="/" class="active-view">Home</a>
+            <a href="/accordions">Accordions</a>
+            <a href="/buttons">Buttons</a>
+            <a href="/cards">Cards</a>
+            <a href="/counters">Counters</a>
+            <a href="/drag-and-drop">Draggeable</a>
+            <a href="/footers">Footers</a>
+            <a href="/"></a>
+        </nav>
+
         `;
     }
 
     templateCSS(){
         return /*CSS*/ `
-        
-        h2 {
-            margin-block: var(--space-050);
-            font-weight: 400;
-            font-size: var(--size-3);
-            white-space: nowrap;
-            color: var(--txt-color-2);
-        }
         
         [data-nav-pages] {
             display: flex;
@@ -56,7 +46,7 @@ export class NavMenu extends HTMLElement {
             max-height: 100vh;
 
             a {
-                padding: var(--space-050);
+                padding: var(--space-050) var(--space-100);
                 border-radius: var(--radius-2);
                 text-decoration: none;
                 transition: all 0s;
@@ -71,12 +61,6 @@ export class NavMenu extends HTMLElement {
         .active-view {
             color: var(--accent-color);
             background-color: var(--active-bkg-color);
-        }
-
-        @media (max-width: 600px) {
-            h2 {
-                font-size: var(--size-2);
-            }
         }
 
         `;

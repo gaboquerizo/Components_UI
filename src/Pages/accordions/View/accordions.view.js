@@ -42,6 +42,7 @@ export class AccordionView extends HTMLElement {
 
         h1 {
             font-weight: 400;
+            font-size: var(--size-6);
             color: var(--txt-color-1);
         }
 
@@ -54,12 +55,22 @@ export class AccordionView extends HTMLElement {
 
             h1 {
                 text-align: center;
-                font-size: var(--size-3);
+                font-size: var(--size-4);
             }
 
             accordion-faq-component, accordion-gallery-component {
                 margin-block: var(--space-075);
-                margin-bottom: var(--space-200);
+                margin-bottom: var(--space-100);
+            }
+
+        }
+
+        
+        @media (max-width: 400px) {
+            
+            h1 {
+                text-align: center;
+                font-size: var(--size-2);
             }
 
         }

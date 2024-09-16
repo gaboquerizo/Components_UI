@@ -29,9 +29,13 @@ export class App extends HTMLElement {
     templateCSS(){
         return /*CSS*/`
 
+        :host() {
+            --txt-color-1: teal;
+        }
+
         h1 {
-            font-size: var(--size-6);
             font-weight: 400;
+            font-size: var(--size-6);
             color: var(--txt-color-1);
         }
         
@@ -41,14 +45,14 @@ export class App extends HTMLElement {
                 text-align: center;
                 font-size: var(--size-4);
             }
-
+            
         }
-
+        
         @media (max-width: 400px) {
-
+            
             h1 {
                 text-align: center;
-                font-size: var(--size-3);
+                font-size: var(--size-2);
             }
 
         }

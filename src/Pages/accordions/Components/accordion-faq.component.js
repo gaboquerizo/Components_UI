@@ -85,10 +85,15 @@ class AccordionFAQ extends HTMLElement {
             padding-block: var(--space-100);
             border-top: var(--solid-1) var(--edge-color-2);
         }
+
+        .accordion-faq {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-100);
+        }
         
         .accordion-faq details {
             background-color: var(--secondary-color);
-            margin-block: var(--space-100);
             border: var(--solid-1) var(--edge-color);
             border-radius: var(--radius-2);
             box-shadow: var(--shadow-1);
@@ -107,6 +112,7 @@ class AccordionFAQ extends HTMLElement {
                 border-radius: var(--radius-2) var(--radius-2) 0 0;
             }
             div {
+                color: var(--txt-color-2);
                 padding: var(--space-100) var(--space-150);
                 border-top: var(--solid-1) var(--edge-color);
                 border-radius: 0 0 var(--radius-2) var(--radius-2);
@@ -115,19 +121,20 @@ class AccordionFAQ extends HTMLElement {
         }
         
         .accordion-faq summary {
-            position: relative;
             list-style: none;
+            position: relative;
             padding: var(--space-100) var(--space-150);
+            padding-right: var(--space-250);
             border-radius: var(--radius-2);
         }
 
         .accordion-faq summary::after {
             content: "+";
             position: absolute;
-            width: max-content;
-            top: 20%;
-            right: var(--space-100);
-            font-size: var(--size-4);
+            top: 0;
+            right: 0;
+            transform: translate(-18px, 50%);
+            font-size: var(--size-2);
         }
 
         .accordion-faq details[open] summary::after {
@@ -136,7 +143,6 @@ class AccordionFAQ extends HTMLElement {
         
         .accordion-faq + menu {
             display: inline-block;
-            padding: 0;
             
             label {
                 width: fit-content;
@@ -159,8 +165,8 @@ class AccordionFAQ extends HTMLElement {
             align-items: center;
             position: relative;
             display: inline-block;
-            min-width: 36px;
-            height: 14px;
+            min-width: var(--size-3);
+            height: 8.5px;
             outline: var(--solid-1) var(--edge-color);
             box-shadow: var(--shadow-1);
             &:hover {
@@ -171,9 +177,9 @@ class AccordionFAQ extends HTMLElement {
         .switch::after {
             content: "";
             display: flex;
-            inset: 3px;
-            width: 24px;
-            height: 24px;
+            inset: 2px;
+            width: 20px;
+            height: 20px;
             position: absolute;
             border-radius: 1em;
             background-color: var(--inactive-bkg-color);
@@ -181,27 +187,58 @@ class AccordionFAQ extends HTMLElement {
             will-change: left, background-color;
         }
 
-        menu {
+        menu label{
             margin-block: var(--space-100);
-        }
-        
-        menu label input[type="checkbox"]:checked + .switch {
-            box-shadow: #0009 0px 0px 5px inset, var(--accent-color); 0px 0px 0px 2px inset, var(--accent-color) 0px 0px 0px 24px inset;
-            background-color: var(--accent-color);
-            &::after {
-                background-color: #FFF;
-            }
-        }
-        
-        menu label input[type="checkbox"]:checked + .switch::after {
-            left: 25px;
         }
         
         menu label input[type="checkbox"] {
             display: none;
+
+            &:checked + .switch {
+                box-shadow: #0009 0px 0px 5px inset, var(--accent-color); 0px 0px 0px 2px inset, var(--accent-color) 0px 0px 0px 24px inset;
+                background-color: var(--accent-color);
+    
+                &::after {
+                    left: 18px;
+                    background-color: #FFF;
+                }
+            }
+        }
+        
+        
+
+        @media (max-width: 600px) {
+
+            h2 {
+                text-align: center;
+                font-size: var(--size-3);
+            }
+
+
         }
 
         
+        @media (max-width: 400px) {
+            
+            h2 {
+                text-align: center;
+                font-size: var(--size-2);
+            }
+
+            .accordion-faq {
+                gap: var(--space-075);
+                font-size: 14px;
+            }
+
+            .accordion-faq summary {
+                padding: var(--space-050) var(--space-100);
+                padding-right: var(--space-250);
+            }
+
+            .accordion-faq details[open] div {
+                padding: var(--space-050) var(--space-100);
+            }
+        }
 
         `;
     }
