@@ -66,7 +66,7 @@ class AccordionGallery extends HTMLElement {
         }
 
         h2 {
-            font-weight: 200;
+            font-weight: 400;
             color: var(--txt-color-2);
             padding-block: var(--space-100);
             border-top: var(--solid-1) var(--edge-color-2);

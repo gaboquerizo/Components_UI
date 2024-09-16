@@ -50,6 +50,15 @@ export class AccordionView extends HTMLElement {
             margin-block: var(--space-200);
         }
 
+        @media (max-width: 600px) {
+
+            h1 {
+                text-align: center;
+                font-size: var(--size-2);
+            }
+
+        }
+
         `;
     }
 
