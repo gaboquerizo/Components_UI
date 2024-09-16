@@ -312,12 +312,11 @@ footer {
     
     [data-render-area] {
         padding: var(--space-200);
-        padding-top: var(--space-200);
+        padding-top: var(--space-100);
     }
 
     header [data-nav-toggle], [data-theme-toggle] {
-        padding: 0;
-        padding-top: var(--space-025);
+        padding: var(--space-025);
     }
 
     footer p {
@@ -327,5 +326,7 @@ footer {
 }
 
 @media (max-width: 400px) {
+
+    
 
 }

@@ -54,7 +54,7 @@ export class AccordionView extends HTMLElement {
 
             h1 {
                 text-align: center;
-                font-size: var(--size-2);
+                font-size: var(--size-3);
             }
 
         }

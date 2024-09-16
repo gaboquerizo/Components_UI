@@ -36,15 +36,21 @@ export class App extends HTMLElement {
         }
         
         @media (max-width: 600px) {
+
             h1 {
+                text-align: center;
                 font-size: var(--size-4);
             }
+
         }
 
         @media (max-width: 400px) {
+
             h1 {
+                text-align: center;
                 font-size: var(--size-3);
             }
+
         }
 
         `;
