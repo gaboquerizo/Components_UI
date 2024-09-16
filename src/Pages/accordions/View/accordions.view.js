@@ -58,7 +58,7 @@ export class AccordionView extends HTMLElement {
             }
 
             accordion-faq-component, accordion-gallery-component {
-                margin-block: var(--space-100);
+                margin-block: var(--space-075);
                 margin-bottom: var(--space-200);
             }
 
