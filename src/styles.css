@@ -312,7 +312,7 @@ footer {
     
     [data-render-area] {
         padding: var(--space-200);
-        padding-top: var(--space-100);
+        padding-top: var(--space-050);
     }
 
     header [data-nav-toggle], [data-theme-toggle] {

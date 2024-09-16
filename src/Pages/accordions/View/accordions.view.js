@@ -57,6 +57,11 @@ export class AccordionView extends HTMLElement {
                 font-size: var(--size-3);
             }
 
+            accordion-faq-component, accordion-gallery-component {
+                margin-block: var(--space-100);
+                margin-bottom: var(--space-200);
+            }
+
         }
 
         `;
