@@ -229,12 +229,12 @@ class AccordionFAQ extends HTMLElement {
             }
 
             .accordion-faq summary {
-                padding: var(--space-050) var(--space-100);
+                padding: var(--space-100);
                 padding-right: var(--space-250);
             }
 
             .accordion-faq details[open] div {
-                padding: var(--space-050) var(--space-100);
+                padding: var(--space-100);
             }
         }
 
