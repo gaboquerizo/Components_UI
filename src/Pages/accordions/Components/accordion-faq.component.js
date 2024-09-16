@@ -210,7 +210,6 @@ class AccordionFAQ extends HTMLElement {
         @media (max-width: 600px) {
 
             h2 {
-                text-align: center;
                 font-size: var(--size-3);
             }
 
@@ -221,7 +220,6 @@ class AccordionFAQ extends HTMLElement {
         @media (max-width: 400px) {
             
             h2 {
-                text-align: center;
                 font-size: var(--size-2);
             }
 
