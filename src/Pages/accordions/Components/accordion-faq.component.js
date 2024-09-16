@@ -130,6 +130,7 @@ class AccordionFAQ extends HTMLElement {
 
         .accordion-faq summary::after {
             content: "+";
+            color: var(--txt-color-3);
             position: absolute;
             top: 0;
             right: 0;
