@@ -24,7 +24,7 @@ class AccordionGallery extends HTMLElement {
     templateHTML(){
         return /*HTML*/`
         
-        <h2>Accordion Gallery</h2>
+        <h2>Expanding Gallery</h2>
         <section class="accordion-gallery">
             <div class="img-1">
                 <label>
@@ -59,6 +59,19 @@ class AccordionGallery extends HTMLElement {
     templateCSS(){
         return /*CSS*/`
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-weight: 200;
+            color: var(--txt-color-2);
+            padding-block: var(--space-100);
+            border-top: var(--solid-1) var(--edge-color-2);
+        }
+
         .accordion-gallery {
             display: flex;
             width: 100%;
@@ -67,14 +80,16 @@ class AccordionGallery extends HTMLElement {
         
         .accordion-gallery div {
             flex-grow: 1;
+            margin: 6px;
             
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: 75% 50%;
-            border-radius: 1em;
-            margin: 4px;
+            background-position: center;
 
-            transition: all 1s ease;
+            border: var(--solid-1) var(--edge-color);
+            border-radius: var(--radius-3);
+
+            transition: all .6s ease;
             filter: saturate(1.5);
             opacity: .4;
         }
@@ -85,15 +100,20 @@ class AccordionGallery extends HTMLElement {
 
         .accordion-gallery div label {
             display: flex;
-            border-radius: 1em;
+            border-radius: var(--radius-3);
             
             backdrop-filter: blur(8px);
             cursor: pointer;
-            outline: solid 2px transparent;
+            outline: var(--solid-2) transparent;
+            box-shadow: none;
             
             width: 100%;
             height: 100%;
-            transition: all 1s ease;
+            transition: all .6s ease;
+
+            &:hover {
+                outline-color: var(--shd-color-2);
+            }
         }
 
         .accordion-gallery input[type="radio"]{
@@ -105,7 +125,9 @@ class AccordionGallery extends HTMLElement {
             opacity: 1;
             label {
                 backdrop-filter: blur(0px);
-                outline-color: var(--text-color-II);
+                outline-color: var(--accent-color);
+                cursor: default;
+                box-shadow: var(--shadow-1);
             }
         }
 
@@ -128,6 +150,18 @@ class AccordionGallery extends HTMLElement {
         .img-5 {
             background: url('https://image.cdn2.seaart.ai/static/fd6442f790d15212573c3321d4257185/1716691653954/083ed13a116bc69ad359441de52e873d_high.webp');
         }
+
+        @media (max-width: 600px) {
+
+            .accordion-gallery {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 600px;
+            }
+
+        }
+
         
         `;
     }

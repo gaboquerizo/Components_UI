@@ -40,37 +40,45 @@ export class NavMenu extends HTMLElement {
 
     templateCSS(){
         return /*CSS*/ `
-            h2 {
-                margin-block: var(--space-050);
-                font-weight: 200;
-                font-size: 24px;
-                white-space: nowrap;
-                color: var(--txt-color-1);
-            }
-            
-            [data-nav-pages] {
-                display: flex;
-                flex-direction: column;
-                gap: var(--space-050);
-                max-height: 100vh;
+        
+        h2 {
+            margin-block: var(--space-050);
+            font-weight: 400;
+            font-size: var(--size-3);
+            white-space: nowrap;
+            color: var(--txt-color-2);
+        }
+        
+        [data-nav-pages] {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-050);
+            max-height: 100vh;
 
-                a {
-                    padding: var(--space-050);
-                    border-radius: var(--radius-2);
-                    text-decoration: none;
-                    transition: all 0s;
-                    &:hover{
-                        text-decoration: underline;
-                        color: var(--accent-color);
-                        background-color: var(--hover-bkg-color);
-                    }
+            a {
+                padding: var(--space-050);
+                border-radius: var(--radius-2);
+                text-decoration: none;
+                transition: all 0s;
+                &:hover{
+                    text-decoration: underline;
+                    color: var(--accent-color);
+                    background-color: var(--hover-bkg-color);
                 }
             }
+        }
 
-            .active-view {
-                color: var(--accent-color);
-                background-color: var(--active-bkg-color);
+        .active-view {
+            color: var(--accent-color);
+            background-color: var(--active-bkg-color);
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: var(--size-2);
             }
+        }
+
         `;
     }
 

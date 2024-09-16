@@ -24,12 +24,19 @@ export class ButtonView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>—buttons.view.js—</h1>
+            <h1>Página —buttons.view.js—</h1>
             <button-component></button-component>
         `;
     }
 
-    templateCSS(){}
+    templateCSS(){
+        return /*CSS*/`
+            h1 {
+                font-weight: 400;
+                color: var(--txt-color-2);
+            }
+        `;
+    }
 
     initComponent(){}
 

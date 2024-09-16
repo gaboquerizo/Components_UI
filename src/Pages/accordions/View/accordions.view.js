@@ -25,13 +25,33 @@ export class AccordionView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>—accordions.view.js—</h1>
+            <h1>🎹 Accordion UI</h1>
             <accordion-faq-component></accordion-faq-component>
             <accordion-gallery-component></accordion-gallery-component>
         `;
     }
 
-    templateCSS(){}
+    templateCSS(){
+        return /*CSS*/`
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-weight: 400;
+            color: var(--txt-color-1);
+        }
+
+        accordion-faq-component, accordion-gallery-component {
+            display: block;
+            margin-block: var(--space-200);
+        }
+
+        `;
+    }
 
     initComponent(){}
 

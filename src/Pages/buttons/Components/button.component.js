@@ -26,11 +26,11 @@ class ButtonUI extends HTMLElement {
         return /* CSS */ `
         
         h2 {
-            border-top: solid 1px var(--back-color);
-            padding-top: 1em;
-            + section {
-                margin-top: 2em;
-            }
+            font-weight: 200;
+            color: var(--txt-color-3);
+            margin-block: var(--space-150);
+            padding-block: var(--space-100);
+            border-top: var(--solid-1) var(--edge-color-2);
         }
 
         .basic-button, .icon-button, .animated-button {

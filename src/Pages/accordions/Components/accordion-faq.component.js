@@ -24,7 +24,7 @@ class AccordionFAQ extends HTMLElement {
     templateHTML(){
         return /*HTML*/`
 
-        <h2>Accordion FAQ</h2>
+        <h2>FAQs</h2>
         <section class="accordion-faq">
             <details>
                 <summary>¿Qué puede hacer un framework?</summary>
@@ -72,9 +72,18 @@ class AccordionFAQ extends HTMLElement {
 
     templateCSS(){
         return /*CSS*/`
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         h2 {
-            margin-block: var(--space-200);
+            font-weight: 200;
+            color: var(--txt-color-2);
+            padding-block: var(--space-100);
+            border-top: var(--solid-1) var(--edge-color-2);
         }
         
         .accordion-faq details {
@@ -141,6 +150,7 @@ class AccordionFAQ extends HTMLElement {
         }
 
         .switch {
+            box-sizing: content-box;
             background-color: var(--secondary-color);
             border-radius: 1em;
             padding: 8px;
@@ -170,6 +180,10 @@ class AccordionFAQ extends HTMLElement {
             transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
             will-change: left, background-color;
         }
+
+        menu {
+            margin-block: var(--space-100);
+        }
         
         menu label input[type="checkbox"]:checked + .switch {
             box-shadow: #0009 0px 0px 5px inset, var(--accent-color); 0px 0px 0px 2px inset, var(--accent-color) 0px 0px 0px 24px inset;
@@ -186,6 +200,8 @@ class AccordionFAQ extends HTMLElement {
         menu label input[type="checkbox"] {
             display: none;
         }
+
+        
 
         `;
     }

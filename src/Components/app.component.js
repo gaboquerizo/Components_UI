@@ -26,7 +26,29 @@ export class App extends HTMLElement {
         `;
     }
 
-    templateCSS(){}
+    templateCSS(){
+        return /*CSS*/`
+
+        h1 {
+            font-size: var(--size-6);
+            font-weight: 400;
+            color: var(--txt-color-1);
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: var(--size-4);
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: var(--size-3);
+            }
+        }
+
+        `;
+    }
 
     initComponent(){}
 
