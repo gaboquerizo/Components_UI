@@ -30,7 +30,6 @@ class ButtonUI extends HTMLElement {
             padding: 0;
             box-sizing: border-box;
             font-family: "Exo 2";
-            font-size: var(--size-1);
         }
         
         h2 {
@@ -58,6 +57,7 @@ class ButtonUI extends HTMLElement {
             cursor: pointer;
             text-align: center;
             color: var(--text-color-1);
+            font-size: var(--size-1);
             
             border: none;
             border-radius: var(--radius-2);
@@ -142,16 +142,19 @@ class ButtonUI extends HTMLElement {
                 background-color: var(--hover-ui-color);
                 color: var(--txt-color-2);
                 border-bottom: var(--solid-3) var(--active-ui-color);
+                box-shadow: none;
                 &:hover {
                     filter: none;
                     background-color: var(--active-ui-color);
                 }
             }
             &.btn-3 {
+                border: var(--solid-1) var(--edge-color);
                 background-color: transparent;
                 color: var(--txt-color-2);
-                border: none;
+                box-shadow: none;
                 &:hover {
+                    filter: none;
                     background-color: transparent;
                 }
             }
@@ -185,8 +188,8 @@ class ButtonUI extends HTMLElement {
 
         .animated-button button.anime-btn-1 {
             background-color: transparent;
-            outline: solid 2px var(--text-color-II);
-            color: var(--text-color-II);
+            border: var(--solid-2) var(--accent-color);
+            color: var(--accent-color);
             overflow: hidden;
             position: relative;
             z-index: 1;
@@ -198,10 +201,10 @@ class ButtonUI extends HTMLElement {
                 height: 200%;
                 left: 0;
                 top: -200%;
-                background-color: var(--text-color-II);
+                background-color: var(--accent-color);
                 border-radius: 50%;
                 z-index: -1;
-                transition: all .4s ease-in;
+                transition: all var(--trans-3);
             }
 
             &:hover::before {
@@ -218,10 +221,10 @@ class ButtonUI extends HTMLElement {
             background-color: transparent;
             position: relative;
             overflow: hidden;
-            outline: solid 2px #568;
-            color: #568;
+            border: var(--solid-1) var(--edge-color);
+            color: var(--txt-color-2);
             &:hover {
-                outline: solid 2px var(--text-color-II);
+                border-color: var(--accent-color);
                 color: #fff;
             }
 
@@ -231,7 +234,7 @@ class ButtonUI extends HTMLElement {
                 width: 100%;
                 top: 0;
                 left: calc(-100% - 50%);
-                border-bottom: 64px solid var(--text-color-II);
+                border-bottom: 64px solid var(--accent-color);
                 border-right: 64px solid transparent;
                 z-index: -1;
                 transition: all .4s ease-in-out;
@@ -242,14 +245,15 @@ class ButtonUI extends HTMLElement {
         }
 
         .animated-button button.anime-btn-3 {
-            background-color: var(--back-color);
+            border: var(--solid-1) var(--edge-color);
+            background-color: transparent;
             position: relative;
-            color: var(--text-color-I);
+            color: var(--txt-color-2);
             svg {
                 width: 100%;
                 height: 100%;
                 position: absolute;
-                border-radius: 4px;
+                border-radius: var(--radius-1);
                 top: 0;
                 left: 0;
                 fill: none;
@@ -258,16 +262,22 @@ class ButtonUI extends HTMLElement {
             rect {
                 width: calc(100% - 2.5px);
                 height: 100%;
-                stroke: var(--text-color-I);
+                stroke: var(--accent-color);
                 stroke-width: 4px;
                 stroke-dasharray: 1400;
                 stroke-dashoffset: 1400;
                 transition: all 1s ease;
             }
             
-            &:hover rect {
-                stroke-dashoffset: 0;
+            &:hover {
+                background-color: var(--active-ui-color);
+                color: var(--accent-color);
+
+                rect {
+                    stroke-dashoffset: 0;
+                }
             }
+            
         }
 
 
