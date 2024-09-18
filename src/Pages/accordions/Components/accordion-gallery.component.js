@@ -104,7 +104,7 @@ class AccordionGallery extends HTMLElement {
             
             backdrop-filter: blur(8px);
             cursor: pointer;
-            outline: var(--solid-2) transparent;
+            border: var(--solid-1) transparent;
             box-shadow: none;
             
             width: 100%;
@@ -112,7 +112,11 @@ class AccordionGallery extends HTMLElement {
             transition: all .6s ease;
 
             &:hover {
-                outline-color: var(--shd-color-2);
+                border-color: var(--shd-color-2);
+            }
+
+            &:focus {
+                outline: var(--solid-2) var(--shd-color-2);
             }
         }
 
@@ -125,7 +129,7 @@ class AccordionGallery extends HTMLElement {
             opacity: 1;
             label {
                 backdrop-filter: blur(0px);
-                outline-color: var(--accent-color);
+                border-color: var(--accent-color);
                 cursor: default;
                 box-shadow: var(--shadow-1);
             }
@@ -153,13 +157,24 @@ class AccordionGallery extends HTMLElement {
 
         @media (max-width: 600px) {
 
+            h2 {
+                font-size: var(--size-3);
+            }
+
             .accordion-gallery {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
                 height: 600px;
             }
+        }
 
+        
+        @media (max-width: 400px) {
+            
+            h2 {
+                font-size: var(--size-2);
+            }
         }
 
         

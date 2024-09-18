@@ -29,10 +29,6 @@ export class App extends HTMLElement {
     templateCSS(){
         return /*CSS*/`
 
-        :host() {
-            --txt-color-1: teal;
-        }
-
         h1 {
             font-weight: 400;
             font-size: var(--size-6);

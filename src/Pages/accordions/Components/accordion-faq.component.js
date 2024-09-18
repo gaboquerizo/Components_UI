@@ -101,14 +101,20 @@ class AccordionFAQ extends HTMLElement {
         }
 
         .accordion-faq summary:hover {
-            background-color: var(--hover-bkg-color);
+            background-color: var(--hover-cp-color);
+        }
+
+        .accordion-faq summary:focus-within {
+            &, div {
+                outline: var(--solid-2) var(--shd-color-2);
+            }
         }
         
         .accordion-faq details[open] {
             box-shadow: none;
             summary {
                 color: var(--accent-color);
-                background-color: var(--active-bkg-color);
+                background-color: var(--active-cp-color);
                 border-radius: var(--radius-2) var(--radius-2) 0 0;
             }
             div {
@@ -171,7 +177,7 @@ class AccordionFAQ extends HTMLElement {
             outline: var(--solid-1) var(--edge-color);
             box-shadow: var(--shadow-1);
             &:hover {
-                background-color: var(--hover-bkg-color);
+                background-color: var(--hover-cp-color);
             }
         }
         
@@ -183,7 +189,7 @@ class AccordionFAQ extends HTMLElement {
             height: 20px;
             position: absolute;
             border-radius: 1em;
-            background-color: var(--inactive-bkg-color);
+            background-color: var(--inactive-cp-color);
             transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
             will-change: left, background-color;
         }
@@ -213,7 +219,6 @@ class AccordionFAQ extends HTMLElement {
             h2 {
                 font-size: var(--size-3);
             }
-
 
         }
 

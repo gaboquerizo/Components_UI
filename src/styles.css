@@ -41,7 +41,7 @@
     /*——————————— Border ———————————*/
     --line-1: 1px;
     --line-2: 2px;
-    --line-3: 6px;
+    --line-3: 4px;
     --solid-1: solid var(--line-1);
     --solid-2: solid var(--line-2);
     --solid-3: solid var(--line-3);
@@ -71,20 +71,24 @@
 :root[data-theme="light"] {
 
     /*——————————— Colors ———————————*/
-    /*60%*/ --primary-color: #F3F4F5;
-    /*30%*/ --secondary-color: #FFF;
+    /*60%*/ --primary-color: #e0eaf3;
+    /*30%*/ --secondary-color: #f1f3f5;
     /*10%*/ --accent-color: #16E;
 
     --txt-color-1: #123;
     --txt-color-2: #456;
     --txt-color-3: #789;
 
-    --edge-color: #b3bdd9;
-    --edge-color-2: #b3bdd950;
+    --edge-color: #a2c1e0;
+    --edge-color-2: #a2c1e070;
 
-    --hover-bkg-color: #ECF4FF;
-    --active-bkg-color: #E9Efff;
-    --inactive-bkg-color: #c6ccdc;
+    --hover-ui-color: #d8e4f0;
+    --active-ui-color: #d0dfee;
+    --inactive-ui-color: #c6ccdc;
+    
+    --hover-cp-color: #e9eef3;
+    --active-cp-color: #eaf0f8;
+    --inactive-cp-color: #bcd;
 
     --shd-color-1: #BCDA;
     --shd-color-2: #B5D7FC;
@@ -94,23 +98,27 @@
 :root[data-theme="dark"] {
 
     /*——————————— Colors ———————————*/
-    /*60%*/ --primary-color: #0f1015;
-    /*30%*/ --secondary-color: #171a1f;
-    /*10%*/ --accent-color: #39F;
+    /*60%*/ --primary-color: #0c151f;
+    /*30%*/ --secondary-color: #111e2e;
+    /*10%*/ --accent-color: #0AF;
 
     --txt-color-1: #FFF;
     --txt-color-2: #DEF;
     --txt-color-3: #CDE;
 
-    --edge-color: #353944;
-    --edge-color-2: #35394450;
+    --edge-color: #344757;
+    --edge-color-2: #34475770;
 
-    --hover-bkg-color: #1f232b;
-    --active-bkg-color: #161b24;
-    --inactive-bkg-color: #2e3038;
+    --hover-ui-color: #132537;
+    --active-ui-color: #111e2e;
+    --inactive-ui-color: #0a131e;
     
-    --shd-color-1: #080a0e;
-    --shd-color-2: #193b61;
+    --hover-cp-color: #132537;
+    --active-cp-color: #0a131e;
+    --inactive-cp-color: #304a60;
+    
+    --shd-color-1: #0f1419;
+    --shd-color-2: #20618c;
     --shd-color-3: #06C;
 }
 

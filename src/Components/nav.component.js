@@ -53,14 +53,14 @@ export class NavMenu extends HTMLElement {
                 &:hover{
                     text-decoration: underline;
                     color: var(--accent-color);
-                    background-color: var(--hover-bkg-color);
+                    background-color: var(--hover-ui-color);
                 }
             }
         }
 
         .active-view {
             color: var(--accent-color);
-            background-color: var(--active-bkg-color);
+            background-color: var(--active-ui-color);
         }
 
         `;
