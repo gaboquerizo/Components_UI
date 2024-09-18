@@ -24,11 +24,18 @@ class ButtonUI extends HTMLElement {
 
     componentTemplateCSS() {
         return /* CSS */ `
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Exo 2";
+            font-size: var(--size-1);
+        }
         
         h2 {
-            font-weight: 200;
-            color: var(--txt-color-3);
-            margin-block: var(--space-150);
+            font-weight: 400;
+            color: var(--txt-color-2);
             padding-block: var(--space-100);
             border-top: var(--solid-1) var(--edge-color-2);
         }
@@ -40,76 +47,79 @@ class ButtonUI extends HTMLElement {
             div {
                 display: flex;
                 flex-direction: row;
-                margin-bottom: 1em;
-                gap: 1em;
+                margin-bottom: var(--space-100);
+                gap: var(--space-100);
             }
         }
 
         .basic-button button, .icon-button a, .animated-button button {
-            border: none;
             width: 100%;
-            padding: 1em 0;
-            border-radius: 4px;
+            padding-block: var(--space-100);
             cursor: pointer;
-            
-            font-family: "Exo 2";
-            font-size: 1em;
             text-align: center;
-            color: var(--text-color-III);
+            color: var(--text-color-1);
             
-            transition: all .4s ease;
+            border: none;
+            border-radius: var(--radius-2);
+            box-shadow: var(--shadow-1);
+            
+            transition: all var(--trans-2);
         }
 
         .basic-button button.btn-1, .icon-button a {
-            background-color: var(--text-color-II);
-            filter: brightness(0.9);
+            background-color: var(--accent-color);
             color: #fff;
+            border-bottom: var(--solid-3) var(--shd-color-3);
             &:hover {
-                filter: brightness(1);
+                filter: var(--eff-light);
             }
         }
 
         .basic-button button.btn-2 {
-            background-color: #568;
-            color: #fff;
+            background-color: var(--hover-ui-color);
+            color: var(--txt-color-2);
+            border-bottom: var(--solid-3) var(--active-ui-color);
             &:hover {
-                background-color: #679;
+                background-color: var(--active-ui-color);
             }
         }
 
         .basic-button button.btn-3 {
-            background-color: var(--text-color-I);
-            color: var(--text-color-III);
+            background-color: var(--txt-color-3);
+            color: var(--primary-color);
+            border-bottom: var(--solid-3) var(--txt-color-2);
             &:hover {
-                filter: contrast(150%);
+                background-color: var(--txt-color-2);
             }
         }
 
         .basic-button button.btn-1-ol {
             background-color: transparent;
-            outline: solid 2px var(--text-color-II);
-            filter: brightness(0.9);
-            color: var(--text-color-II);
+            border: var(--solid-2) var(--accent-color);
+            color: var(--accent-color);
+            box-shadow: none;
             &:hover {
-                filter: brightness(1.2);
+                filter: var(--eff-light);
             }
         }
 
         .basic-button button.btn-2-ol {
             background-color: transparent;
-            outline: solid 2px #568;
-            color: #568;
+            border: var(--solid-2) var(--hover-ui-color);
+            color: var(--txt-color-2);
+            box-shadow: none;
             &:hover {
-                filter: brightness(1.2);
+                background-color: var(--hover-ui-color);
             }
         }
 
         .basic-button button.btn-3-ol {
             background-color: transparent;
-            outline: solid 2px var(--text-color-I);
-            color: var(--text-color-I);
+            border: var(--solid-2) var(--txt-color-3);
+            color: var(--txt-color-2);
+            box-shadow: none;
             &:hover {
-                filter: contrast(150%);
+                border-color: var(--txt-color-2);
             }
         }
 
@@ -120,7 +130,6 @@ class ButtonUI extends HTMLElement {
                 color: #fff;
             }
         }
-
         
         .icon-button a {
             svg {
@@ -130,17 +139,20 @@ class ButtonUI extends HTMLElement {
                 padding-top: 2px;
             }
             &.btn-2 {
-                background-color: #568;
-                color: #fff;
+                background-color: var(--hover-ui-color);
+                color: var(--txt-color-2);
+                border-bottom: var(--solid-3) var(--active-ui-color);
                 &:hover {
-                    background-color: #679;
+                    filter: none;
+                    background-color: var(--active-ui-color);
                 }
             }
             &.btn-3 {
-                background-color: var(--text-color-I);
-                color: var(--text-color-III);
+                background-color: transparent;
+                color: var(--txt-color-2);
+                border: none;
                 &:hover {
-                    filter: contrast(150%);
+                    background-color: transparent;
                 }
             }
         }
@@ -148,12 +160,12 @@ class ButtonUI extends HTMLElement {
         a .icon-arrow-right {
             .head {
                 transform: translate(0);
-                transition: all .4s ease;
+                transition: all var(--trans-3);
             }
             .line {
                 transform: translate(0) scaleX(0);
                 transform-origin: 14px;
-                transition: all .4s ease;
+                transition: all var(--trans-3);
             }
         }
 
@@ -168,7 +180,7 @@ class ButtonUI extends HTMLElement {
         }
 
         .icon-button a span {
-            padding-left: 8px;
+            padding-left: var(--space-050);
         }
 
         .animated-button button.anime-btn-1 {
@@ -267,7 +279,7 @@ class ButtonUI extends HTMLElement {
                     width: 100%;
                     display: flex;
                     flex-direction: column;
-                    margin-right: 1em;
+                    margin-right: var(--space-100);
                 }
             }
         }
@@ -290,7 +302,7 @@ class ButtonUI extends HTMLElement {
             <div>
                 <button class="btn-1"> Primary </button>
                 <button class="btn-2"> Secondary </button>
-                <button class="btn-3"> Contrast </button>
+                <button class="btn-3"> Constrast </button>
             </div>
 
             <div>
@@ -334,13 +346,13 @@ class ButtonUI extends HTMLElement {
                 </a>
                 <a class="please-wait btn-2">
                     <svg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' >
-                        <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='#fff' stroke-width='4' /></g>
+                        <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='var(--txt-color-2)' stroke-width='4' /></g>
                     </svg>
                     <span>Please wait...</span>
                 </a>
                 <a class="please-wait btn-3">
                     <svg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' >
-                        <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='var(--text-color-III)' stroke-width='4' /></g>
+                        <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='var(--txt-color-3)' stroke-width='4' /></g>
                     </svg>
                     <span>Please wait...</span>
                 </a>

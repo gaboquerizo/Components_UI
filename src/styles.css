@@ -57,7 +57,7 @@
     --shadow-3: 2px 0px 36px var(--shd-color-1);
     /*——— Filter, Backdrop-Filter ———*/
     --eff-blur: blur(6px);
-    --eff-light: brightness(1.2);
+    --eff-light: brightness(1.1);
     
     /*—————— From the project ——————*/
     --sidebar-width: 12em;
