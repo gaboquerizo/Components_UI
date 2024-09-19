@@ -104,6 +104,10 @@ class ButtonUI extends HTMLElement {
                 border-color: var(--accent-color);
                 box-shadow: 0 -2px 6px var(--shd-color-3) inset;
             }
+            &:hover svg {
+                color: var(--accent-color);
+                fill: var(--accent-color);
+            }
             &:active {
                 box-shadow: 0 -4px 12px var(--shd-color-3) inset;
             }
@@ -330,6 +334,8 @@ class ButtonUI extends HTMLElement {
             <a class="transparent-btn only-icon" gb-icon-cart></a>
         </div>
 
+        <!------------- next component ------------->
+
         <div class="icon-button">
             <a class="primary-btn" gb-icon-arrow-right>
                 <span>
@@ -357,6 +363,8 @@ class ButtonUI extends HTMLElement {
                 </span>
             </a>
         </div>
+
+        <!------------- next component ------------->
 
         <div class="icon-button">
             <a class="primary-btn" gb-icon-sent-left>
@@ -395,13 +403,12 @@ class ButtonUI extends HTMLElement {
 
         <h2>Animated buttons</h2>
         <section class="animated-button">
-            <div>            
                 <button class="anime-btn-1"> Bubble </button>
                 <button class="anime-btn-2"> Rhomboid </button>
-                <button class="anime-btn-3"> Edge <svg><rect x=0 Y=0 fill=none></rect></svg> </button>
-            </div>
-            <div>
-            </div>
+                <button class="anime-btn-3">
+                    Edge
+                    <svg><rect x=0 Y=0 fill=none></rect></svg>
+                </button>
         </section>
 
         `;
