@@ -1,4 +1,4 @@
-class AccordionFAQ extends HTMLElement {
+class AccordionUI extends HTMLElement {
 
     constructor() {
         super();
@@ -272,4 +272,4 @@ class AccordionFAQ extends HTMLElement {
 
 }
 
-customElements.define('accordion-faq-component', AccordionFAQ);
+customElements.define('accordion-faq-component', AccordionUI);

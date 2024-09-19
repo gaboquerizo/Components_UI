@@ -53,8 +53,8 @@
     --trans-2: .2s ease;
     --trans-3: .4s ease;
     --shadow-1: 0px 2px 4px var(--shd-color-1);
-    --shadow-2: 0px 0px 18px var(--shd-color-1);
-    --shadow-3: 2px 0px 36px var(--shd-color-1);
+    --shadow-2: 0px 0px 16px var(--shd-color-1);
+    --shadow-3: 0px 0px 32px var(--shd-color-3);
     /*——— Filter, Backdrop-Filter ———*/
     --eff-blur: blur(6px);
     --eff-light: brightness(1.1);
@@ -86,13 +86,13 @@
     --active-ui-color: #d0dfee;
     --inactive-ui-color: #c6ccdc;
     
-    --hover-cp-color: #e9eef3;
+    --hover-cp-color: #fafcfe;
     --active-cp-color: #eaf0f8;
     --inactive-cp-color: #bcd;
 
     --shd-color-1: #BCDA;
     --shd-color-2: #B5D7FC;
-    --shd-color-3: #06C;
+    --shd-color-3: #16E4;
 }
 
 :root[data-theme="dark"] {
@@ -115,11 +115,11 @@
     
     --hover-cp-color: #132537;
     --active-cp-color: #0a131e;
-    --inactive-cp-color: #304a60;
+    --inactive-cp-color: #253b4d;
     
     --shd-color-1: #0f1419;
     --shd-color-2: #20618c;
-    --shd-color-3: #06C;
+    --shd-color-3: #0AF4;
 }
 
 body {
