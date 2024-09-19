@@ -305,22 +305,62 @@ class ButtonUI extends HTMLElement {
         
         <h2>Anchor</h2>
         <div class="basic-anchor">
-            <a class=primary-btn > Primary </a>
-            <a class=secondary-btn > Secondary </a>
-            <a class=outline-btn > Outline </a>
-            <a class=subtle-btn > Subtle </a>
-            <a class=transparent-btn > Transparent </a>
+            <a class=primary-btn >
+                <span>
+                    Primary
+                </span>
+            </a>
+            <a class=secondary-btn >
+                <span>
+                    Secondary
+                </span>
+            </a>
+            <a class=outline-btn >
+                <span>
+                    Outline
+                </span>
+            </a>
+            <a class=subtle-btn >
+                <span>
+                    Subtle
+                </span>
+            </a>
+            <a class=transparent-btn >
+                <span>
+                    Transparent
+                </span>
+            </a>
         </div>
 
         <!------------- next component ------------->
         
         <h2>Button</h2>
         <div class=basic-button>
-            <button class=primary-btn > Primary </button>
-            <button class=secondary-btn > Secondary </button>
-            <button class=outline-btn > Outline </button>
-            <button class=subtle-btn > Subtle </button>
-            <button class=transparent-btn > Transparent </button>
+            <button class=primary-btn >
+                <span>
+                    Primary
+                </span>
+            </button>
+            <button class=secondary-btn >
+                <span>
+                    Secondary
+                </span>
+            </button>
+            <button class=outline-btn >
+                <span>
+                    Outline
+                </span>
+            </button>
+            <button class=subtle-btn >
+                <span>
+                    Subtle
+                </span>
+            </button>
+            <button class=transparent-btn >
+                <span>
+                    Transparent
+                </span>
+            </button>
         </div>
 
         <!------------- next component ------------->
@@ -403,10 +443,20 @@ class ButtonUI extends HTMLElement {
 
         <h2>Animated buttons</h2>
         <section class="animated-button">
-                <button class="anime-btn-1"> Bubble </button>
-                <button class="anime-btn-2"> Rhomboid </button>
+                <button class="anime-btn-1">
+                    <span>
+                        Bubble
+                    </span>
+                </button>
+                <button class="anime-btn-2">
+                    <span>
+                        Rhomboid
+                    </span>
+                </button>
                 <button class="anime-btn-3">
-                    Edge
+                    <span>
+                        Edge
+                    </span>
                     <svg><rect x=0 Y=0 fill=none></rect></svg>
                 </button>
         </section>
