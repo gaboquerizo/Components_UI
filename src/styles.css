@@ -322,9 +322,10 @@ footer {
         background-color: var(--secondary-color);
         box-shadow: var(--shadow-3);
     }
-    
-    footer {
-        font-size: .8em;
+
+    .gb-icon__link svg {
+        width: var(--size-6);
+        height: var(--size-6);
     }
     
 }
@@ -351,7 +352,5 @@ footer {
 }
 
 @media (max-width: 400px) {
-
-    
 
 }
