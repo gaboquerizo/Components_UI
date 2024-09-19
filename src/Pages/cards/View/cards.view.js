@@ -24,13 +24,58 @@ export class CardsView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>—cards.view.js—</h1>
+            <h1>🎴 Cards</h1>
             <card-component></card-component>
 
         `;
     }
 
-    templateCSS(){}
+    templateCSS(){
+        return /*CSS*/`
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-weight: 400;
+            font-size: var(--size-6);
+            color: var(--txt-color-1);
+        }
+
+        card-component {
+            display: block;
+            margin-block: var(--space-200);
+        }
+
+        @media (max-width: 600px) {
+
+            h1 {
+                text-align: center;
+                font-size: var(--size-4);
+            }
+
+            button-component {
+                margin-block: var(--space-075);
+                margin-bottom: var(--space-100);
+            }
+
+        }
+
+        
+        @media (max-width: 400px) {
+            
+            h1 {
+                text-align: center;
+                font-size: var(--size-2);
+            }
+
+        }
+
+        `;
+    }
 
     initComponent(){}
 
