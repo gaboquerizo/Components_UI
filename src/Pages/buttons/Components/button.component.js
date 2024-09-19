@@ -82,6 +82,11 @@ class ButtonUI extends HTMLElement {
                 filter: var(--eff-light);
                 box-shadow: var(--shadow-3);
             }
+
+            svg {
+                color: #fff;
+                fill: #fff;
+            }
         }
 
         .secondary-btn {
