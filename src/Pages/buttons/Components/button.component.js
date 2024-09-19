@@ -142,6 +142,11 @@ class ButtonUI extends HTMLElement {
             fill: var(--txt-color-3);
         }
 
+        svg, span {
+            user-select: none;
+            pointer-events: none;
+        }
+
         svg.icon-arrow-right {
             .head {
                 transform: translate(0);
@@ -172,16 +177,6 @@ class ButtonUI extends HTMLElement {
         }
 
         /*------------- icon button styles -------------*/
-        
-
-        
-
-
-
-
-
-
-
         
 
         .animated-button button.anime-btn-1 {
@@ -364,6 +359,11 @@ class ButtonUI extends HTMLElement {
                     Send message
                 </span>
             </a>
+            <a class="primary-btn" gb-icon-please-left>
+                <span>
+                    Please wait...
+                </span>
+            </a>
             <a class="secondary-btn" gb-icon-add-left>
                 <span>
                     Create new
@@ -374,37 +374,15 @@ class ButtonUI extends HTMLElement {
                     Come back
                 </span>
             </a>
-            <a class="subtle-btn" gb-icon-arrow-left>
+            <a class="subtle-btn" gb-icon-setting-left>
                 <span>
-                    Send mail
+                    Settings
                 </span>
             </a>
-            <a class="transparent-btn" gb-icon-arrow-left>
+            <a class="transparent-btn" gb-icon-account-left>
                 <span>
-                    Send mail
+                    My account
                 </span>
-            </a>
-        </div>
-
-
-        <div class="icon-button">
-            <a class="please-wait btn-1">
-                <svg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' >
-                    <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='#fff' stroke-width='4' /></g>
-                </svg>
-                <span>Please wait...</span>
-            </a>
-            <a class="please-wait btn-2">
-                <svg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' >
-                    <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='var(--txt-color-2)' stroke-width='4' /></g>
-                </svg>
-                <span>Please wait...</span>
-            </a>
-            <a class="please-wait btn-3">
-                <svg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' >
-                    <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='var(--txt-color-3)' stroke-width='4' /></g>
-                </svg>
-                <span>Please wait...</span>
             </a>
         </div>
 
@@ -431,8 +409,11 @@ class ButtonUI extends HTMLElement {
         const iconCartElement = $$('[gb-icon-cart]');
         const iconArrowRightElement =  $$('[gb-icon-arrow-right]');
         const iconSentLeftElement =  $$('[gb-icon-sent-left]');
+        const iconPleaseLeftElement =  $$('[gb-icon-please-left]');
         const iconAddLeftElement =  $$('[gb-icon-add-left]');
         const iconBackLeftElement =  $$('[gb-icon-back-left]');
+        const iconSettingLeftElement =  $$('[gb-icon-setting-left]');
+        const iconAccountLeftElement =  $$('[gb-icon-account-left]');
 
         iconCartElement.forEach((el) => {
             el.innerHTML = `
@@ -460,6 +441,15 @@ class ButtonUI extends HTMLElement {
             `
             el.insertAdjacentHTML("afterbegin", iconSentLeft);
         });
+
+        iconPleaseLeftElement.forEach((el) => {
+            const iconPleaseLeft = `
+                <svg fill='none' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' >
+                    <style> .please-wait g { animation: rotate 2s linear infinite; transform-origin: center center; } circle { stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; } @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @keyframes dash { 0% { stroke-dasharray: 1,100; stroke-dashoffset: 0; } 50% { stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; } 100% { stroke-dasharray: 44.5,100; stroke-dashoffset: -62; } } </style><g><circle cx='12' cy='12' r='10' fill='none' stroke='#fff' stroke-width='4' /></g>
+                </svg>
+            `
+            el.insertAdjacentHTML("afterbegin", iconPleaseLeft);
+        });
         
         iconAddLeftElement.forEach((el) => {
             const iconAddLeft = `
@@ -477,6 +467,24 @@ class ButtonUI extends HTMLElement {
                 </svg>
             `
             el.insertAdjacentHTML("afterbegin", iconBackLeft);
+        });
+        
+        iconSettingLeftElement.forEach((el) => {
+            const iconSettingLeft = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94c0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6s3.6 1.62 3.6 3.6s-1.62 3.6-3.6 3.6" />
+                </svg>
+            `
+            el.insertAdjacentHTML("afterbegin", iconSettingLeft);
+        });
+        
+        iconAccountLeftElement.forEach((el) => {
+            const iconAccountLeft = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6m0 14c-2.03 0-4.43-.82-6.14-2.88a9.95 9.95 0 0 1 12.28 0C16.43 19.18 14.03 20 12 20" />
+                </svg>
+            `
+            el.insertAdjacentHTML("afterbegin", iconAccountLeft);
         });
 
     }
