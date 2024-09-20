@@ -268,7 +268,7 @@ class ButtonUI extends HTMLElement {
                 stroke-width: 4px;
                 stroke-dasharray: 1400;
                 stroke-dashoffset: 1400;
-                transition: all 1s ease;
+                transition: all var(--trans-1);
             }
             
             &:hover {

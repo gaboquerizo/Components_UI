@@ -25,6 +25,8 @@ class CardUI extends HTMLElement {
     componentTemplateCSS() {
         return /* CSS */ `
 
+        /*------------- general styles -------------*/
+
         * {
             margin: 0;
             padding: 0;
@@ -36,28 +38,30 @@ class CardUI extends HTMLElement {
             color: var(--txt-color-2);
             padding-block: var(--space-100);
             border-top: var(--solid-1) var(--edge-color-2);
-            + section {
-                margin-bottom: var(--space-200);
-            }
         }
 
         svg {
             width: var(--size-5);
             height: var(--size-5);
+            color: var(--txt-color-3);
+            fill: var(--txt-color-3);
         }
 
         strong {
             color: var(--accent-color);
         }
+        
+        /*------------- semantic structure -------------*/
 
         .info-cards,
         .icon-cards,
         .profile-cards,
-        .diffuse-cards{
+        .diffuse-cards {
             display: flex;
-            flex-direction: row;
-            font-size: var(--size-1);
             gap: var(--space-100);
+            font-size: var(--size-1);
+            margin-bottom: var(--space-150);
+
             > div {
                 width: 100%;
                 padding: calc(var(--space-100) + var(--space-025));
@@ -71,42 +75,57 @@ class CardUI extends HTMLElement {
             }
         }
 
+        /*------------- info cards styles -------------*/
+
         .info-cards > div {
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: var(--space-075);
-            width: 100%;
+
             border: var(--solid-1) var(--edge-color);
             outline: var(--solid-2) transparent;
             box-shadow: var(--shadow-1);
             cursor: default;
-            
-            &:hover{
-                outline-color: var(--accent-color);
+
+            h3 {
+                color: var(--txt-color-1);
             }
+
+            p {
+                color: var(--txt-color-2);
+            }
+            
+            &:hover {
+                outline-color: var(--shd-color-3);
+            }
+
             button {
-                width: 50%;
-                min-width: 110px;
+                width: max-content;
+                min-width: 50%;
                 padding: var(--space-050) var(--space-100);
                 cursor: pointer;
 
                 border: none;
                 border-radius: var(--radius-2);
-                outline: var(--solid-2) transparent;
                 
                 font-size: var(--size-1);
                 font-family: "Exo 2";
                 text-align: center;
                 
-                background-color: var(--hover-cp-color);
+                background-color: var(--secondary-color);
                 
                 &:hover {
-                    color: #fff;
-                    background-color: var(--accent-color);
+                    background-color: var(--hover-cp-color);
+                }
+                &:active {
+                    background-color: var(--active-cp-color);
                 }
             }
         }
+
+        /*------------- icon cards styles -------------*/
 
         .icon-cards > div {
             display: flex;
