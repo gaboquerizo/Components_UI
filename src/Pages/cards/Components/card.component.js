@@ -451,7 +451,7 @@ class CardUI extends HTMLElement {
         <section class="profile-cards">
             <div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/main/Assets/images/Jeff_Bezos.webp">
+                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/refs/heads/main/src/Assets/images/Jeff_Bezos.webp">
                 </div>
                 <div>
                     <h3> Jeff Bezos </h3>
@@ -480,7 +480,7 @@ class CardUI extends HTMLElement {
             </div>
             <div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/main/Assets/images/Bill_Gates.webp">
+                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/refs/heads/main/src/Assets/images/Bill_Gates.webp">
                 </div>
                 <div>
                     <h3> Bill Gates </h3>
@@ -509,7 +509,7 @@ class CardUI extends HTMLElement {
             </div>
             <div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/main/Assets/images/Steve_Jobs.webp">
+                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/refs/heads/main/src/Assets/images/Steve_Jobs.webp">
                 </div>
                 <div>
                     <h3> Steve Jobs </h3>
