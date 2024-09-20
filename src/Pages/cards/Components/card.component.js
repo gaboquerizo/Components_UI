@@ -64,6 +64,7 @@ class CardUI extends HTMLElement {
 
             > div {
                 width: 100%;
+                display: flex;
                 padding: calc(var(--space-100) + var(--space-025));
                 border-radius: var(--radius-2);
                 background-color: var(--secondary-color);
@@ -79,7 +80,6 @@ class CardUI extends HTMLElement {
 
         .info-cards > div {
             width: 100%;
-            display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: var(--space-075);
@@ -128,15 +128,14 @@ class CardUI extends HTMLElement {
         /*------------- icon cards styles -------------*/
 
         .icon-cards > div {
-            display: flex;
-            border: var(--solid-1) var(--edge-color);
+            outline: var(--solid-1) var(--edge-color);
             border-left: var(--solid-3) transparent;
             cursor: default;
-            svg {
-                margin-right: var(--space-100);
+            div:has(svg) {
+                margin: var(--space-025) var(--space-100) 0 0;
             }
             h3 {
-                margin: 6px 0;
+                margin-block: var(--space-050);
             }
             p {
                 margin-bottom: 0;
@@ -149,12 +148,18 @@ class CardUI extends HTMLElement {
             }
         }
 
+        /*------------- profile cards styles -------------*/
+
         .profile-cards > div {
+            flex-direction: column;
+            gap: var(--space-100);
+            text-align: center;
+
             img {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 2/2;
-                border-radius: 50em;
+                border-radius: 10em;
                 object-fit: cover;
                 object-position: top;
                 margin: 0 auto;
@@ -164,37 +169,38 @@ class CardUI extends HTMLElement {
                 pointer-events: none;
                 
                 transition: all var(--trans-2);
-            }            
+            }
             h3 {
-                margin: 16px 0 6px 0;
+                margin-bottom: var(--space-025);
             }
             .icons {
                 display: flex;
                 justify-content: center;
                 gap: 1em;
                 div {
-                    width: 32px;
-                    height: 32px;
-                    padding: .5em;
-                    border-radius: .5em;
+                    display: flex;
+                    width: max-content;
+                    height: max-content;
+
+                    padding: var(--space-050);
+                    border-radius: var(--radius-2);
+                    cursor: pointer;
 
                     &:hover {
-                        background-color: var(--text-color-II);
+                        background-color: var(--hover-cp-color);
                         svg * {
-                            color: #fff;
+                            color: var(--accent-color);
                         }
                     }
                 }
             }
 
-            &:hover {
-                background-color: var(--back-color-hover);
-                img {
-                    filter: brightness(1);
-                    transform: translateY(-.5em)
-                }
+            &:hover img {
+                filter: brightness(1);
+                transform: translateY(-.5em)
             }
         }
+
 
         .diffuse-cards > div {
             position: relative;
@@ -298,11 +304,14 @@ class CardUI extends HTMLElement {
             
             .icon-cards > div {
                 flex-direction: column;
+                div:has(svg) {
+                    margin: 0;
+                }
             }
 
         }
 
-        @media( 600px <= width <= 900px ) {
+        @media (max-width: 900px) {
             .icon-cards {
                 flex-direction: column;
                 div {
@@ -314,7 +323,7 @@ class CardUI extends HTMLElement {
             }
         }
 
-        @media ( width < 600px ) {
+        @media (max-width: 600px) {
 
             h2 {
                 font-size: var(--size-3);
@@ -360,15 +369,14 @@ class CardUI extends HTMLElement {
                 font-size: var(--size-2);
             }
 
-            .info-cards > div p,
-            .info-cards > div button,
-            .icon-cards > div p, 
+            .info-cards,
+            .info-cards,
+            .icon-cards, 
             .profile-cards, 
             .diffuse-cards,
             .album-cards {
-                font-size: 14px;
-                > div {
-                    gap: var(--space-050);
+                button, p {
+                    font-size: 14px;
                 }
             }
 
@@ -438,12 +446,12 @@ class CardUI extends HTMLElement {
         </section>
         
         <!------------- next component ------------->
-        <!--
+        
         <h2> Profile cards </h2>
         <section class="profile-cards">
             <div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_UI/main/assets/images/Jeff_Bezos.webp">
+                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/main/Assets/images/Jeff_Bezos.webp">
                 </div>
                 <div>
                     <h3> Jeff Bezos </h3>
@@ -472,7 +480,7 @@ class CardUI extends HTMLElement {
             </div>
             <div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_UI/main/assets/images/Bill_Gates.webp">
+                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/main/Assets/images/Bill_Gates.webp">
                 </div>
                 <div>
                     <h3> Bill Gates </h3>
@@ -501,7 +509,7 @@ class CardUI extends HTMLElement {
             </div>
             <div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_UI/main/assets/images/Steve_Jobs.webp">
+                    <img src="https://raw.githubusercontent.com/gaboquerizo/Components_ui/main/Assets/images/Steve_Jobs.webp">
                 </div>
                 <div>
                     <h3> Steve Jobs </h3>
@@ -529,7 +537,7 @@ class CardUI extends HTMLElement {
                 </div>
             </div>
         </section>
-        -->
+
         <!------------- next component ------------->
         <!--
         <h2> Diffuse light cards <strong>effect</strong></h2>
