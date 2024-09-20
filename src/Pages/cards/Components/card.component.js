@@ -173,6 +173,18 @@ class CardUI extends HTMLElement {
             h3 {
                 margin-bottom: var(--space-025);
             }
+
+            &:hover {
+
+                h3 {
+                    color: var(--accent-color);
+                }
+                img {
+                    filter: var(--eff-light);
+                    transform: translateY(-.5em)
+                }
+            }
+
             .icons {
                 display: flex;
                 justify-content: center;
@@ -194,13 +206,9 @@ class CardUI extends HTMLElement {
                     }
                 }
             }
-
-            &:hover img {
-                filter: brightness(1);
-                transform: translateY(-.5em)
-            }
         }
 
+        /*------------- diffuse cards styles -------------*/
 
         .diffuse-cards > div {
             position: relative;
@@ -213,7 +221,7 @@ class CardUI extends HTMLElement {
                 top: var(--y);
                 left: var(--x);
                 transform: translate(-50% , -50%);
-                background: radial-gradient( var(--text-color-II), transparent, transparent);
+                background: radial-gradient( var(--accent-color), transparent, transparent);
                 width: 500px;
                 height: 500px;
 
@@ -226,18 +234,21 @@ class CardUI extends HTMLElement {
             &::after {
                 content: '';
                 position: absolute;
-                inset: 1em;
-                border-radius: .5em;
-                background-color: var(--back-color);
+                inset: var(--space-025);
+                border-radius: var(--radius-2);
+                background-color: var(--secondary-color);
+                opacity: .8; /*Mejor cambiar a un color con opacidad*/
             }
         }
+        
+        /*------------- album cards styles -------------*/
 
         .album-cards {
             display: flex;
             width: 96%;
             padding: 1.5em;
             article {
-                background-color: var(--back-color);
+                background-color: var(--secondary-color);
                 box-sizing: border-box;
                 width: 300px;
                 height: 350px;
@@ -282,8 +293,8 @@ class CardUI extends HTMLElement {
                 }
             }
             a:hover {
-                background-color: var(--back-color);
-                outline: solid .6em var(--back-color);
+                background-color: var(--hover-cp-color);
+                outline: solid .6em var(--shd-color-3);
                 border-radius: 1px;
                 cursor: default;
             }
@@ -413,7 +424,7 @@ class CardUI extends HTMLElement {
             <div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor"><path d="m8 16l8.72-.727c2.729-.227 3.341-.823 3.643-3.544L21 6M6 6h16"/><circle cx="6" cy="20" r="2"/><circle cx="17" cy="20" r="2"/><path d="M8 20h7M2 2h.966c.945 0 1.768.625 1.997 1.515L7.94 15.076a1.96 1.96 0 0 1-.35 1.686L6.631 18"/></g>
+                        <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2M1 2v2h2l3.6 7.59l-1.35 2.45c-.16.28-.25.61-.25.96c0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12l.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2"></path>
                     </svg>
                 </div>
                 <div>
@@ -424,29 +435,29 @@ class CardUI extends HTMLElement {
             <div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.463 3.994c-2.682-1.645-5.023-.982-6.429.074c-.576.433-.864.65-1.034.65s-.458-.217-1.034-.65C9.56 3.012 7.219 2.349 4.537 3.994C1.018 6.153.222 13.274 8.34 19.284C9.886 20.427 10.659 21 12 21s2.114-.572 3.66-1.717c8.118-6.008 7.322-13.13 3.803-15.289" color="currentColor"/>
+                        <path fill="currentColor" d="M13.35 20.13c-.76.69-1.93.69-2.69-.01l-.11-.1C5.3 15.27 1.87 12.16 2 8.28c.06-1.7.93-3.33 2.34-4.29c2.64-1.8 5.9-.96 7.66 1.1c1.76-2.06 5.02-2.91 7.66-1.1c1.41.96 2.28 2.59 2.34 4.29c.14 3.88-3.3 6.99-8.55 11.76z" />
                     </svg>
                 </div>
                 <div>
-                    <h3>My favourites</h3>
+                    <h3>Favourites</h3>
                     <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
                 </div>
             </div>
             <div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 22H6.59c-1.545 0-2.774-.752-3.877-1.803c-2.26-2.153 1.45-3.873 2.865-4.715c2.55-1.52 5.628-1.87 8.422-1.054M16.5 6.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0m1.933 7.349c.335-.364.503-.546.681-.652a1.4 1.4 0 0 1 1.397-.02c.18.1.354.277.7.63c.345.353.518.53.616.714c.238.447.23.988-.02 1.427c-.104.182-.282.353-.638.696l-4.231 4.075c-.674.65-1.011.974-1.432 1.139c-.421.164-.885.152-1.81.128l-.127-.003c-.282-.008-.422-.012-.504-.105s-.071-.236-.049-.523l.012-.156c.063-.808.095-1.213.253-1.576c.157-.363.43-.658.974-1.248z" color="currentColor"/>
+                        <path fill="currentColor" d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2m0 14H4v-6h16zm0-10H4V6h16z" />
                     </svg>
                 </div>
                 <div>
-                    <h3>Custom profile</h3>
+                    <h3>Credit card</h3>
                     <p>Some quick example text to build on the card title and make up the bulk of the card content.</p>
                 </div>
             </div>
         </section>
         
         <!------------- next component ------------->
-        
+        <!--
         <h2> Profile cards </h2>
         <section class="profile-cards">
             <div>
@@ -537,16 +548,16 @@ class CardUI extends HTMLElement {
                 </div>
             </div>
         </section>
-
+        -->
         <!------------- next component ------------->
-        <!--
+        
         <h2> Diffuse light cards <strong>effect</strong></h2>
         <section class="diffuse-cards">
             <div></div>
             <div></div>
             <div></div>
         </section>
-        -->
+        
         <!------------- next component ------------->
         <!--
         <h2> Musical cards <strong>effect</strong></h2>
