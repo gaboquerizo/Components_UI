@@ -25,12 +25,21 @@ class CounterUI extends HTMLElement {
 
     componentTemplateCSS() {
         return /*CSS*/ `
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Exo 2";
+        }
         
-        h2{
-            border-top: solid 1px var(--back-color);
-            padding-top: 1em;
+        h2 {
+            font-weight: 400;
+            color: var(--txt-color-2);
+            padding-block: var(--space-100);
+            border-top: var(--solid-1) var(--edge-color-2);
             + section {
-                margin-top: 2em;
+                margin-bottom: var(--space-150);
 
                 h3 {
                     margin: 0;
@@ -41,23 +50,25 @@ class CounterUI extends HTMLElement {
                 }
             }
         }
+
+        /*------------- semantic structure -------------*/
         
         .quantity-counter {
             display: flex;
-            gap: 1em;
+            gap: var(--space-100);
             
             > div {
                 width: 100%;
-                padding: 1.5em;
-                border-radius: .5em;
-                background-color: var(--back-color);
+                padding: var(--space-150);
+                border-radius: var(--radius-2);
+                background-color: var(--secondary-color);
                 text-align: center;
 
                 > div:has(span) {   /* Aquel <div> que tenga en su interior un <span> */
-                    margin: 1em 0;
+                    margin-block: var(--space-100);
                 }
                 span {
-                    font-size: 1.5em;
+                    font-size: var(--size-3);
                 }
                 p {
                     margin: 0;
@@ -68,13 +79,14 @@ class CounterUI extends HTMLElement {
         .date-countdown {
             text-align: center;
             h3 {
-                font-weight: 100;
-                margin-bottom: 1em;
+                font-weight: 300;
+                margin-bottom: var(--space-100);
+                font-size: var(--size-2);
             }
             > div {
                 display: flex;
                 justify-content: center;
-                font-size: 4em;
+                font-size: var(--size-8);
                 > div {
                     position: relative;
                 }
@@ -84,15 +96,17 @@ class CounterUI extends HTMLElement {
             }
         }
 
-        
-        @media( 440px <= width <= 1010px ){
+        /*------------- responsive web design -------------*/
+
+        @media (max-width: 900px){
             .quantity-counter{
                 justify-content: center;
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap: 2em;
+                gap: var(--space-200);
                 > div {
                     width: 30%;
+                    min-width: 200px;
                 }
             }
             .date-countdown > div {
@@ -100,13 +114,15 @@ class CounterUI extends HTMLElement {
             }
         }
 
-        @media( width < 440px ){
+        @media (max-width: 600px){
+        }
+
+        @media (max-width: 400px){
             .quantity-counter{
                 flex-direction: column;
                 align-items: center;
-                gap: 2em;
                 > div {
-                    width: 80%;
+                    width: 100%;
                 }
             }
             .date-countdown > div {

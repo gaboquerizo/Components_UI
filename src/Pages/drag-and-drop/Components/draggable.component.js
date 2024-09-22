@@ -25,20 +25,30 @@ class DraggableUI extends HTMLElement {
     }
 
     componentTemplateCSS() {
-        return /*CSS*/ `
+        return /* CSS */ `
 
-        h2{
-            border-top: solid 1px var(--back-color);
-            padding-top: 1em;
+        /*------------- general styles -------------*/
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Exo 2";
+        }
+        
+        h2 {
+            font-weight: 400;
+            color: var(--txt-color-2);
+            padding-block: var(--space-100);
+            border-top: var(--solid-1) var(--edge-color-2);
             + section {
-                margin-top: 2em;
-
+                margin-bottom: var(--space-150);
                 h3, p {
                     margin: 0;
                 }
                 svg {
-                    width: 2em;
-                    height: 2em;
+                    width: var(--space-200);
+                    height: var(--space-200);
                 }
             }
         }
@@ -50,7 +60,7 @@ class DraggableUI extends HTMLElement {
         button {
             background: transparent;
             border: 0;
-            color: var(--text-color-I);
+            color: var(--txt-color-1);
         }
 
         .drag-list {
@@ -58,18 +68,18 @@ class DraggableUI extends HTMLElement {
 
             ul {
                 width: 50%;
-                padding: 1em;
 
                 display: flex;
                 flex-direction: column;
-                gap: .5em;
-
-                &, li {
-                    border-radius: .5em;
-                    background-color: var(--back-color);
+                gap: var(--space-050);
+                border-radius: var(--radius-2);
+                
+                li {
+                    border-radius: var(--radius-2);
+                    background-color: var(--secondary-color);
                 }
                 li {
-                    padding: .5em 1em;
+                    padding: var(--space-050) var(--space-100);
                     
                     display: flex;
                     justify-content: space-between;
@@ -92,15 +102,15 @@ class DraggableUI extends HTMLElement {
                 text-align: center;
             }
             h3 > span {
-                color: var(--text-color-II);    
+                color: var(--accent-color);    
             }
             span:hover {
                 text-decoration: underline;
                 cursor: pointer;
             }
             p {
-                margin-top: 1em;
-                font-size: .8em;
+                margin-top: var(--space-100);
+                font-size: 14px;
                 opacity: .6;
                 font-weight: 100;
             }
@@ -108,7 +118,7 @@ class DraggableUI extends HTMLElement {
                 width: 60%;
                 height: 400px;
                 /* margin: 0 auto; */
-                background: linear-gradient(90deg, var(--back-color) 15%, #cde3 50%, var(--back-color) 85%);
+                background-color: var(--secondary-color);
                 
 
                 display: flex;
@@ -116,29 +126,30 @@ class DraggableUI extends HTMLElement {
                 justify-content: center;
                 align-items: center;
 
-                border-radius: .5em;
+                border-radius: var(--radius-2);
                 outline: dashed 2px var(--text-color-I);
                 svg {
-                    font-size: 3em;
-                    margin-bottom: .5em;
+                    font-size: var(--size-8);
+                    margin-bottom: var(--space-050);
+                    color: var(--txt-color-3)
                 }
 
                 &:has(img){
-                    outline: solid 2px var(--text-color-II);
+                    outline: var(--solid-2) var(--text-color-II);
                 }
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    border-radius: .5em;
+                    border-radius: var(--radius-2);
                 }
             }
             
             .active {
-                outline-color: var(--text-color-II);
+                outline-color: var(--accent-color);
                 svg {
-                    color: var(--text-color-II);
+                    color: var(--accent-color);
                 }
             }
         }
@@ -156,7 +167,7 @@ class DraggableUI extends HTMLElement {
         .drag-tier {
             width: 70%;
             flex-direction: column;
-            background-color: var(--back-color);
+            background-color: var(--secondary-color);
             img {
                 width: 100px;
                 height: 100px;
@@ -185,20 +196,20 @@ class DraggableUI extends HTMLElement {
                 gap: .5em;
                 display: flex;
                 flex-direction: row;
-                background-color: var(--back-color);
-                outline: solid 1px transparent;
+                background-color: var(--hover-cp-color);
+                outline: var(--solid-1) transparent;
 
                 &.drag-over {
                     border-radius: .8em;
-                    background-color: var(--back-color-hover);
-                    outline: solid 1px var(--text-color-II);
+                    background-color: var(--hover-cp-color);
+                    outline: var(--solid-1) var(--accent-color);
                 }
             }
             aside {
                 cursor: pointer;
                 background: var(--level, #568);
-                padding: 1em;
-                font-size: 1.5em;
+                padding: var(--space-100);
+                font-size: var(--size-2);
                 align-content: center;
 
                 span:focus {
@@ -213,35 +224,37 @@ class DraggableUI extends HTMLElement {
             gap: 1em;
 
             label {
-                background-color: var(--back-color);
+                background-color: var(--secondary-color);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
 
                 &:hover {
-                    background-color: var(--text-color-II);
+                    background-color: var(--accent-color);
                 }
 
                 svg {
-                    padding: .4em;
+                    padding: var(--space-050);
                 }
             }
         }
         
         .drag-tier__items {
             padding: 1em;
+
+            background-color: var(--secondary-color);
             
             > div {
                 display: flex;
                 flex-flow: wrap;
-                gap: .5em;
+                gap: var(--space-050);
 
-                padding: .5em;
+                padding: var(--space-050);
                 width: 100%;
                 min-height: 100px;
-                background: linear-gradient(90deg, var(--back-color) 15%, #cde3 50%, var(--back-color) 85%);
-                outline: dashed 2px var(--text-color-I);
+                background-color: var(--secondary-color);
+                outline: dashed 2px var(--txt-color-1);
             }
         }
 
