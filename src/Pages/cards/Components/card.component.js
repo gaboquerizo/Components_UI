@@ -34,10 +34,17 @@ class CardUI extends HTMLElement {
         }
 
         h2 {
+            font-size: 24px;
             font-weight: 400;
             color: var(--txt-color-2);
             padding-block: var(--space-100);
             border-top: var(--solid-1) var(--edge-color-2);
+        }
+        
+        h3 {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--txt-color-2);
         }
 
         svg {
@@ -56,7 +63,8 @@ class CardUI extends HTMLElement {
         .info-cards,
         .icon-cards,
         .profile-cards,
-        .diffuse-cards {
+        .diffuse-cards,
+        .album-cards {
             display: flex;
             gap: var(--space-100);
             font-size: var(--size-1);
@@ -156,7 +164,7 @@ class CardUI extends HTMLElement {
             text-align: center;
 
             img {
-                width: 100%;
+                width: 200px;
                 height: auto;
                 aspect-ratio: 2/2;
                 border-radius: 10em;
@@ -245,68 +253,88 @@ class CardUI extends HTMLElement {
 
         .album-cards {
             display: flex;
-            width: 96%;
-            padding: 1.5em;
+            min-width: 90%;
+            max-width: 100%;
+            gap: 0;
+
+            header {
+                color: var(--txt-color-3);
+                font-size: 14px;
+                h3 {
+                    width: 100%;
+                    font-size: var(--size-2);
+                }
+            }
+
             article {
                 background-color: var(--secondary-color);
-                box-sizing: border-box;
-                width: 300px;
-                height: 350px;
-                padding: 1.5em;
+                width: 200px;
+                height: 250px;
+                padding: var(--space-150);
                 
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                position: relative;
                 
-                outline: solid 2px transparent;
+                border: var(--solid-1) var(--edge-color);
+                outline: var(--solid-2) transparent;
                 border-radius: .5em;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1),
-                            -4px 0 20px rgba(0,0,0,0.1);
+                box-shadow: var(--shadow-1);
                 transition: all 0.4s ease;
             }
             article+*{
                 margin-left: -120px;
-                backdrop-filter: blur(2em);
+                backdrop-filter: blur(12px);
                 
                 &:not(:last-child):hover {
-                    margin-left: -160px;
+                    margin-left: -120px;
                 }
             }
             article:hover {
                 transform: rotate(3deg) translateY(-15px);
-                box-shadow: 0px 0px 0px #0000;
-                outline-color: var(--text-color-II);
+                outline-color: var(--accent-color);
+                box-shadow: none;
 
                 &:not(:last-child):hover{
-                    margin-right: 80px;
+                    margin-right: 60px;
+                }
+
+                header h3 {
+                    width: 60%;
+                }
+                footer span {
+                    width: 100%;
+                    opacity: 1;
                 }
             }
 
-            a {
-                width: fit-content;  /* Good property */
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                > {
-                    width: max-content;
+            footer {
+
+                a {
+                    width: fit-content;  /* Good property */
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-050);
                 }
-            }
-            a:hover {
-                background-color: var(--hover-cp-color);
-                outline: solid .6em var(--shd-color-3);
-                border-radius: 1px;
-                cursor: default;
-            }
-            img {
-                width: 30px;
-                border-radius: 5em;
-            }
-            p, span {
-                font-size: 16px;
-            }
-            h3 {
-                font-size: 1.5em;
+                a:hover {
+                    background-color: var(--hover-cp-color);
+                    outline: var(--solid-1) var(--shd-color-3);
+                    border-radius: 1px;
+                    cursor: default;
+                }
+                img {
+                    width: 30px;
+                    border-radius: 5em;
+                }
+                span {
+                    width: 0%;
+                    opacity: 0;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: clip;
+                    font-size: 14px;
+                    transition: all var(--trans-3);
+                }
             }
         }
 
@@ -354,21 +382,27 @@ class CardUI extends HTMLElement {
             .album-cards {
                 align-items: center;
 
+                article {
+                    width: 100%;
+                }
+
                 article+*{
                     margin-left: 0px;
-                    margin-top: -220px;
+                    margin-top: -160px;
                     
                     &:not(:last-child):hover {
                         margin-left: 0px;
-                        margin-top: -260px;
-                        margin-bottom: 202px;
+                        margin-top: -210px;
                     }
                 }
 
                 article:hover {
                     &:not(:last-child):hover{
                         margin-right: 0px;
-                        margin-bottom: 202px;
+                        margin-bottom: 130px;
+                    }
+                    header h3 {
+                        width: 100%;
                     }
                 }
             }
@@ -378,6 +412,10 @@ class CardUI extends HTMLElement {
             
             h2 {
                 font-size: var(--size-2);
+            }
+
+            h3 {
+                font-size: 18px;
             }
 
             .info-cards,
@@ -457,7 +495,7 @@ class CardUI extends HTMLElement {
         </section>
         
         <!------------- next component ------------->
-        <!--
+        
         <h2> Profile cards </h2>
         <section class="profile-cards">
             <div>
@@ -548,7 +586,7 @@ class CardUI extends HTMLElement {
                 </div>
             </div>
         </section>
-        -->
+        
         <!------------- next component ------------->
         
         <h2> Diffuse light cards <strong>effect</strong></h2>
@@ -559,7 +597,7 @@ class CardUI extends HTMLElement {
         </section>
         
         <!------------- next component ------------->
-        <!--
+        
         <h2> Musical cards <strong>effect</strong></h2>
         <section class="album-cards">
 
@@ -570,7 +608,7 @@ class CardUI extends HTMLElement {
                 </header>
                 <footer>    
                     <a>
-                        <img src="https://veromerol.com.mx/wp-content/uploads/2016/02/Jack-%C3%9C-logopromo-2016-e1458750276560.png" alt="">
+                        <img src="https://i1.sndcdn.com/artworks-000202668507-ipbwrg-t500x500.jpg" alt="">
                         <span>Jack Ü</span>
                     </a>
                 </footer>
@@ -623,13 +661,13 @@ class CardUI extends HTMLElement {
                 <footer>    
                     <a>
                         <img src="https://i.pinimg.com/originals/c7/18/b5/c718b5d52d27ff5da404e23f4ea4bec2.jpg" alt="">
-                        <span>5 Second of Summer</span>
+                        <span>5 Second <br> of Summer</span>
                     </a>
                 </footer>
             </article>
 
         </section>
-        -->
+        
 
         `;
     }
