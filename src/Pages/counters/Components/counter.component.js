@@ -13,8 +13,13 @@ class CounterUI extends HTMLElement {
         this.renderComponent();
         this.quantityCounter();
         this.dateCountdown();
+        this.timeClock();
         // this.initComponent()
     }
+
+    static get observedAttributes() {
+        return ['datetime', 'year', 'month', 'day', 'hour', 'minute', 'second', 'time-zone-name'];
+      }
 
     renderComponent() {
         this.shadowDOM.innerHTML = `
@@ -190,6 +195,13 @@ class CounterUI extends HTMLElement {
             </div>
         </section>
 
+        <h2>Reloj</h2>
+        <section class="time-clock">
+            <div id="clock" hour="numeric" minute="numeric" second="numeric">
+            </div>
+        </section>
+
+
         <h2>Cuenta regresiva</h2>
         <section class="date-countdown">
             <h3>🎉 Fin de año llegará en:</h3>
@@ -265,6 +277,24 @@ class CounterUI extends HTMLElement {
         updateCountdown();
         setInterval(updateCountdown, 1000);
     }
+
+    timeClock() {
+        const date = new Date(this.getAttribute('datetime') || Date.now());
+        const clockElement = this.shadowRoot.querySelector('#clock');
+
+        clockElement.innerHTML = new Intl.DateTimeFormat("default", {
+        year: this.getAttribute('year') || undefined,
+        month: this.getAttribute('month') || undefined,
+        day: this.getAttribute('day') || undefined,
+        hour: this.getAttribute('hour') || undefined,
+        minute: this.getAttribute('minute') || undefined,
+        second: this.getAttribute('second') || undefined,
+        timeZoneName: this.getAttribute('time-zone-name') || undefined,
+        }).format(date);
+
+        setInterval(() => clock.setAttribute('datetime', new Date()), 1000);
+    }
+
 };
 
 customElements.define('counter-component', CounterUI);
