@@ -104,10 +104,6 @@ class CardUI extends HTMLElement {
             p {
                 color: var(--txt-color-2);
             }
-            
-            &:hover {
-                outline-color: var(--shd-color-3);
-            }
 
             button {
                 width: max-content;

@@ -54,7 +54,7 @@
     --trans-3: .4s ease;
     --shadow-1: 0px 2px 4px var(--shd-color-1);
     --shadow-2: 0px 0px 16px var(--shd-color-1);
-    --shadow-3: 0px 0px 32px var(--shd-color-3);
+    --shadow-3: 0px 0px 32px var(--shd-color-1);
     /*——— Filter, Backdrop-Filter ———*/
     --eff-blur: blur(6px);
     --eff-light: brightness(1.1);
@@ -80,6 +80,7 @@
     --txt-color-3: #789;
 
     --edge-color: #a2c1e0;
+    --edge-color-1: #a2c1e0;
     --edge-color-2: #a2c1e070;
 
     --hover-ui-color: #d8e4f0;
@@ -107,7 +108,9 @@
     --txt-color-3: #CDE;
 
     --edge-color: #344757;
+    --edge-color-1: #344757;
     --edge-color-2: #34475770;
+    --edge-color-3: #20618c;
 
     --hover-ui-color: #132537;
     --active-ui-color: #111e2e;
@@ -118,7 +121,7 @@
     --inactive-cp-color: #253b4d;
     
     --shd-color-1: #0f1419;
-    --shd-color-2: #20618c;
+    --shd-color-2: #268;
     --shd-color-3: #0AF4;
 }
 
@@ -319,7 +322,7 @@ footer {
     }
 
     [data-nav-menu] {
-        background-color: var(--secondary-color);
+        background-color: var(--primary-color);
         box-shadow: var(--shadow-3);
     }
 
