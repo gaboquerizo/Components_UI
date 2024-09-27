@@ -47,14 +47,10 @@ class DraggableUI extends HTMLElement {
                     margin: 0;
                 }
                 svg {
-                    width: var(--space-200);
-                    height: var(--space-200);
+                    width: var(--size-5);
+                    height: var(--size-5);
                 }
             }
-        }
-
-        svg, label, .drag-tier__list div, div.drag-over{
-            transition: all .4s ease;
         }
 
         button {
@@ -75,8 +71,10 @@ class DraggableUI extends HTMLElement {
                 border-radius: var(--radius-2);
                 
                 li {
-                    border-radius: var(--radius-2);
                     background-color: var(--secondary-color);
+                    border: var(--solid-1) var(--edge-color-1);
+                    border-radius: var(--radius-2);
+                    box-shadow: var(--shadow-element);
                 }
                 li {
                     padding: var(--space-050) var(--space-100);
@@ -130,7 +128,9 @@ class DraggableUI extends HTMLElement {
                 align-items: center;
 
                 border-radius: var(--radius-2);
-                outline: dashed 2px var(--txt-color-3);
+                border: dashed 4px var(--edge-color-1);
+                box-shadow: var(--shadow-element);
+
                 svg {
                     font-size: var(--size-8);
                     margin-bottom: var(--space-050);
@@ -138,7 +138,8 @@ class DraggableUI extends HTMLElement {
                 }
 
                 &:has(img){
-                    outline: var(--solid-2) var(--txt-color-2);
+                    box-shadow: var(--shadow-element);
+                    border: none;
                 }
 
                 img {
@@ -150,7 +151,7 @@ class DraggableUI extends HTMLElement {
             }
             
             .active {
-                outline-color: var(--accent-color);
+                border-color: var(--accent-color);
                 svg {
                     color: var(--accent-color);
                 }
@@ -192,14 +193,15 @@ class DraggableUI extends HTMLElement {
             
             flex-direction: column;
             padding: 1em;
-            gap: 4px;
+            gap: var(--space-050);
 
             > div {
                 height: 100px;
-                gap: .5em;
+                gap: var(--space-100);
                 display: flex;
                 flex-direction: row;
                 background-color: var(--hover-bg-color);
+                box-shadow: var(--shadow-element);
                 outline: var(--solid-1) transparent;
 
                 &.drag-over {
@@ -234,11 +236,7 @@ class DraggableUI extends HTMLElement {
                 cursor: pointer;
 
                 &:hover {
-                    background-color: var(--accent-color);
-                }
-
-                svg {
-                    padding: var(--space-050);
+                    color: var(--accent-color);
                 }
             }
         }
@@ -257,7 +255,9 @@ class DraggableUI extends HTMLElement {
                 width: 100%;
                 min-height: 100px;
                 background-color: var(--secondary-color);
-                outline: dashed 2px var(--txt-color-1);
+
+                border: dashed 4px var(--edge-color-1);
+                box-shadow: var(--shadow-element);
             }
         }
 
@@ -341,12 +341,8 @@ class DraggableUI extends HTMLElement {
         <h2>Draggable File</h2>
         <section class="drag-image">
             <div class="drag-area">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor">
-                        <circle cx="7.5" cy="7.5" r="1.5" />
-                        <path d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12" />
-                        <path d="M5 21c4.372-5.225 9.274-12.116 16.498-7.458" />
-                    </g>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="m14 2l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm4 18V9h-5V4H6v16zm-1-7v6H7l5-5l2 2m-4-5.5A1.5 1.5 0 0 1 8.5 12A1.5 1.5 0 0 1 7 10.5A1.5 1.5 0 0 1 8.5 9a1.5 1.5 0 0 1 1.5 1.5" />
                 </svg>
                 <h3>Drag & Drop</h3> <h3>o <span>subir archivo</span></h3>
                 <input type="file" hidden>
@@ -382,7 +378,7 @@ class DraggableUI extends HTMLElement {
             <section class="drag-tier__buttons">
                 <label>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v8m4-4H8m14 0c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10s10-4.477 10-10" color="currentColor" />
+                        <path fill="currentColor" d="M13 19c0 .7.13 1.37.35 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v8.35c-.63-.22-1.3-.35-2-.35V5H5v14zm.96-6.71l-2.75 3.54l-1.96-2.36L6.5 17h6.85c.4-1.12 1.12-2.09 2.05-2.79zM20 18v-3h-2v3h-3v2h3v3h2v-3h3v-2z" />
                     </svg>
                     <input multiple accept="image/*" type="file" id="input-file-img" hidden>
                 </label>

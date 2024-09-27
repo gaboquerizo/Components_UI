@@ -1,4 +1,7 @@
-import "../Components/button.component.js";
+import "../Components/anchor-button.component.js"
+import "../Components/btn-button.component.js"
+import "../Components/icon-button.component.js"
+import "../Components/animated-button.component.js";
 
 export class ButtonView extends HTMLElement {
 
@@ -24,14 +27,19 @@ export class ButtonView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>Buttons</h1>
-            <button-component></button-component>
+
+        <h1>Buttons</h1>
+        <anchor-button-component></anchor-button-component>
+        <button-component></button-component>
+        <icon-button-component></icon-button-component>
+        <animated-button-component></animated-button-component>
+
         `;
     }
 
     templateCSS(){
         return /*CSS*/`
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -44,7 +52,7 @@ export class ButtonView extends HTMLElement {
             color: var(--txt-color-1);
         }
 
-        button-component {
+        h1 ~ * {
             display: block;
             margin-block: var(--space-200);
         }
@@ -56,9 +64,8 @@ export class ButtonView extends HTMLElement {
                 font-size: var(--size-4);
             }
 
-            button-component {
-                margin-block: var(--space-075);
-                margin-bottom: var(--space-100);
+            h1 ~ * {
+                margin-block: var(--space-100) var(--space-200);
             }
         }
 

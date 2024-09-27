@@ -1,4 +1,4 @@
-@import url("./global.style.css");
+@import url("./custom.style.css");
 
 body {
     width: 100%;
@@ -21,7 +21,6 @@ body {
 svg {
     display: flex;
     padding: var(--space-025);
-    width: var(--size-8);
     color: var(--txt-color-3);
     fill: var(--txt-color-3);
     border-radius: var(--radius-1);
@@ -172,15 +171,15 @@ footer {
     }
 }
 
-
+.gb-icon svg {
+    width: var(--size-8);
+    height: var(--size-8);
+}
 
 .gb-icon__link {
     display: flex;
     align-items: center;
     color: var(--txt-color-2);
-    svg {
-        width: var(--size-6);
-    }
     &:hover {
         &, svg {
             color: var(--accent-color);
@@ -199,12 +198,7 @@ footer {
 
     [data-nav-menu] {
         background-color: var(--primary-color);
-        box-shadow: var(--shadow-3);
-    }
-
-    .gb-icon__link svg {
-        width: var(--size-5);
-        height: var(--size-5);
+        box-shadow: var(--shadow-content);
     }
     
 }

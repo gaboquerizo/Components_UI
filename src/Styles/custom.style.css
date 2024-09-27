@@ -6,9 +6,9 @@
 
 @font-face {
     font-family: 'Exo 2';
-    src:url('../fonts/Exo2.woff2') format('woff2'),
-        url('../fonts/Exo2.woff') format('woff'),
-        url('../fonts/Exo2.ttf') format('ttf');
+    src:url('/Assets/fonts/Exo2.woff2') format('woff2'),
+        url('/Assets/fonts/Exo2.woff') format('woff'),
+        url('/Assets/fonts/Exo2.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

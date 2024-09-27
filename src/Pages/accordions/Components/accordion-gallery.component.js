@@ -24,7 +24,7 @@ class AccordionGallery extends HTMLElement {
     templateHTML(){
         return /*HTML*/`
         
-        <header class=component-title>
+        <header>
             <h2>Expanding Gallery</h2>
         </header>
 
@@ -62,7 +62,27 @@ class AccordionGallery extends HTMLElement {
     templateCSS(){
         return /*CSS*/`
 
-        @import url("../../../Assets/styles/global.style.css");
+        /*—————————— Imported external styles ——————————*/
+
+        @import url("/Assets/reset/normalize.css");
+        @import url("/Styles/custom.style.css");
+
+        /*—————————— Component element styles ——————————*/
+        
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-block: var(--space-150);
+            border-top: var(--solid-1) var(--edge-color-2);
+
+            h2 {
+                font-weight: 400;
+                color: var(--txt-color-2);
+            }
+        }
+
+        /*—————————— Component styles ——————————*/
 
         .accordion-gallery {
             display: flex;
@@ -143,22 +163,7 @@ class AccordionGallery extends HTMLElement {
             background: url('https://image.cdn2.seaart.ai/static/fd6442f790d15212573c3321d4257185/1716691653954/083ed13a116bc69ad359441de52e873d_high.webp');
         }
 
-        /*—————————— Styles to others elements ——————————*/
-        
-        .component-title {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding-block: var(--space-150);
-            border-top: var(--solid-1) var(--edge-color-2);
-
-            h2 {
-                font-weight: 400;
-                color: var(--txt-color-2);
-            }
-        }
-
-        /*—————————— Media Query to Responsive ——————————*/
+        /*—————————— Viewport Media Query ——————————*/
 
         @media (max-width: 600px) {
 
@@ -180,7 +185,6 @@ class AccordionGallery extends HTMLElement {
                 font-size: var(--size-2);
             }
         }
-
         
         `;
     }

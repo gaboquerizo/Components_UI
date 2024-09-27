@@ -32,7 +32,7 @@ export class CardsView extends HTMLElement {
 
     templateCSS(){
         return /*CSS*/`
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -45,7 +45,7 @@ export class CardsView extends HTMLElement {
             color: var(--txt-color-1);
         }
 
-        card-component {
+        h1 ~ * {
             display: block;
             margin-block: var(--space-200);
         }
@@ -57,11 +57,9 @@ export class CardsView extends HTMLElement {
                 font-size: var(--size-4);
             }
 
-            button-component {
-                margin-block: var(--space-075);
-                margin-bottom: var(--space-100);
+            h1 ~ * {
+                margin-block: var(--space-100) var(--space-200);
             }
-
         }
 
         
@@ -71,7 +69,6 @@ export class CardsView extends HTMLElement {
                 text-align: center;
                 font-size: var(--size-2);
             }
-
         }
 
         `;

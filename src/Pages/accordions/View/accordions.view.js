@@ -46,7 +46,7 @@ export class AccordionView extends HTMLElement {
             color: var(--txt-color-1);
         }
 
-        accordion-faq-component, accordion-gallery-component {
+        h1 ~ * {
             display: block;
             margin-block: var(--space-200);
         }
@@ -58,10 +58,9 @@ export class AccordionView extends HTMLElement {
                 font-size: var(--size-4);
             }
 
-            accordion-faq-component, accordion-gallery-component {
+            h1 ~ * {
                 margin-block: var(--space-100) var(--space-200);
             }
-
         }
 
         
@@ -71,7 +70,6 @@ export class AccordionView extends HTMLElement {
                 text-align: center;
                 font-size: var(--size-2);
             }
-
         }
 
         `;
