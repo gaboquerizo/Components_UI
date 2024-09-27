@@ -22,17 +22,22 @@ export class App extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>Página de Inicio —app.component.js—</h1>
+            <h1>👋 Bienvenido a GUINEO</h1>
         `;
     }
 
     templateCSS(){
         return /*CSS*/`
 
+        @import url("./global.style.css");
+
         h1 {
             font-weight: 400;
             font-size: var(--size-6);
             color: var(--txt-color-1);
+        }
+
+        @media (max-width: 900px) {   
         }
         
         @media (max-width: 600px) {

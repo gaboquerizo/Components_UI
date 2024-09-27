@@ -24,7 +24,7 @@ export class FooterView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>—footers.view.js—</h1>
+            <h1>Footers</h1>
             <footer-component></footer-component>
         `;
     }

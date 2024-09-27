@@ -24,7 +24,7 @@ export class CounterView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>⏱ Counter</h1>
+            <h1>Counter</h1>
             <counter-component></counter-component>
         `;
     }

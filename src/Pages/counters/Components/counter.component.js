@@ -65,8 +65,10 @@ class CounterUI extends HTMLElement {
             > div {
                 width: 100%;
                 padding: var(--space-150);
-                border-radius: var(--radius-2);
                 background-color: var(--secondary-color);
+                border: var(--solid-1) var(--edge-color-1);
+                border-radius: var(--radius-2);
+                box-shadow: var(--shadow-element);
                 text-align: center;
 
                 > div:has(span) {   /* Aquel <div> que tenga en su interior un <span> */
@@ -79,6 +81,15 @@ class CounterUI extends HTMLElement {
                     margin: 0;
                 }
             }
+        }
+
+        .time-clock, .date-countdown > div {
+            width: 100%;
+            background-color: var(--secondary-color);
+            border-radius: var(--radius-2);
+            padding: var(--space-050) var(--space-100);
+            border: var(--solid-1) var(--edge-color-1);
+            box-shadow: var(--shadow-element);
         }
 
         .date-countdown {
@@ -195,7 +206,7 @@ class CounterUI extends HTMLElement {
             </div>
         </section>
 
-        <h2>Reloj</h2>
+        <h2>Fecha actual</h2>
         <section class="time-clock">
             <div id="clock" hour="numeric" minute="numeric" second="numeric">
             </div>

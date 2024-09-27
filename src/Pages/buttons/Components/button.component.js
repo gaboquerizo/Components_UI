@@ -67,7 +67,7 @@ class ButtonUI extends HTMLElement {
             
             border: none;
             border-radius: var(--radius-1);
-            box-shadow: var(--shadow-1);
+            box-shadow: var(--shadow-element);
             
             cursor: pointer;
             transition: all var(--trans-2);
@@ -80,7 +80,7 @@ class ButtonUI extends HTMLElement {
             background-color: var(--accent-color);
             &:hover {
                 filter: var(--eff-light);
-                box-shadow: var(--shadow-3);
+                box-shadow: var(--shadow-accent);
             }
 
             svg {
@@ -92,24 +92,27 @@ class ButtonUI extends HTMLElement {
         .secondary-btn {
             background-color: var(--secondary-color);
             &:hover {
-                background-color: var(--hover-cp-color);
+                background-color: var(--hover-bg-color);
+            }
+            &:active {
+                background-color: var(--active-bg-color);
             }
         }
 
         .outline-btn {
             background-color: transparent;
-            border: var(--solid-1) var(--edge-color);
-            box-shadow: 0 -2px 12px var(--secondary-color) inset;
+            border: var(--solid-2) var(--edge-color-1);
+            box-shadow: 0 0 4px var(--primary-color) inset;
             &:hover {
                 border-color: var(--accent-color);
-                box-shadow: 0 -2px 6px var(--shd-color-3) inset;
+                box-shadow: 0 0 8px var(--shd-accent-color) inset;
             }
             &:hover svg {
                 color: var(--accent-color);
                 fill: var(--accent-color);
             }
             &:active {
-                box-shadow: 0 -4px 12px var(--shd-color-3) inset;
+                box-shadow: 0 0 20px var(--shd-accent-color) inset;
             }
         }
 
@@ -117,10 +120,10 @@ class ButtonUI extends HTMLElement {
             box-shadow: none;
             background-color: transparent;
             &:hover {
-                background-color: var(--active-cp-color);
+                background-color: var(--secondary-color);
             }
             &:active {
-                background-color: var(--secondary-color);
+                background-color: var(--hover-bg-color);
             }
         }
 
@@ -131,7 +134,7 @@ class ButtonUI extends HTMLElement {
                 color: var(--accent-color);
             }
             &:active {
-                background-color: var(--secondary-color);
+                background-color: var(--active-bg-color);
             }
         }
 
@@ -149,6 +152,7 @@ class ButtonUI extends HTMLElement {
             height: var(--size-3);
             color: var(--txt-color-3);
             fill: var(--txt-color-3);
+            transition: var(--trans-2);
         }
 
         svg, span {
@@ -185,7 +189,7 @@ class ButtonUI extends HTMLElement {
             display: flex;
         }
 
-        /*------------- icon button styles -------------*/
+        /*------------- animated button styles -------------*/
         
 
         .animated-button button.anime-btn-1 {
@@ -223,7 +227,7 @@ class ButtonUI extends HTMLElement {
             background-color: transparent;
             position: relative;
             overflow: hidden;
-            border: var(--solid-1) var(--edge-color);
+            border: var(--solid-2) var(--edge-color-1);
             color: var(--txt-color-2);
             &:hover {
                 border-color: var(--accent-color);
@@ -247,7 +251,7 @@ class ButtonUI extends HTMLElement {
         }
 
         .animated-button button.anime-btn-3 {
-            border: var(--solid-1) var(--edge-color);
+            border: var(--solid-2) var(--edge-color-1);
             background-color: transparent;
             position: relative;
             color: var(--txt-color-2);
@@ -268,7 +272,7 @@ class ButtonUI extends HTMLElement {
                 stroke-width: 4px;
                 stroke-dasharray: 1400;
                 stroke-dashoffset: 1400;
-                transition: all var(--trans-1);
+                transition: all var(--trans-3);
             }
             
             &:hover {

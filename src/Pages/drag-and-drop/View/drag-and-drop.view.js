@@ -24,7 +24,7 @@ export class DraggableView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>—drag-and-drop.view.js—</h1>
+            <h1>Drag and Drop</h1>
             <draggable-component></draggable-component>
         `;
     }

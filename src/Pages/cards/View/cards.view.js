@@ -24,7 +24,7 @@ export class CardsView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>🎴 Cards</h1>
+            <h1>Cards</h1>
             <card-component></card-component>
 
         `;

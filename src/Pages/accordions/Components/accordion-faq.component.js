@@ -24,8 +24,20 @@ class AccordionUI extends HTMLElement {
     templateHTML(){
         return /*HTML*/`
 
-        <h2>FAQs</h2>
-        <section class="accordion-faq">
+        <header class=component-title>
+            <h2>FAQs</h2>
+            <menu>
+                <div>
+                    <label>
+                        <input type="checkbox">
+                        <span class="switch"></span>
+                        <p>Abrir solo uno</p>
+                    </label>
+                </div>
+            </menu>
+        </header>
+
+        <section class=accordion-faq>
             <details>
                 <summary>¿Qué puede hacer un framework?</summary>
                 <div>
@@ -48,24 +60,12 @@ class AccordionUI extends HTMLElement {
             </details>
             
             <details>
-                <summary>¿Dónde desplegar un repositorio?</summary>
+                <summary>¿Dónde desplegar un proyecto web?</summary>
                 <div>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio quae quia ipsa amet consectetur cum deserunt recusandae odio vero! Animi necessitatibus possimus.
                 </div>
             </details>
         </section>
-        <menu>
-            <div>
-                <label>
-                    <input type="checkbox">
-                    <span class="switch"></span>
-                    <span>Abrir solo uno</span>
-                </label>
-            </div>
-            <div>
-                <!-- Button -->
-            </div>
-        </menu>
 
         `;
     }
@@ -73,18 +73,7 @@ class AccordionUI extends HTMLElement {
     templateCSS(){
         return /*CSS*/`
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        h2 {
-            font-weight: 400;
-            color: var(--txt-color-2);
-            padding-block: var(--space-100);
-            border-top: var(--solid-1) var(--edge-color-2);
-        }
+        @import url("../../../Assets/styles/global.style.css");
 
         .accordion-faq {
             display: flex;
@@ -94,19 +83,28 @@ class AccordionUI extends HTMLElement {
         
         .accordion-faq details {
             background-color: var(--secondary-color);
-            border: var(--solid-1) var(--edge-color);
+            border: var(--solid-1) var(--edge-color-1);
             border-radius: var(--radius-2);
-            box-shadow: var(--shadow-1);
+            box-shadow: var(--shadow-element);
             cursor: pointer;
+        }
+        
+        .accordion-faq summary {
+            list-style: none;
+            position: relative;
+            color: var(--txt-color-2);
+            padding: var(--space-100) var(--space-150);
+            padding-right: var(--space-250);
+            border-radius: var(--radius-2);
         }
 
         .accordion-faq summary:hover {
-            background-color: var(--hover-cp-color);
+            background-color: var(--hover-bg-color);
         }
 
-        .accordion-faq summary:focus-within {
+        .accordion-faq summary:focus {
             &, div {
-                outline: var(--solid-2) var(--shd-color-2);
+                outline: var(--solid-2) var(--edge-color-3);
             }
         }
         
@@ -114,24 +112,16 @@ class AccordionUI extends HTMLElement {
             box-shadow: none;
             summary {
                 color: var(--accent-color);
-                background-color: var(--active-cp-color);
+                background-color: var(--active-bg-color);
                 border-radius: var(--radius-2) var(--radius-2) 0 0;
             }
             div {
-                color: var(--txt-color-2);
+                color: var(--txt-color-3);
                 padding: var(--space-100) var(--space-150);
-                border-top: var(--solid-1) var(--edge-color);
+                border-top: var(--solid-1) var(--edge-color-1);
                 border-radius: 0 0 var(--radius-2) var(--radius-2);
                 cursor: default;
             }
-        }
-        
-        .accordion-faq summary {
-            list-style: none;
-            position: relative;
-            padding: var(--space-100) var(--space-150);
-            padding-right: var(--space-250);
-            border-radius: var(--radius-2);
         }
 
         .accordion-faq summary::after {
@@ -147,8 +137,23 @@ class AccordionUI extends HTMLElement {
         .accordion-faq details[open] summary::after {
             content: "-";
         }
+
+        /*—————————— Styles to others elements ——————————*/
         
-        .accordion-faq + menu {
+        .component-title {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-block: var(--space-150);
+            border-top: var(--solid-1) var(--edge-color-2);
+
+            h2 {
+                font-weight: 400;
+                color: var(--txt-color-2);
+            }
+        }
+        
+        menu {
             display: inline-block;
             
             label {
@@ -156,29 +161,44 @@ class AccordionUI extends HTMLElement {
                 display: flex;
                 align-items: center;
                 cursor: pointer;
+                color: var(--txt-color-2);
+
                 &:hover {
                     color: var(--accent-color);
+                }
+
+                p {
+                    margin-left: var(--space-050);
+                }
+            }
+
+            input[type="checkbox"] {
+                display: none;
+    
+                &:checked + .switch {
+                    background-color: var(--accent-color);
+                    box-shadow: var(--shadow-accent);
+                    &::after {
+                        left: 18px;
+                        background-color: #FFF;
+                    }
                 }
             }
         }
 
         .switch {
             box-sizing: content-box;
-            background-color: var(--secondary-color);
+            background-color: var(--inactive-bg-color);
             border-radius: 1em;
             padding: 8px;
-            margin-right: 8px;
             cursor: pointer;
             align-items: center;
             position: relative;
             display: inline-block;
             min-width: var(--size-3);
             height: 8.5px;
-            outline: var(--solid-1) var(--edge-color);
-            box-shadow: var(--shadow-1);
-            &:hover {
-                background-color: var(--hover-cp-color);
-            }
+            box-shadow: var(--shadow-element);
+            transition: var(--trans-2);
         }
         
         .switch::after {
@@ -189,30 +209,12 @@ class AccordionUI extends HTMLElement {
             height: 20px;
             position: absolute;
             border-radius: 1em;
-            background-color: var(--inactive-cp-color);
+            background-color: #FFF;
             transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
             will-change: left, background-color;
         }
-
-        menu label{
-            margin-block: var(--space-100);
-        }
         
-        menu label input[type="checkbox"] {
-            display: none;
-
-            &:checked + .switch {
-                box-shadow: #0009 0px 0px 5px inset, var(--accent-color); 0px 0px 0px 2px inset, var(--accent-color) 0px 0px 0px 24px inset;
-                background-color: var(--accent-color);
-    
-                &::after {
-                    left: 18px;
-                    background-color: #FFF;
-                }
-            }
-        }
-        
-        
+        /*—————————— Media Query to Responsive ——————————*/
 
         @media (max-width: 600px) {
 

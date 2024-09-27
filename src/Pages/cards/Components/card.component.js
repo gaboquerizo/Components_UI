@@ -92,9 +92,9 @@ class CardUI extends HTMLElement {
             justify-content: space-between;
             gap: var(--space-075);
 
-            border: var(--solid-1) var(--edge-color);
+            border: var(--solid-1) var(--edge-color-1);
             outline: var(--solid-2) transparent;
-            box-shadow: var(--shadow-1);
+            box-shadow: var(--shadow-element);
             cursor: default;
 
             h3 {
@@ -121,10 +121,10 @@ class CardUI extends HTMLElement {
                 background-color: var(--secondary-color);
                 
                 &:hover {
-                    background-color: var(--hover-cp-color);
+                    background-color: var(--hover-bg-color);
                 }
                 &:active {
-                    background-color: var(--active-cp-color);
+                    background-color: var(--active-bg-color);
                 }
             }
         }
@@ -132,7 +132,7 @@ class CardUI extends HTMLElement {
         /*------------- icon cards styles -------------*/
 
         .icon-cards > div {
-            outline: var(--solid-1) var(--edge-color);
+            outline: var(--solid-1) var(--edge-color-1);
             border-left: var(--solid-3) transparent;
             cursor: default;
             div:has(svg) {
@@ -203,7 +203,7 @@ class CardUI extends HTMLElement {
                     cursor: pointer;
 
                     &:hover {
-                        background-color: var(--hover-cp-color);
+                        background-color: var(--hover-bg-color);
                         svg * {
                             color: var(--accent-color);
                         }
@@ -272,10 +272,10 @@ class CardUI extends HTMLElement {
                 flex-direction: column;
                 justify-content: space-between;
                 
-                border: var(--solid-1) var(--edge-color);
+                border: var(--solid-1) var(--edge-color-1);
                 outline: var(--solid-2) transparent;
                 border-radius: .5em;
-                box-shadow: var(--shadow-1);
+                box-shadow: var(--shadow-element);
                 transition: all 0.4s ease;
             }
             article+*{
@@ -288,8 +288,9 @@ class CardUI extends HTMLElement {
             }
             article:hover {
                 transform: rotate(3deg) translateY(-15px);
+                background-color: var(--hover-bg-color);
                 outline-color: var(--accent-color);
-                box-shadow: none;
+                box-shadow: var(--shadow-accent);
 
                 &:not(:last-child):hover{
                     margin-right: 60px;
@@ -311,12 +312,6 @@ class CardUI extends HTMLElement {
                     display: flex;
                     align-items: center;
                     gap: var(--space-050);
-                }
-                a:hover {
-                    background-color: var(--hover-cp-color);
-                    outline: var(--solid-1) var(--shd-color-3);
-                    border-radius: 1px;
-                    cursor: default;
                 }
                 img {
                     width: 30px;
@@ -392,7 +387,7 @@ class CardUI extends HTMLElement {
                     }
                 }
 
-                article:hover {
+                article:hover {                    
                     &:not(:last-child):hover{
                         margin-right: 0px;
                         margin-bottom: 130px;

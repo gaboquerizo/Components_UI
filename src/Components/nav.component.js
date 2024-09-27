@@ -48,8 +48,8 @@ export class NavMenu extends HTMLElement {
             a {
                 padding: var(--space-050) var(--space-100);
                 border-radius: var(--radius-2);
+                transition: all var(--trans-1);
                 text-decoration: none;
-                transition: all 0s;
                 &:hover{
                     text-decoration: underline;
                     color: var(--accent-color);

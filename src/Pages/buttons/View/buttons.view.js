@@ -24,7 +24,7 @@ export class ButtonView extends HTMLElement {
 
     templateHTML(){
         return /*HTML*/`
-            <h1>🕹 Buttons</h1>
+            <h1>Buttons</h1>
             <button-component></button-component>
         `;
     }
@@ -60,7 +60,6 @@ export class ButtonView extends HTMLElement {
                 margin-block: var(--space-075);
                 margin-bottom: var(--space-100);
             }
-
         }
 
         
@@ -70,7 +69,6 @@ export class ButtonView extends HTMLElement {
                 text-align: center;
                 font-size: var(--size-2);
             }
-
         }
 
         `;

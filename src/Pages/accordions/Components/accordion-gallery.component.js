@@ -24,29 +24,32 @@ class AccordionGallery extends HTMLElement {
     templateHTML(){
         return /*HTML*/`
         
-        <h2>Expanding Gallery</h2>
-        <section class="accordion-gallery">
-            <div class="img-1">
+        <header class=component-title>
+            <h2>Expanding Gallery</h2>
+        </header>
+
+        <section class=accordion-gallery>
+            <div class=img-1>
                 <label>
                     <input type="radio" name="radio-img" checked>
                 </label>
             </div>
-            <div class="img-2">
+            <div class=img-2>
                 <label>
                     <input type="radio" name="radio-img">
                 </label>
             </div>
-            <div class="img-3">
+            <div class=img-3>
                 <label>
                     <input type="radio" name="radio-img">
                 </label>
             </div>
-            <div class="img-4">
+            <div class=img-4>
                 <label>
                     <input type="radio" name="radio-img">
                 </label>
             </div>
-            <div class="img-5">
+            <div class=img-5>
                 <label>
                     <input type="radio" name="radio-img">
                 </label>
@@ -59,18 +62,7 @@ class AccordionGallery extends HTMLElement {
     templateCSS(){
         return /*CSS*/`
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        h2 {
-            font-weight: 400;
-            color: var(--txt-color-2);
-            padding-block: var(--space-100);
-            border-top: var(--solid-1) var(--edge-color-2);
-        }
+        @import url("../../../Assets/styles/global.style.css");
 
         .accordion-gallery {
             display: flex;
@@ -80,18 +72,18 @@ class AccordionGallery extends HTMLElement {
         
         .accordion-gallery div {
             flex-grow: 1;
-            margin: 6px;
+            margin: var(--space-025);
             
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
 
-            border: var(--solid-1) var(--edge-color);
+            border: var(--solid-1) var(--edge-color-1);
             border-radius: var(--radius-3);
 
-            transition: all .6s ease;
+            transition: all var(--trans-3);
             filter: saturate(1.5);
-            opacity: .4;
+            opacity: .5;
         }
 
         .accordion-gallery div:hover {
@@ -102,21 +94,17 @@ class AccordionGallery extends HTMLElement {
             display: flex;
             border-radius: var(--radius-3);
             
-            backdrop-filter: blur(8px);
+            backdrop-filter: var(--eff-blur);
             cursor: pointer;
             border: var(--solid-1) transparent;
             box-shadow: none;
             
             width: 100%;
             height: 100%;
-            transition: all .6s ease;
-
-            &:hover {
-                border-color: var(--shd-color-2);
-            }
+            transition: all var(--trans-3);
 
             &:focus {
-                outline: var(--solid-2) var(--shd-color-2);
+                outline: var(--solid-2) var(--edge-color-3);
             }
         }
 
@@ -131,7 +119,7 @@ class AccordionGallery extends HTMLElement {
                 backdrop-filter: blur(0px);
                 border-color: var(--accent-color);
                 cursor: default;
-                box-shadow: var(--shadow-1);
+                box-shadow: var(--shadow-accent);
             }
         }
 
@@ -155,6 +143,23 @@ class AccordionGallery extends HTMLElement {
             background: url('https://image.cdn2.seaart.ai/static/fd6442f790d15212573c3321d4257185/1716691653954/083ed13a116bc69ad359441de52e873d_high.webp');
         }
 
+        /*—————————— Styles to others elements ——————————*/
+        
+        .component-title {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-block: var(--space-150);
+            border-top: var(--solid-1) var(--edge-color-2);
+
+            h2 {
+                font-weight: 400;
+                color: var(--txt-color-2);
+            }
+        }
+
+        /*—————————— Media Query to Responsive ——————————*/
+
         @media (max-width: 600px) {
 
             h2 {
@@ -168,7 +173,6 @@ class AccordionGallery extends HTMLElement {
                 height: 600px;
             }
         }
-
         
         @media (max-width: 400px) {
             

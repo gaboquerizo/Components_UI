@@ -87,6 +87,9 @@ class DraggableUI extends HTMLElement {
 
                     cursor: grab;
                 }
+                li:hover {
+                    background-color: var(--hover-bg-color)
+                }
 
             }
             .item.dragging{
@@ -115,7 +118,7 @@ class DraggableUI extends HTMLElement {
                 font-weight: 100;
             }
             .drag-area {
-                width: 60%;
+                width: 50%;
                 height: 400px;
                 /* margin: 0 auto; */
                 background-color: var(--secondary-color);
@@ -127,7 +130,7 @@ class DraggableUI extends HTMLElement {
                 align-items: center;
 
                 border-radius: var(--radius-2);
-                outline: dashed 2px var(--text-color-I);
+                outline: dashed 2px var(--txt-color-3);
                 svg {
                     font-size: var(--size-8);
                     margin-bottom: var(--space-050);
@@ -135,7 +138,7 @@ class DraggableUI extends HTMLElement {
                 }
 
                 &:has(img){
-                    outline: var(--solid-2) var(--text-color-II);
+                    outline: var(--solid-2) var(--txt-color-2);
                 }
 
                 img {
@@ -165,7 +168,7 @@ class DraggableUI extends HTMLElement {
         }
 
         .drag-tier {
-            width: 70%;
+            width: 80%;
             flex-direction: column;
             background-color: var(--secondary-color);
             img {
@@ -196,12 +199,12 @@ class DraggableUI extends HTMLElement {
                 gap: .5em;
                 display: flex;
                 flex-direction: row;
-                background-color: var(--hover-cp-color);
+                background-color: var(--hover-bg-color);
                 outline: var(--solid-1) transparent;
 
                 &.drag-over {
                     border-radius: .8em;
-                    background-color: var(--hover-cp-color);
+                    background-color: var(--hover-bg-color);
                     outline: var(--solid-1) var(--accent-color);
                 }
             }
