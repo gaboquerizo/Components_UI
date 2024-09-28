@@ -120,7 +120,7 @@ class DraggableUI extends HTMLElement {
                 height: 360px;
                 /* margin: 0 auto; */
                 background-color: var(--secondary-color);
-                
+                position: relative;
 
                 display: flex;
                 flex-direction: column;
@@ -149,6 +149,28 @@ class DraggableUI extends HTMLElement {
                     object-fit: cover;
                     border-radius: var(--radius-2);
                 }
+
+                .removeFile {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    opacity: .5;
+                    cursor: pointer;
+                    display: flex;
+
+                    svg {
+                        width: 2em;
+                        height: 2em;
+                        border-radius: var(--radius-2);
+                    }
+                    &:hover {
+                        opacity: 1;
+                        svg {
+                            background-color: var(--accent-color);
+                            color: #fff;
+                        }
+                    }
+                }
             }
             
             .active {
@@ -170,7 +192,7 @@ class DraggableUI extends HTMLElement {
         }
 
         .drag-tier {
-            width: 80%;
+            width: 50%;
             flex-direction: column;
             background-color: var(--secondary-color);
             img {
@@ -245,7 +267,7 @@ class DraggableUI extends HTMLElement {
                 }
             }
         }
-        
+
         .drag-tier__items {
             padding: 1em;
 
@@ -258,11 +280,15 @@ class DraggableUI extends HTMLElement {
 
                 padding: var(--space-050);
                 width: 100%;
-                min-height: 100px;
-                background-color: var(--secondary-color);
+                min-height: 124px;
 
                 border: dashed 4px var(--edge-color-1);
                 box-shadow: var(--shadow-element);
+            }
+
+            > div.drag-files {
+                border-color: var(--accent-color);
+                background-color: var(--hover-bg-color);
             }
         }
 
@@ -387,18 +413,20 @@ class DraggableUI extends HTMLElement {
                     </svg>
                     <input multiple accept="image/*" type="file" id="input-file-img" hidden>
                 </label>
-
-                <!--
-                <label>
+                <label class="reset-tier-button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 13.5A7.5 7.5 0 1 1 11.5 6H20m0 0l-3-3m3 3l-3 3" />
+                        <path fill="currentColor" d="M2 12a9 9 0 0 0 9 9c2.39 0 4.68-.94 6.4-2.6l-1.5-1.5A6.7 6.7 0 0 1 11 19c-6.24 0-9.36-7.54-4.95-11.95S18 5.77 18 12h-3l4 4h.1l3.9-4h-3a9 9 0 0 0-18 0" />
                     </svg>
                 </label>
-                -->
+                <label class="clear-tier-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3zM7 6h10v13H7zm2 2v9h2V8zm4 0v9h2V8z" />
+                    </svg>
+                </label>
             </section>
 
             <section class="drag-tier__items">
-                <div>
+                <div class=tier>
                     <!-- Area de imagenes -->
                 </div>
             </section>
@@ -479,6 +507,14 @@ class DraggableUI extends HTMLElement {
             if(validExtensions.includes(fileType)) {
                 let fileReader = new FileReader();
                 fileReader.onload = () => {
+                    const closeBtn = `
+                        <div class="removeFile">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z" />
+                            </svg>
+                        </div>
+                    `;
+
                     dragAreaElement.innerHTML = `<img src="${ fileReader.result }" alt="">`;
                 };
                 fileReader.readAsDataURL(file);
@@ -496,6 +532,8 @@ class DraggableUI extends HTMLElement {
 
         const imageInput = $('#input-file-img');
         const itemsSection = $('.drag-tier__items div');
+        const resetButton = $('.reset-tier-button');
+        const clearButton = $('.clear-tier-button');
 
         function createItem(source) {
             const imgElement = document.createElement('img');
@@ -509,9 +547,7 @@ class DraggableUI extends HTMLElement {
             return imgElement;
         }
 
-        imageInput.addEventListener('change', (event) => {
-            const { files } = event.target;  // Captura los archivos
-
+        function useFilesToCreateItems(files) {
             if (files && files.length > 0) {
                 Array.from(files).forEach(file => {
                     const fileReader = new FileReader();
@@ -519,6 +555,11 @@ class DraggableUI extends HTMLElement {
                     fileReader.readAsDataURL(file)
                 });
             }
+        }
+
+        imageInput.addEventListener('change', (event) => {
+            const { files } = event.target;  // Captura los archivos
+            useFilesToCreateItems(files)
         })
 
         let draggedElement = null;
@@ -535,11 +576,37 @@ class DraggableUI extends HTMLElement {
         itemsSection.addEventListener('drop', handleDrop);
         itemsSection.addEventListener('dragover', handleDragOver);
         itemsSection.addEventListener('dragleave', handleDragLeave);
+
+        itemsSection.addEventListener('drop', handleDropFromDesktop);
+        itemsSection.addEventListener('dragover', handleDragOverFromDesktop);
+
+        function handleDragOverFromDesktop(event) {
+            event.preventDefault()
+            const { currentTarget, dataTransfer } = event;
+            
+            if (sourceContainer === currentTarget) return;
+            
+            if (dataTransfer.types.includes('Files')){
+                currentTarget.classList.add('drag-files')
+            }
+        }
         
+        function handleDropFromDesktop(event) {
+            event.preventDefault()
+            const { currentTarget, dataTransfer } = event;      // Desestructuración de datos
+            
+            if (sourceContainer && draggedElement) return;      // Error solucionado, agregando el 'return'
+
+            if (dataTransfer.types.includes('Files')) {
+                currentTarget.classList.remove('drag-files')
+                const { files } = dataTransfer;
+                useFilesToCreateItems(files)
+            }
+        }
 
         function handleDrop(event) {
             event.preventDefault();
-            const { currentTarget, dataTransfer } = event;
+            const { currentTarget, dataTransfer } = event;      // Desestructuración de datos
 
             if (sourceContainer && draggedElement)
                 sourceContainer.removeChild(draggedElement)
@@ -549,7 +616,7 @@ class DraggableUI extends HTMLElement {
                 const imgElement = createItem(src)
                 currentTarget.appendChild(imgElement)
             }
-            currentTarget.classList.remove('drag-over');
+            currentTarget.classList.remove('drag-over', 'drag-files');
             currentTarget.querySelector('.drag-preview')?.remove();
         }
 
@@ -571,7 +638,7 @@ class DraggableUI extends HTMLElement {
         function handleDragLeave(event) {
             event.preventDefault();
             const { currentTarget } = event;
-            currentTarget.classList.remove('drag-over');
+            currentTarget.classList.remove('drag-over','drag-files');
             currentTarget.querySelector('.drag-preview')?.remove();
         }
 
@@ -586,8 +653,21 @@ class DraggableUI extends HTMLElement {
             sourceContainer = null;
         }
 
-        // 01:16:00 Método para arrastrar elementos desde el explorador de archivos del S.O y soltarlos en la página
+        resetButton.addEventListener('click', () => {
+            const items = $$('.drag-tier__list .img-item')
+            items.forEach(item => {
+                item.remove()
+                itemsSection.appendChild(item)
+            });
+        });
 
+        clearButton.addEventListener('click', () => {
+            const items = $$('.drag-tier .img-item')
+            items.forEach(item => {
+                item.remove()
+            });
+        });        
+        
     }
 
 };
