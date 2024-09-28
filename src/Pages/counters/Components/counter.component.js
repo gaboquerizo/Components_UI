@@ -13,7 +13,7 @@ class CounterUI extends HTMLElement {
         this.renderComponent();
         this.quantityCounter();
         this.dateCountdown();
-        this.timeClock();
+        // this.timeClock();    ⚠ Error
         // this.initComponent()
     }
 
@@ -206,12 +206,13 @@ class CounterUI extends HTMLElement {
             </div>
         </section>
 
+        <!--
         <h2>Fecha actual</h2>
         <section class="time-clock">
             <div id="clock" hour="numeric" minute="numeric" second="numeric">
             </div>
         </section>
-
+        -->
 
         <h2>Cuenta regresiva</h2>
         <section class="date-countdown">

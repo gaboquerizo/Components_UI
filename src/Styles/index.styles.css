@@ -35,6 +35,10 @@ a {
     color: var(--txt-color-1);
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 header {
     display: inline-block;
     min-width: var(--sidebar-width);
@@ -47,7 +51,7 @@ header
     display: flex;
     flex-direction: column;
     width: var(--sidebar-width);
-    padding: var(--space-100);
+    padding: var(--space-150) var(--space-100);
     border-right: var(--solid-1) var(--edge-color-2);
     height: 100vh;
     position: fixed;
@@ -158,14 +162,14 @@ main {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: var(--space-100) var(--space-400);
+    padding: var(--space-300) var(--space-400);
 }
 
 footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-inline: var(--space-150);
+    margin-inline: var(--space-400);
     p {
         color: var(--txt-color-2);
     }

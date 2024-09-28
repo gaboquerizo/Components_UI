@@ -117,7 +117,7 @@ class DraggableUI extends HTMLElement {
             }
             .drag-area {
                 width: 50%;
-                height: 400px;
+                height: 360px;
                 /* margin: 0 auto; */
                 background-color: var(--secondary-color);
                 
@@ -132,9 +132,10 @@ class DraggableUI extends HTMLElement {
                 box-shadow: var(--shadow-element);
 
                 svg {
-                    font-size: var(--size-8);
+                    width: 6em;
+                    height: 6em;
                     margin-bottom: var(--space-050);
-                    color: var(--txt-color-3)
+                    color: var(--edge-color-1);
                 }
 
                 &:has(img){
@@ -228,6 +229,10 @@ class DraggableUI extends HTMLElement {
             justify-content: center;
             gap: 1em;
 
+            svg {
+                color: var(--txt-color-3);
+            }
+
             label {
                 background-color: var(--secondary-color);
                 display: flex;
@@ -235,7 +240,7 @@ class DraggableUI extends HTMLElement {
                 align-items: center;
                 cursor: pointer;
 
-                &:hover {
+                &:hover svg {
                     color: var(--accent-color);
                 }
             }
@@ -383,11 +388,13 @@ class DraggableUI extends HTMLElement {
                     <input multiple accept="image/*" type="file" id="input-file-img" hidden>
                 </label>
 
+                <!--
                 <label>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 13.5A7.5 7.5 0 1 1 11.5 6H20m0 0l-3-3m3 3l-3 3" />
                     </svg>
                 </label>
+                -->
             </section>
 
             <section class="drag-tier__items">
